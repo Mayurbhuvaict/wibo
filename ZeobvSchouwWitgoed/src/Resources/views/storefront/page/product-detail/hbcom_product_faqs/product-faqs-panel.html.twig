@@ -1,0 +1,35 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/hbcom_product_faqs/product-faqs-panel.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+
+    <div id="hbcomProductFaqsOuter">
+        {% block hbcom_override_faqs %}
+                {% sw_include '@Storefront/storefront/page/product-detail/hbcom_product_faqs/product-faqs.html.twig' with {'product_faqs': page.extensions.hbcom_product_faqs} %}
+        {% endblock %}
+        {% block hbcom_override_faqs_new_faq_button %}
+            <button class="btn btn-primary product-detail-review-teaser-btn" type="button" data-toggle="collapse" data-target=".hbcom-product-faq-form-container" aria-expanded="true" aria-controls="hbcomProductFaqForm">
+                {{ "hbcom-product-faqs.form.new_faq"|trans|sw_sanitize }}
+            </button>
+        {% endblock %}
+        {% block hbcom_override_faqs_new_faq_form %}
+                {% sw_include '@Storefront/storefront/page/product-detail/hbcom_product_faqs/product-faqs-form.html.twig' with {'productId': page.product.id, 'parentId': page.product.parentId, 'productNumber': page.product.productNumber, 'config': page.extensions.hbcom_product_faqs.hbcom_product_faqs_config} %}
+        {% endblock %}
+
+        {% if page.extensions.hbcom_product_faqs.hbcom_product_faqs_config.loadLimit > 0 and product_faqs.hbcom_product_total_faqs > page.extensions.hbcom_product_faqs.hbcom_product_faqs_config.loadLimit %}
+            {% if page.product.parentId %}
+                {% set faqProductId = page.product.parentId %}
+            {% else %}
+                {% set faqProductId = page.product.id %}
+            {% endif %}
+            <a class="btn btn-primary hbcom-product-faqs-load-more-btn"
+               id="hbcomLoadMoreFaqsBtn"
+               data-url="/hbcom_product_faqs/getMoreFaqs/{{ faqProductId }}"
+               data-offset="{{ page.extensions.hbcom_product_faqs.hbcom_product_faqs_config.loadLimit }}"
+               data-limit="{{ page.extensions.hbcom_product_faqs.hbcom_product_faqs_config.loadLimit }}"
+               data-total="{{ product_faqs.hbcom_product_total_faqs }}"
+               href="#">
+                {{ "hbcom-product-faqs.faqs.btnMoreFaqsLabel"|trans|sw_sanitize }}
+            </a>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,100 @@
+%btn {
+    text-transform: uppercase;
+}
+.btn {
+    @extend %btn;
+}
+
+.btn-success {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24);
+}
+
+.btn-primary {
+    background: $sw-color-brand-primary;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.btn-secondary {
+    background-color: $sw-color-success;
+    color: $sw-background-color;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
+
+    &:hover {
+        background-color: $sw-color-success;
+    }
+}
+
+.btn-transparent {
+    background-color: transparent;
+    color: $sw-color-brand-primary;
+    box-shadow: none;
+
+    border: 1px solid $sw-color-brand-primary;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.btn-lg {
+    padding: 8px 30px;
+}
+
+.btn.btn-outline-primary {
+    display: flex;
+    flex-direction: row;
+    i.icon-compare {
+        margin-right: 8px;
+    }
+}
+
+.compare-button {
+    margin-top: 0;
+
+    .btn-compare {
+        cursor: pointer;
+
+        .btn-text {
+            display: none;
+        }
+    }
+}
+
+.product-slider {
+    .btn.btn-outline-primary.btn-block {
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        background: #e2e1dc;
+        display: flex;
+        align-items: center;
+        border: 0;
+    }
+}
+
+.compare-float-button {
+    position: relative;
+    transform: scale(1);
+    opacity: 1;
+    right: unset;
+    visibility: visible;
+    left: unset;
+    top: unset;
+    bottom: unset;
+
+    .btn-primary {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        .icon {
+            color: $color-blue;
+        }
+    }
+}
+
+.open-trengo-button {
+    cursor: pointer;
+    color: $color-blue;
+    text-decoration: underline;
+    font-weight: 400;
+    display: block;
+    margin-top: 10px;
+}

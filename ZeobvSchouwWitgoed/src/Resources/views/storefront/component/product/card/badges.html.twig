@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/component/product/card/badges.html.twig' %}
+
+{% block component_product_badges_new %}
+    {{ parent() }}
+
+	{% block component_product_badges_custom %}
+		{% if product.customFields.custom_product_data_badge is not empty %}
+			<div>
+				<span class="badge badge-success badge-new" {% if product.customFields.custom_product_data_badge_color is not empty %} style="background-color: {{ product.customFields.custom_product_data_badge_color }};" {% endif %}> {{ product.customFields.custom_product_data_badge }}
+				</span>
+			</div>
+		{% endif %}
+	{% endblock %}
+{% endblock %}

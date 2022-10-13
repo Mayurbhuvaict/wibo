@@ -1,0 +1,30 @@
+.category-banner {
+    .col-md-4 {
+        display: flex;
+        align-items: center;
+    }
+
+    .col-md-4:nth-child(1) {
+        @extend .col-md-6;
+    }
+
+    .col-md-4:nth-child(2),
+    .col-md-4:nth-child(3) {
+        @extend .col-md-3;
+    }
+
+    h2 {
+        text-align: center;
+        width: 100%;
+        @include media-breakpoint-up(md) {
+            text-align: left;
+        }
+
+        @extend %silka_h2;
+        span {
+            @extend %utopia;
+            @extend %utopia_h2;
+            display: block;
+        }
+    }
+}

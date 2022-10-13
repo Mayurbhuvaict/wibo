@@ -1,0 +1,85 @@
+{% sw_extends '@Storefront/storefront/component/product/card/box-standard.html.twig' %}
+
+{% block component_product_box_info %}
+    <div class="product-info {% if product.ratingAverage > 0 and config('core.listing.showReview') %}has-review{% endif %}">
+		{% block component_product_box_rating %}{% endblock %}
+
+		{% block component_product_box_name %}
+			<a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" class="product-name" title="{{ product.manufacturer.name }}"> {{ product.manufacturer.name }}
+				<span class="sku">{{  product.productNumber}}</span>
+			</a>
+		{% endblock %}
+
+        {% block component_product_box_review %}
+            {% if product.ratingAverage > 0 and config('core.listing.showReview') %}
+                <div class="product-reviews">
+                    {% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+                        points: product.ratingAverage,
+                        style: 'text-primary'
+                    } %}
+                </div>
+            {% endif %}
+        {% endblock %}
+
+		{% block component_product_box_variant_characteristics %}{% endblock %}
+
+		{# remove product intro #}
+		{% block component_product_box_description %}{% endblock %}
+
+		{% block component_product_box_price %}
+			{% sw_include '@Storefront/storefront/component/product/card/price-unit.html.twig' %}
+		{% endblock %}
+
+		{% block component_product_box_action %}
+			{% sw_include '@Storefront/storefront/component/product/card/action.html.twig' %}
+		{% endblock %}
+	</div>
+{% endblock %}
+
+
+{% block component_product_box_image %}
+	<div class="product-image-wrapper">
+		{# fallback if display mode is not set #}
+		{% set displayMode = displayMode ?: 'standard' %}
+
+		{# set display mode 'cover' for box-image with standard display mode #}
+		{% if layout == 'image' and displayMode == 'standard' %}
+			{% set displayMode = 'cover' %}
+		{% endif %}
+
+		<a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" title="{{ name }}" class="product-image-anchor is-{{ displayMode }}">
+			{% if cover.url %}
+				{% set attributes = {
+                    'class': 'product-image is-'~displayMode,
+                    'alt': (cover.translated.alt ?: name),
+                    'title': (cover.translated.title ?: name)
+                } %}
+
+				{% if displayMode == 'cover' or displayMode == 'contain' %}
+					{% set attributes = attributes|merge({ 'data-object-fit': displayMode }) %}
+				{% endif %}
+
+				{% sw_thumbnails 'product-image-thumbnails' with {
+                    media: cover,
+                    sizes: sizes
+                } %}
+			{% else %}
+				<div class="product-image-placeholder">
+					{% sw_icon 'placeholder' style {
+                        'size': 'fluid'
+                    } %}
+				</div>
+			{% endif %}
+		</a>
+
+		{% if config('core.cart.wishlistEnabled') %}
+			{% block component_product_box_wishlist_action %}
+				{% sw_include '@Storefront/storefront/component/product/card/wishlist.html.twig' with {
+                    showText: false,
+                    appearance: 'circle',
+                    productId: id
+                } %}
+			{% endblock %}
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+.bal-slider-controls-prev,
+.bal-slider-controls-next {
+    opacity: 1;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon {
+            svg {
+                width: 50px;
+                top: 0;
+            }
+        }
+    }
+}
+
+.bal-slider-controls-next {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    right: 0;
+}
+
+.bal-slider-controls-prev {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    left: 0;
+}
+
+// Icon adjustment for control next.
+.bal-slider-controls-next .icon-arrow-head-right svg {
+    right: 0.4em;
+}

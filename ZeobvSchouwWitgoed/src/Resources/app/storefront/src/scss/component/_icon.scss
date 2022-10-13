@@ -1,0 +1,115 @@
+.icon-review {
+    color: $sw-color-success;
+}
+
+.point-rating {
+    &.point {
+        &-half {
+            .icon-review {
+                color: #ffffff;
+            }
+        }
+        &-blank {
+        }
+        &-blank {
+        }
+
+        .icon-review {
+            color: $sw-color-success;
+        }
+    }
+}
+// icons header
+.icon {
+    &-cart {
+        &:before {
+            display: block;
+            content: "";
+            height: 30px;
+            width: 30px;
+            background-image: url("../assets/images/cart.svg");
+        }
+    }
+
+    &-account {
+        &:before {
+            display: block;
+            content: "";
+            height: 30px;
+            width: 30px;
+            background-image: url("../assets/images/account.svg");
+        }
+    }
+    &-caret-down {
+        &:before {
+            display: block;
+            content: "";
+            height: 4px;
+            width: 7px;
+            background-image: url("../assets/images/caret-down.svg");
+        }
+    }
+    &-plus {
+        &:before {
+            display: block;
+            content: "";
+            height: 14px;
+            width: 14px;
+            background-image: url("../assets/images/plus-icon.svg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    }
+    &-compare {
+        &:before {
+            display: block;
+            content: "";
+            height: 18px;
+            width: 18px;
+            background-image: url("../assets/images/icon-compare.svg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    }
+}
+
+//classname conflict
+.schouw {
+    &-icon {
+        &-heart {
+            &:before {
+                display: block;
+                content: "";
+                height: 30px;
+                width: 30px;
+                background-image: url("../assets/images/heart.svg");
+            }
+        }
+        &-calender {
+            &:before {
+                display: inline-flex;
+                align-items: center;
+                content: "";
+                height: 21px;
+                width: 21px;
+                background-image: url("../assets/images/calender.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 13px;
+            }
+        }
+        &-marker {
+            &:before {
+                display: inline-flex;
+                align-items: center;
+                content: "";
+                height: 21px;
+                width: 21px;
+                background-image: url("../assets/images/marker.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 13px;
+            }
+        }
+    }
+}

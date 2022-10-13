@@ -1,0 +1,50 @@
+{% block component_product_downloads %}
+	{% if page.product.customFields.zeobv_schouw_witgoed_custom_product_downloads is not empty %}
+		<div id="downloads-tab-pane" class="row downloads tab-pane" role="tabpanel" aria-labelledby="downloads-tab">
+			{% block component_product_downloads_inner %}
+
+				{% block component_product_downloads_description %}
+					<div class="col-12">
+						<p class="h3">{{ "detail.tabsDownloadsTitle"|trans|striptags }}</p>
+						<p>{{ "detail.tabsDownloadsDescription"|trans|sw_sanitize }}</p>
+					</div>
+				{% endblock %}
+
+				{% for download in page.product.customFields.zeobv_schouw_witgoed_custom_product_downloads %}
+					{% set downloadTitle = download.title ?? (download.fileName ~ '.' ~ download.fileExtension) %}
+
+					{% block component_product_downloads_inner_item %}
+						<div class="col-4 downloads__download">
+							<a href="{{ download.getUrl() }}" class="downloads__download-link d-flex" target="_blank">
+								{% block component_product_downloads_inner_item_thumbnail %}
+									<div class="downloads__download-link-thumbnail">
+										{% if download.getThumbnails().count() %}
+											{% sw_thumbnails 'product-downloads-thumbnails' with {
+                                                media: download,
+                                                sizes: {
+                                                    'default': '100px'
+                                                },
+                                                attributes: {
+                                                    'class': 'downloads__download-link-thumbnail-image',
+                                                    'alt': (download.media.translated.alt ?: download.translated.name),
+                                                    'title': (download.media.translated.title ?: download.translated.name)
+                                                }
+                                            } %}
+										{% else %}
+											{% sw_icon 'document-view' %}
+										{% endif %}
+									</div>
+								{% endblock %}
+
+								{% block component_product_downloads_inner_item_title %}
+									<div class="downloads__download-link-title"> {{ downloadTitle }}
+									</div>
+								{% endblock %}
+							</a>
+						</div>
+					{% endblock %}
+				{% endfor %}
+			{% endblock %}
+		</div>
+	{% endif %}
+{% endblock %}

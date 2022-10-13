@@ -1,0 +1,45 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/navigation.html.twig' %}
+
+
+{% block layout_main_navigation_menu_item %}
+    {% if category.type == 'folder' %}
+        <div class="nav-link main-navigation-link"
+            {% if treeItem.children|length > 0 %}
+                data-flyout-menu-trigger="{{ categorId }}"
+            {% endif %}
+             title="{{ name }}">
+            <div class="main-navigation-link-text">
+                <span itemprop="name">{{ name }}</span>
+            </div>
+        </div>
+    {% else %}
+        <a class="nav-link main-navigation-link{% if categorId is same as(page.header.navigation.active.id) %} active{% endif %} {% if category.childCount > 0 %} has-icon-right{% endif %}"
+           href="{% if category.externalLink %}{{ category.externalLink }}{% else %}{{ seoUrl('frontend.navigation.page', { navigationId: categorId }) }}{% endif %}"
+           itemprop="url"
+            {% if treeItem.children|length > 0 %}
+                data-flyout-menu-trigger="{{ categorId }}"
+            {% endif %}
+           title="{{ name }}">
+            <div class="main-navigation-link-text">
+                <span itemprop="name">{{ name }}</span>
+            </div>
+            {% if treeItem.children|length > 0 %}
+            <div class="main-navigation-link-icon">
+                <i class="icon-caret-down" aria-hidden="true"></i>
+            </div>
+            {% endif %}
+            {% if category.customFields.custom_menu_label_text %}
+                {% set labelStyles = [] %}
+                {% if category.customFields.custom_menu_label_text_color %}
+                    {% set labelStyles = labelStyles|merge(['color: ' ~ category.customFields.custom_menu_label_text_color]) %}
+                {% endif %}
+                {% if category.customFields.custom_menu_label_background_color %}
+                    {% set labelStyles = labelStyles|merge(['background-color: ' ~ category.customFields.custom_menu_label_background_color]) %}
+                {% endif %}
+                <span class="label" style="{{ labelStyles|join(';') }}">{{ category.customFields.custom_menu_label_text }}</span>
+            {% endif %}
+        </a>
+    {% endif %}
+{% endblock %}
+
+

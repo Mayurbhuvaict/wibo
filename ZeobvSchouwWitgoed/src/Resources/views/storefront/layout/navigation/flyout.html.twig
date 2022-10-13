@@ -1,0 +1,24 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/flyout.html.twig' %}
+
+{% block layout_navigation_flyout_teaser_image %}
+    {% if category.extensions.menu_manufacturer.data is not empty %}
+        {# Print the manufacturer. #}
+        {% for manufacturer in category.extensions.menu_manufacturer.data %}
+            {% if manufacturer.getMedia() %}
+                <a href="{{ category_url(category) }}?manufacturer={{ manufacturer.getId() }}" class="manufacturer-menu-reference" title="{{ manufacturer.getName() }} {{ category.name|lower }}">
+                    {% sw_thumbnails 'manufacturer-menu-reference-image-thumbnails' with {
+                        media: manufacturer.getMedia(),
+                        sizes: {
+                            'default': '100px'
+                        },
+                        attributes: {
+                            'class': 'img-fluid manufacturer-menu-reference-image',
+                            'alt': (manufacturer.getMedia().getAlt() ?: manufacturer.getName()),
+                            'title': (manufacturer.getMedia().getTitle() ?: manufacturer.getName())
+                        }
+                    } %}
+                </a>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

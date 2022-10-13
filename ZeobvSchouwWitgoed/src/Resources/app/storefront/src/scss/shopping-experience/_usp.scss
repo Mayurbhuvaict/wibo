@@ -1,0 +1,37 @@
+.usp-wrapper {
+    font-family: $sw-font-family-headline;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+    .cms-block-text-three-column {
+        padding: 20px 0;
+        .cms-element-text-icon {
+            &__icon {
+                margin: 0 20px 0 0;
+                line-height: 0;
+            }
+
+            &__layout-icon-left-text-right {
+                justify-content: center;
+            }
+        }
+    }
+    .usp {
+        display: flex;
+        flex-wrap: wrap;
+        line-height: 1;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+// naniii
+.usp-wrapper .col-md-4 {
+    transition: 0.3s ease;
+    display: none;
+    @include media-breakpoint-up(md) {
+        display: block;
+    }
+}

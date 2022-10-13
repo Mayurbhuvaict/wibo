@@ -1,0 +1,10 @@
+html {
+    scroll-behavior: smooth;
+}
+main.content-main {
+    margin-top: 128px;
+
+    @include media-breakpoint-up(md) {
+        margin-top: 193px;
+    }
+}

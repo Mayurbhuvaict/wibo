@@ -1,0 +1,64 @@
+{% block layout_footer_newsletter_inner %}
+    <div class="cms-block cms-block-form">
+        <div class="cms-element-form">
+            {% block element_form_newsletter_form_form %}
+                <form action="{{ path('frontend.form.newsletter.register.handle') }}" method="post" data-form-csrf-handler="true" data-form-validation="true">
+                    <div class="form-content">
+                        <div class="row ml-0 mr-0">
+                            {% block cms_form_newsletter_input_email %}
+                                <div class="footer-newsletter-column-input-email input-group">
+                                    {% sw_include '@Storefront/storefront/element/cms-element-form/form-components/cms-element-form-input.html.twig'
+                                        with {
+                                        fieldName: 'email',
+                                        type: 'email',
+                                        required: true,
+                                        additionalClass: 'flex-fill mb-0',
+                                        label: 'newsletter.labelMail',
+                                        placeholder: 'newsletter.placeholderMail'
+                                    }
+                                    %}
+
+                                    {% block cms_form_newsletter_submit %}
+                                        {% block cms_form_submit %}
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-primary"
+                                                        aria-label="{{ "general.formSubmit"|trans|striptags }}">
+                                                    {{ "newsletter.formSubmit"|trans|sw_sanitize }}
+                                                </button>
+                                            </div>
+                                        {% endblock %}
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+                        </div>
+                        {% block cms_form_newsletter_captcha %}{% endblock %}
+                        {% block cms_form_newsletter_privacy %}{% endblock %}
+                    </div>
+                    {% block cms_form_newsletter_hidden_fields %}
+                        <div class="form-hidden-fields">
+                            {% block cms_form_newsletter_csrf %}
+                                {{ sw_csrf('frontend.form.newsletter.register.handle') }}
+                            {% endblock %}
+
+                            <input type="hidden" name="option" value="{{ constant('Shopware\\Storefront\\Controller\\FormController::SUBSCRIBE') }}">
+
+                            <input type="submit" class="submit--hidden d-none" />
+
+                            {% set retailRocketOptions = {
+                                'partnerId' : page.extensions.ZeobvRetailRocket.partnerId,
+                                'cookieEnabled' : page.extensions.ZeobvRetailRocket.cookieEnabled,
+                            } %}
+
+                            <input
+                                type="hidden"
+                                name="data-retail-rocket-email"
+                                data-retail-rocket-email-newsletter-footer="true"
+                                data-retail-rocket-email-newsletter-footer-options='{{ retailRocketOptions|json_encode|sw_sanitize }}'
+                            >
+                        </div>
+                    {% endblock %}
+                </form>
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

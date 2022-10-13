@@ -1,0 +1,53 @@
+.price-diagram-container {
+    background: $white;
+}
+
+input[type="range"] {
+    &.multirange {
+        height: 2px;
+        &.ghost {
+            background: linear-gradient(
+                    to right,
+                    transparent var(--low),
+                    $color-blue 0,
+                    $color-blue var(--high),
+                    transparent 0
+                )
+                no-repeat 0 0/100% 100%;
+        }
+        &.ghost,
+        &.original {
+            &::-webkit-slider-thumb {
+                background: $color-blue !important;
+            }
+        }
+    }
+}
+
+/*
+* possible extra styles to accomodate design more, not sure if client wants these yet.
+*/
+
+/*
+.filter-range-dropdown {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-range-container {
+    order: 1;
+}
+
+div#price-range-slider-container {
+    order: 2;
+}
+
+.filter-range-container-custom.diagram-container {
+    order: 3;
+}
+
+.filter-range-container-custom.skala-container {
+    order: 4;
+} 
+
+*/

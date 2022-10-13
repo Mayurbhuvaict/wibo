@@ -1,0 +1,124 @@
+.content-main {
+    .cms-listing-col {
+        height: auto;
+        &:hover {
+            box-shadow: 0 2px 8px rgb(0 0 0 / 14%);
+            .add-to-cart {
+                display: block;
+            }
+        }
+    }
+    .product-box {
+        .pro-name-sku {
+            overflow: hidden;
+            height: 100%;
+            max-height: 40px;
+        }
+        .product-price-info {
+            margin-top: 20px;
+        }
+        .product_stock_availability_info {
+            height: 18px;
+        }
+        .product-price-wrapper {
+            height: 50px;
+        }
+        .compare-button {
+            top: 110px !important;
+            right: 1rem !important;
+        }
+        .add-to-cart {
+            position: absolute;
+            left: 50%;
+            bottom: -14px;
+            transform: translate(-50%, -0%);
+            width: 138px;
+            height: 28px;
+            background: #56AB5B;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            color: #fff;
+            display: none;
+        }
+    }
+    .flink-quickview-btn {
+        display: block;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        right: 1rem;
+        top: 150px;
+        padding: 0 0;
+        background: #fff;
+        border-radius: 50px;
+        border: none;
+        &:active{
+            background: none !important;
+            border: none !important;
+        }
+        &:focus{
+            box-shadow: none !important;
+        }
+        .icon-eye-open {
+            margin-top: 2px !important;
+            width: 20px !important;
+            height: 20px !important;
+            color: rgb(59, 59, 113) !important;
+        }
+    }
+    .product-image-wrapper {
+        .product-image-anchor {
+            justify-content: left !important;
+        }
+    }
+    .product-image-anchor {
+        .product-image {
+            width: 134px;
+            height: 149px;
+        }
+    }
+
+    .product-title {
+        text-decoration: none;
+        font-family: 'Alegreya Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 20px;
+        color: #3B3B71;
+    }
+    .sku {
+        font-family: 'Alegreya Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 25px;
+        color: #3B3B71;
+    }
+    .image-icon {
+        display: flex;
+        .cms-element-text {
+            h2 {
+                line-height: 8px;
+                font-size: 15px;
+                margin-top: 10px;
+                font-weight: 900;
+            }
+            p {
+                font-size: 15px;
+                margin-bottom: 18px;
+            }
+        }
+    }
+    .bg-img-text {
+        display: flex;
+        float: right;
+        img {
+            margin-right: 8px;
+        }
+    }
+    .call-icon {
+        margin-right: 25px;
+    }
+}

@@ -1,0 +1,61 @@
+@import "overrides";
+
+@import "vendor/bootstrap";
+@import "vendor/bal-cms-slider-override";
+
+@import "base/fonts";
+@import "base/variables";
+@import "base/typography";
+@import "base/helpers";
+
+@import "layout/index";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/main-navigation";
+@import "layout/upper-bar";
+@import "layout/category";
+@import "layout/category-filter";
+@import "layout/category-banner";
+@import "layout/cookie";
+@import "layout/breadcrumb";
+@import "layout/product";
+@import "layout/checkout";
+@import "layout/compare";
+
+@import "component/buttons";
+@import "component/slider";
+@import "component/icon";
+@import "component/product-card";
+@import "component/offcanvas";
+@import "component/buy-widget";
+@import "component/category-slider";
+@import "component/cta-image-title";
+@import "component/sticky-add-to-cart";
+@import "component/review-section";
+@import "component/energylabel";
+@import "component/badges";
+@import "component/range-slider";
+@import "component/download-section-pdp";
+@import "component/teaser-banner";
+@import "component/print";
+@import "component/gallery";
+@import "component/chat";
+@import "component/tooltip";
+@import "component/usps";
+@import "component/quickview";
+
+@import "shopping-experience/shopping-experience";
+@import "shopping-experience/banner";
+@import "shopping-experience/brands";
+@import "shopping-experience/product-click";
+@import "shopping-experience/showroom";
+@import "shopping-experience/usp";
+@import "shopping-experience/listing-interruptor";
+@import "shopping-experience/betty";
+@import "shopping-experience/miele";
+@import "shopping-experience/bal-slider";
+
+// image in styleguide breaks layout?
+figure img {
+    max-width: 100%;
+}

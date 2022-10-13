@@ -1,0 +1,30 @@
+{% block product_detail_buy_not_available_product %}
+    {% if not buyable and product.availableStock < product.minPurchase and product.isCloseout %}
+        <div class="not-available-wrapper">
+            <h3 class="title">{{ "detail.hidePrice.notAvailable.title"|trans|sw_sanitize }}</h3>
+            <p>
+                <b>{{ "detail.hidePrice.notAvailable.subtitle"|trans|sw_sanitize }}</b>
+                <br>
+                {{ "detail.hidePrice.notAvailable.text"|trans({
+                    '%%product_url%': getMigrationAttribute(product, 'opvolger_226'),
+                    '%%product_manufacturer%': product.manufacturer.name,
+                    '%%product_type%': getMigrationAttribute(product, 'algemeen_soort_147')
+                })|sw_sanitize }}
+            </p>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block product_detail_buy_usps_product %}
+    <div class="form-row">
+        <div class="col-12">
+            {% sw_include '@Storefront/storefront/component/usps.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block product_detail_buy_dynamic_product_form_options %}
+    <div class="form-row">
+        {% sw_include '@ZeobvDynamicProducts/storefront/component/product-detail/options/form.html.twig' %}
+    </div>
+{% endblock %}

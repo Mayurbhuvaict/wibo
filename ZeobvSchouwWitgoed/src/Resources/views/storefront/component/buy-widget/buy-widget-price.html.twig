@@ -1,0 +1,32 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget-price.html.twig' %}
+
+{% block buy_widget_price_content %}
+    {% set listPrice = price.listPrice %}
+
+    {% if product.extensions.ZeobvSchouwWitgoed.showPrice %}
+        <p class="product-detail-price{% if listPrice.percentage > 0 %} with-list-price{% endif %}">
+            {{ price.unitPrice|currency }}
+        </p>
+
+        {% if listPrice.percentage > 0 %}
+            {% block buy_widget_was_price %}
+
+                {% block buy_widget_was_price_badge %}
+                {% endblock %}
+
+                {% set afterListPriceSnippetExists = "listing.afterListPrice"|trans|length > 0 %}
+                {% set beforeListPriceSnippetExists = "listing.beforeListPrice"|trans|length > 0 %}
+
+                {% block buy_widget_was_price_wrapper %}
+                    <span class="product-detail-list-price-wrapper">
+                        {% if beforeListPriceSnippetExists %}{{"listing.beforeListPrice"|trans|trim}}{% endif %}
+
+                        <span{% if not (afterListPriceSnippetExists or beforeListPriceSnippetExists) %} class="list-price-price"{% endif %} style="text-decoration: line-through">{{ listPrice.price|currency }}</span>
+
+                        {% if afterListPriceSnippetExists %}{{"listing.afterListPrice"|trans|trim}}{% endif %}
+                    </span>
+                {% endblock %}
+            {% endblock %}
+        {% endif %}
+    {% endif %}
+{% endblock %}

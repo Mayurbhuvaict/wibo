@@ -1,0 +1,7 @@
+{% sw_extends '@Storefront/storefront/component/product/card/action.html.twig' %}
+
+{% block page_product_detail_product_buy_button %}
+    {% if product.extensions.ZeobvSchouwWitgoed.showPrice %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

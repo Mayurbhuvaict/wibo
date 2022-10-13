@@ -1,0 +1,93 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+{% block layout_top_bar %}{% endblock %}
+{% block layout_header_logo %}
+	{% block layout_header_navigation_toggle %}
+		<div class="col-2 d-lg-none header-menu-toggle">
+			<div class="menu-button">
+				{% block layout_header_navigation_toggle_button %}
+					<button class="btn nav-main-toggle-btn header-actions-btn" type="button" data-offcanvas-menu="true" aria-label="{{ "general.menuLink"|trans|striptags }}">
+						{% block layout_header_navigation_toggle_button_icon %}
+							{% sw_icon 'stack' %}
+						{% endblock %}
+					</button>
+				{% endblock %}
+			</div>
+		</div>
+	{% endblock %}
+
+	<div class="col-6 col-lg-4 header-logo-col">
+		{% sw_include '@Storefront/storefront/layout/header/logo.html.twig' %}
+	</div>
+
+	{% block layout_header_print_text %}
+		{% sw_include '@Storefront/storefront/layout/header/print.html.twig' %}
+	{% endblock %}
+
+{% endblock %}
+
+
+{% block layout_header_actions %}
+	<div class="col-4 order-1 order-sm-2 header-actions-col">
+		<div class="row no-gutters">
+			{% block layout_header_actions_account %}
+				<div class="col-auto">
+					<div class="account-menu">
+						{% sw_include '@Storefront/storefront/layout/header/actions/account-widget.html.twig' %}
+					</div>
+				</div>
+			{% endblock %}
+
+			{% if config('core.cart.wishlistEnabled') %}
+				{% block layout_header_actions_wishlist %}
+					<div class="col-auto">
+						<div class="header-wishlist">
+							<a class="btn header-wishlist-btn header-actions-btn" href="{{ path('frontend.wishlist.page') }}" title="{{ 'header.wishlist'|trans|striptags }}" aria-label="{{ 'header.wishlist'|trans|striptags }}">
+								{% sw_include '@Storefront/storefront/layout/header/actions/wishlist-widget.html.twig' %}
+							</a>
+						</div>
+					</div>
+				{% endblock %}
+			{% endif %}
+
+            {% block layout_header_frosh_product_compare_float_button %}
+                <div class="col-auto">
+                    <div class="header-compare">
+                    {% sw_include '@Storefront/storefront/component/compare/compare-float.html.twig' %}
+                    </div>
+                </div>
+            {% endblock %}
+
+			{% block layout_header_actions_cart %}
+				<div class="col-auto">
+					<div class="header-cart" data-offcanvas-cart="true">
+						<a class="btn header-cart-btn header-actions-btn" href="{{ path('frontend.checkout.cart.page') }}" data-cart-widget="true" title="{{ 'checkout.cartTitle'|trans|striptags }}" aria-label="{{ 'checkout.cartTitle'|trans|striptags }}">
+							{% sw_include '@Storefront/storefront/layout/header/actions/cart-widget.html.twig' %}
+						</a>
+					</div>
+				</div>
+			{% endblock %}
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block layout_header_search_toggle %}
+	<div class="col-auto d-lg-none">
+		<div class="search-toggle">
+			<button class="btn header-actions-btn search-toggle-btn js-search-toggle-btn collapsed" type="button" data-toggle="collapse" data-target="#searchCollapse" aria-expanded="false" aria-controls="searchCollapse" aria-label="{{ "header.searchButton"|trans|striptags }}">
+				{% sw_icon 'search' %}
+			</button>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block layout_header_search %}
+	<div class="col order-3 order-lg-2 header-search-col">
+		<div class="row">
+			<div class="col">
+				{% sw_include '@Storefront/storefront/layout/header/search.html.twig' %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

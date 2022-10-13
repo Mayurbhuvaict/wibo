@@ -1,0 +1,192 @@
+$listingRowHeight: 110px;
+.is-ctl-navigation {
+    .cms-section-sidebar {
+        border-bottom: 1px solid $color-grey-5;
+        padding-bottom: 60px;
+    }
+
+    .product-call-to-action {
+        display: none;
+    }
+}
+
+.cms-element-product-listing {
+    border: 0;
+    &-actions {
+        position: absolute;
+        top: -64px;
+        right: 0;
+        text-align: end;
+        padding-bottom: 15px;
+        margin-top: 0;
+        @include media-breakpoint-up(md) {
+            position: relative;
+            margin-bottom: 0px;
+            top: 0;
+        }
+        .pagination-nav {
+            display: none;
+        }
+
+        .category-title-results {
+            color: $sw-color-brand-primary;
+            display: none;
+
+            @include media-breakpoint-up(md) {
+                display: block;
+            }
+
+            &--count {
+                color: $color-grey-5;
+            }
+        }
+        .sorting-wrapper {
+            display: flex;
+            align-items: center;
+
+            .sorting-title {
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
+                color: $sw-color-brand-primary;
+            }
+            .sorting {
+                width: auto;
+
+                .custom-select {
+                    background: url("../assets/images/caret-down.svg") no-repeat right 0.5625rem center/8px 10px;
+                    color: $color-grey-6;
+                    border-color: $color-grey-5;
+                    padding: 0 14px;
+                }
+            }
+        }
+    }
+
+    .cms-listing-row {
+        border-top: 1px solid $color-grey-5;
+    }
+    .pagination-nav {
+    }
+}
+
+// This prevented navigation working for Miele
+// Only show path of active category.
+// .cms-element-category-navigation {
+//     .category-navigation {
+//         &.level-0 {
+//             > .category-navigation-entry {
+//                 border-bottom: none;
+
+//                 .category-navigation-link {
+//                     display: none;
+
+//                     &.in-path,
+//                     &.is-active {
+//                         display: block;
+//                     }
+//                 }
+//             }
+//         }
+
+//         &.level-1 {
+//             .category-navigation-entry .category-navigation-link {
+//                 display: block;
+//             }
+//         }
+//     }
+// }
+
+.cms-element-category-listing {
+    @include media-breakpoint-down(md) {
+        margin-bottom: 30px;
+    }
+    .category-box {
+        .category-image-wrapper {
+            display: flex;
+            flex: 0 0 10%;
+            a {
+                width: 100%;
+                .category-image {
+                    object-fit: contain;
+                    width: 100%;
+                    max-height: 60px !important;
+                }
+            }
+        }
+    }
+    .cms-listing-row {
+        @include media-breakpoint-down(md) {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+            overflow: scroll;
+            // border-top: 1px solid $color-grey-5;
+            height: $listingRowHeight;
+            display: flex;
+            flex-wrap: nowrap;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+    .cms-listing-col {
+        padding: 0;
+        display: flex;
+        flex: 0 0 100%;
+        .card.category-box.box-minimal {
+            // border: 0;
+            height: $listingRowHeight;
+            width: 100%;
+            margin: 0 5px;
+            border: 1px solid $color-blue;
+            .card-body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 110px;
+                .category-image-wrapper {
+                    flex: 0 0 25%;
+                }
+                .category-info {
+                    flex: 0 0 75%;
+                }
+            }
+        }
+    }
+
+    .category-info {
+        background: white;
+        color: $color-blue;
+        padding: 10px;
+        border-radius: 5px;
+        //fix overlapping images
+        position: relative;
+        @include media-breakpoint-up(md) {
+            // background: $color-blue;
+            padding: 0;
+            // border-bottom-right-radius: 5px;
+            // border-bottom-left-radius: 5px;
+        }
+    }
+
+    .category-name {
+        text-align: center;
+        display: block;
+        color: $color-blue;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 400;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+//fixes for cat page
+.container-main {
+    padding: 0;
+}
+
+.cms-section.pos-1.cms-section-sidebar {
+    border-bottom: 0;
+}

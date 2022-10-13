@@ -1,0 +1,6 @@
+.is-ctl-checkout, .is-ctl-register.is-act-checkoutregisterpage {
+    .content-main {
+        margin-top: 30px; // Reduce the HUGE margin in the checkout which is added by default to the content-main
+        overflow: visible; // Needed to allow the summary to scroll sticky
+    }
+}

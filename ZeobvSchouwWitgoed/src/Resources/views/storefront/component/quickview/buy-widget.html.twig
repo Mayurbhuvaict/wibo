@@ -1,0 +1,22 @@
+{% sw_extends '@Storefront/storefront/component/quickview/buy-widget.html.twig' %}
+
+{% block page_product_detail_price %}
+    {% if page.product.extensions.ZeobvSchouwWitgoed.showPrice %}
+        {{ parent() }}
+    {% else %}
+        <div class="product-detail-price-container hide-price">
+            {% sw_include '@ZeobvSchouwWitgoed/storefront/component/buy-widget/buy-widget-hide-price.html.twig' with {
+                product: page.product
+            } %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block page_product_detail_tax %}
+    {% if page.product.extensions.ZeobvSchouwWitgoed.showPrice %}
+        {{ parent() }}
+    {% else %}
+        {# compatiblity element to avoid js error #}
+        <a href="#" rel="nofollow" class="product-detail-tax-link d-none"></a>
+    {% endif %}
+{% endblock %}

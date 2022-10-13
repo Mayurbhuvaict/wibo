@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/component/listing/filter/filter-multi-select.html.twig' %}
+
+{% block component_filter_multi_select_count %}
+    {{ parent() }}
+
+    {% if (property.customFields.zeobv_custom_property_group_data_info) %}
+        <div class="filter-multi-select-tooltip" data-schouw-tooltip>
+            <span class="schouw-tooltip-text">
+                {{ property.customFields.zeobv_custom_property_group_data_info }}
+            </span>
+        </div>
+    {% endif %}
+{% endblock %}
