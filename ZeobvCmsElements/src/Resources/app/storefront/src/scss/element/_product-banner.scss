@@ -1,0 +1,118 @@
+$color_1: #3B3B71;
+$color_2: #000;
+$font-family_1: 'news_cycleregular';
+$font-family_2: 'alegreya_sansregular';
+$font-family_3: 'alegreya_sansmedium';
+$font-family_4: 'alegreya_sansbold';
+$font-family_5: 'saira_stencil_oneregular';
+
+.home-product-banner {
+    .cms-block-container {
+        width:100%;
+    }
+    .card-col {
+        justify-content: center;
+    }
+    .product-title,.product-price {
+        color:$color_1;
+        font-size:17px;
+        font-family: $font-family_3;
+        line-height:20.4px;
+    }
+    .card.product-box .product-price {
+        font-weight:500;
+    }
+    .banner-link a {
+        font-family: $font-family_4;
+        font-weight: 900;
+        text-decoration:none;
+        &:after {
+            color: $color_2;
+            left: 15px;
+            font-weight: 400;
+        }
+    }
+    .cms-element-text {
+        padding-left: 30px;
+        margin-bottom:56px;
+    }
+    .card-col:last-child {
+        .product-title, .product-price {
+            font-family: $font-family_5;
+        }
+    }
+    .banner-title {
+        .cms-element-text {
+            h2 {
+                span {
+                    &:nth-child(odd) {
+                        font-family: $font-family_1;
+                        font-weight: 700;
+                        font-size: 46px;
+                        line-height: 47px;
+                        text-align: left;
+                        display: block;
+                    }
+                    &:nth-child(even) {
+                        font-family: $font-family_2;
+                        font-size: 45px;
+                        font-weight: 300;
+                        line-height: 47px;
+                        text-align: left;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .banner-link {
+        a {
+            font-family: $font-family_2;
+            font-size: 14px;
+            font-weight: 900;
+            line-height: 17px;
+            text-transform: uppercase;
+            text-align: left;
+            &:after {
+                content: "❯";
+                font-size: 10px;
+                position: relative;
+                top: -2px;
+                left: 43px;
+            }
+        }
+        float: right;
+    }
+    .col-12.col-lg-4 {
+        .cta-link {
+            display: flex;
+            align-items: center;
+            font-family: $font-family_2;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 18px;
+            color: $color_1;
+            margin-top: 43px;
+            a {
+                text-decoration: underline;
+            }
+            &:before {
+                display: inline-flex;
+                align-items: center;
+                content: "";
+                height: 21px;
+                width: 21px;
+                background-image: url("../assets/images/schouw-i.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 10px;
+            }
+        }
+    }
+    .card.product-box {
+        .product-price-info {
+            margin-top: 0px;
+        }
+    }
+}

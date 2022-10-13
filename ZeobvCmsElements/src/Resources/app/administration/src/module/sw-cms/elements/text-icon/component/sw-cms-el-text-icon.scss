@@ -1,0 +1,30 @@
+.sw-cms-el-text-icon {
+    margin: auto;
+    width: 100%;
+
+    &__layout{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-icon-left-text-right {
+            flex-direction: row;
+        }
+
+        &-icon-top-text-bottom {
+            flex-direction: column;
+        }
+
+        &-icon-right-text-left {
+            flex-direction: row-reverse;
+        }
+
+        &-icon-bottom-text-top {
+            flex-direction: column-reverse;
+        }
+    }
+
+    .fa-icon {
+        margin: 10px;
+    }
+}

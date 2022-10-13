@@ -1,0 +1,21 @@
+{% block element_product_banner_cta %}
+    {% block element_product_banner_cta_button %}
+        {% if element.config.type.value == 'button' %}
+            <a
+                class="btn btn-success"
+                role="button"
+                href="{{ element.config.targetUrl.value }}">
+                {{ element.config.label.value }}
+            </a>
+        {% endif %}
+    {% endblock %}
+
+    {% block element_product_banner_cta_anchor %}
+
+        {% if element.config.type.value == 'link' %}
+            <a href="{{ element.config.targetUrl.value }}">
+                {{ element.config.label.value }}
+            </a>
+        {% endif %}
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,17 @@
+$font-family_1: 'alegreya_sansregular';
+$color_1: #3B3B71;
+
+.wibo-cat-slider {
+    .tns-horizontal.tns-subpixel > .tns-item {
+        vertical-align: middle;
+    }
+    p {
+        text-align: center;
+        font-family: $font-family_1;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0px;
+        color: $color_1;
+    }
+}

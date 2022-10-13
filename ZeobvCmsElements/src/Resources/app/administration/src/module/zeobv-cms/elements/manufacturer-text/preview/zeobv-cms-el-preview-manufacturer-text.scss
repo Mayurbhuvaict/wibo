@@ -1,0 +1,14 @@
+.zeobv-cms-el-preview-manufacturer-text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &__text{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        padding: 7px;
+        font-size: 10px;
+    }
+}

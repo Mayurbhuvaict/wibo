@@ -1,0 +1,14 @@
+{% block block_zeobv_manufacturer_text %}
+	{% if block.slots.getSlot('content').getData().getContent() %}
+		<div class="col-12" data-cms-element-id="{{ element.id }}">
+			{% block block_zeobv_manufacturer_text_inner %}
+				<div class="zeobv-ce-manufacturer-text">
+					<div class="zeobv-ce-manufacturer-text__title"> {{ 'zeobv.cms-elements.block.manufacturer-text.title'|trans }}
+					</div>
+					<div class="zeobv-ce-manufacturer-text__content"> {{ block.slots.getSlot('content').getData().getContent()|raw }}
+					</div>
+				</div>
+			{% endblock %}
+		</div>
+	{% endif %}
+{% endblock %}

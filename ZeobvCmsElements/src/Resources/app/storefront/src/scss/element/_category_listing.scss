@@ -1,0 +1,55 @@
+$color_1: black;
+$color_2: #3B3B71;
+$background-color_1: #F4F3F9;
+$font-family_1: 'alegreya_sansregular';
+.cms-section{
+    .cms-section-sidebar {
+        .cms-element-sidebar-filter {
+            .filter-panel-item {
+                .filter-panel-item-toggle {
+                    color: $color_1;
+                    font-weight: bold;
+                    font-size: 1em;
+                    .filter-multi-select-tooltip {
+                        &:before {
+                            height: 17px;
+                            width: 17px;
+                        }
+                    }
+                }
+                .filter-multi-select-list {
+                    .fa-angle-down {
+                        line-height: 2;
+                        padding-right: 18px;
+                        vertical-align: middle;
+                    }
+                }
+            }
+            .filter-multi-select-item-label {
+                vertical-align: top;
+                line-height: 1.9;
+            }
+        }
+    }
+    .custom-control-label {
+        &::after {
+            width: 20px;
+            height: 20px;
+        }
+        &::before {
+            width: 20px;
+            height: 20px;
+            background-color: $background-color_1;
+        }
+    }
+    #readMore {
+        font-family: $font-family_1;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 32px;
+        background: transparent;
+        border: 0;
+        color: $color_2;
+    }
+}

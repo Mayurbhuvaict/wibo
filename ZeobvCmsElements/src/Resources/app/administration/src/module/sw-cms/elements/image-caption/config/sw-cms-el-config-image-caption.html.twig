@@ -1,0 +1,70 @@
+{% block sw_cms_element_image_config %}
+<sw-tabs class="sw-cms-el-config-text__tabs" defaultItem="image">
+
+    <template slot-scope="{ active }" >
+        {% block sw_cms_el_config_text_tab_image %}
+        <sw-tabs-item :title="$tc('sw-cms.elements.image-caption.tab.image')"
+                      name="image"
+                      :activeTab="active">
+            {{ $tc('sw-cms.elements.image-caption.tab.image') }}
+        </sw-tabs-item>
+        {% endblock %}
+
+        {% block sw_cms_el_text_config_tab_caption %}
+        <sw-tabs-item :title="$tc('sw-cms.elements.image-caption.tab.caption')"
+                      name="caption"
+                      :activeTab="active">
+            {{ $tc('sw-cms.elements.image-caption.tab.caption') }}
+        </sw-tabs-item>
+        {% endblock %}
+    </template>
+
+    <template slot="content" slot-scope="{ active }">
+        {% block sw_cms_el_text_config_image %}
+        <sw-container v-if="active === 'image'" class="sw-cms-el-config-text__tab-image">
+            {% parent %}
+        </sw-container>
+        {% endblock %}
+
+        {% block sw_cms_el_text_config_caption %}
+        <sw-container v-if="active === 'caption'" class="sw-cms-el-config-text__tab-caption">
+            <sw-cms-mapping-field :label="$tc('sw-cms.elements.image-caption.tab.caption')" valueTypes="string" v-model="element.config.caption">
+                {% block sw_cms_el_text_config_caption_caption_editor%}
+                <sw-text-editor v-model="element.config.caption.value"
+                                @input="onInput"
+                                @blur="onBlur">
+                </sw-text-editor>
+
+                <div class="sw-cms-el-config-text__mapping-preview" slot="preview" slot-scope="{ demoValue }">
+                    <div v-html="$sanitize(demoValue)"></div>
+                </div>
+                {% endblock %}
+
+                {% block sw_cms_el_text_config_caption_caption_background_color%}
+                <sw-colorpicker :label="$tc('sw-cms.elements.image-caption.config.label.captionBackgroundColor')"
+                                v-model="element.config.captionBackgroundColor.value"
+                                colorOutput="hex"
+                                :zIndex="1001"
+                                :alpha="true">
+                </sw-colorpicker>
+                {% endblock %}
+
+                {% block sw_cms_el_text_config_caption_caption_position %}
+                <sw-select-field :label="$tc('sw-cms.elements.image-caption.config.label.captionPosition')"
+                                 v-model="element.config.captionPosition.value"
+                                 @change="onChangeCaptionPosition">
+                    <option value="top">{{ $tc('sw-cms.elements.image-caption.config.option.captionPosition.top') }}</option>
+                    <option value="center">{{ $tc('sw-cms.elements.image-caption.config.option.captionPosition.center') }}</option>
+                    <option value="bottom">{{ $tc('sw-cms.elements.image-caption.config.option.captionPosition.bottom') }}</option>
+                </sw-select-field>
+                {% endblock %}
+
+            </sw-cms-mapping-field>
+        </sw-container>
+        {% endblock %}
+    </template>
+</sw-tabs>
+
+
+
+{% endblock %}

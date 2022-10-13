@@ -1,0 +1,13 @@
+.sw-cms-preview-image-tweleve-column {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+
+    img {
+        margin: 0;
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+    }
+}

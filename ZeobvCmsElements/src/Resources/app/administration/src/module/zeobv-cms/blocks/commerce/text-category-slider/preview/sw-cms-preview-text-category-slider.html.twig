@@ -1,0 +1,20 @@
+{% block sw_cms_block_product_slider_preview %}
+    <div class="sw-cms-preview-text-category-slider">
+        <div class="sw-cms-preview-text">
+            <h2>Lorem ipsum dolor</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+        </div>
+        <div class="sw-cms-preview-category-slider">
+            <sw-icon name="default-arrow-head-left" size="20"></sw-icon>
+            <div class="sw-cms-preview-text-category-slider__product-box">
+                <div v-for="i in 2" :key="i">
+                    <img :src="'/administration/static/img/cms/preview_mountain_small.jpg' | asset">
+                    <h3>
+                        {{$tc('sw-cms.elements.categorySlider.category')}}
+                    </h3>
+                </div>
+            </div>
+            <sw-icon name="default-arrow-head-right" size="20"></sw-icon>
+        </div>
+    </div>
+{% endblock %}

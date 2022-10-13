@@ -1,0 +1,42 @@
+/*
+CMS image caption styling
+==============================================
+Specific styling for the element image-caption
+*/
+
+.cms-element-image-caption {
+    @extend .cms-element-image;
+
+    .cms-image-caption{
+        position: absolute;
+        z-index: 1;
+        top: auto;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 20px;
+
+        &__position{
+            &-top{
+                top: 0;
+                bottom: auto;
+            }
+
+            &-center{
+                top: 50%;
+                left: 50%;
+                bottom: auto;
+                transform: translate(-50%, -50%);
+            }
+
+            &-bottom{
+                top: auto;
+                bottom: 0;
+            }
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+{% block sw_cms_el_config_text_read_more %}
+<div class="sw-cms-el-config-text-read-more">
+    <sw-container class="sw-cms-el-config-text__tab-caption">
+        <div class="sw-cms-el-config-text-read-more__layout-wrapper">
+            {% block sw_cms_el_config_text_read_more_content_editor%}
+                <sw-text-editor
+                    :label="$tc('sw-cms.elements.text-read-more.config.initialContent')"
+                    v-model="element.config.initialContent.value">
+                </sw-text-editor>
+
+                <sw-text-editor
+                    :label="$tc('sw-cms.elements.text-read-more.config.expandedContent')"
+                    v-model="element.config.expandedContent.value">
+                </sw-text-editor>
+
+                <sw-text-field
+                    :label="$tc('sw-cms.elements.text-read-more.config.expandButtonLabel')"
+                    v-model="element.config.expandButtonLabel.value"
+                ></sw-text-field>
+
+                <sw-select-field
+                    :label="$tc('sw-cms.elements.text-read-more.config.expandButtonType')"
+                    v-model="element.config.expandButtonType.value">
+                    <option value="" disabled>{{ $tc('sw-cms.elements.text-read-more.config.buttonType') }}</option>
+                    <option value="primary">Primary</option>
+                    <option value="secondary">Secondary</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="success">Success</option>
+                    <option value="info">Info</option>
+                    <option value="warning">Warning</option>
+                    <option value="danger">Danger</option>
+                    <option value="link">link</option>
+                </sw-select-field>
+
+                <sw-text-field
+                    :label="$tc('sw-cms.elements.text-read-more.config.collapseButtonLabel')"
+                    v-model="element.config.collapseButtonLabel.value"
+                ></sw-text-field>
+
+                <sw-select-field
+                    :label="$tc('sw-cms.elements.text-read-more.config.collapseButtonType')"
+                    v-model="element.config.collapseButtonType.value">
+                    <option value="" disabled>{{ $tc('sw-cms.elements.text-read-more.config.buttonType') }}</option>
+                    <option value="primary">Primary</option>
+                    <option value="secondary">Secondary</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="success">Success</option>
+                    <option value="info">Info</option>
+                    <option value="warning">Warning</option>
+                    <option value="danger">Danger</option>
+                    <option value="link">link</option>
+                </sw-select-field>
+            {% endblock %}
+        </div>
+    </sw-container>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% block element_text_icon %}
+    {% set config = element.fieldConfig.elements %}
+
+    {% set initialContent = config.initialContent.value %}
+    {% set expandedContent = config.expandedContent.value %}
+    {% set expandButtonType = config.expandButtonType.value %}
+    {% set expandButtonLabel = config.expandButtonLabel.value %}
+    {% set collapseButtonType = config.collapseButtonType.value %}
+    {% set collapseButtonLabel = config.collapseButtonLabel.value %}
+
+    {% if initialContent|length > 0 and expandedContent|length > 0 %}
+        <div data-cms-text-read-more class="cms-element-{{ element.type }} cms-element-{{ element.type }}__layout cms-element-{{ element.type }}__layout-{{ textImageLayout }}">
+            <div class="cms-element-{{ element.type }}__initial-content cms-element-text">
+                {{ initialContent | raw }}
+            </div>
+
+            {% if expandedContent|length > 0 %}
+                <div class="cms-element-{{ element.type }}__expanded-content cms-element-text">
+                    {{ expandedContent | raw }}
+                </div>
+
+                <div class="cms-element-{{ element.type }}__expand-button">
+                    <button class="btn btn-{{ expandButtonType }}">
+                        {{ expandButtonLabel }}
+                    </button>
+                </div>
+
+                <div class="cms-element-{{ element.type }}__collapse-button">
+                    <button class="btn btn-{{ collapseButtonType }}">
+                        {{ collapseButtonLabel }}
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

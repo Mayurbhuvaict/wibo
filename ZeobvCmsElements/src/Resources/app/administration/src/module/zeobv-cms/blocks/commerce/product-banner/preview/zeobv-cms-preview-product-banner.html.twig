@@ -1,0 +1,20 @@
+{% block sw_cms_block_image_text_preview %}
+<div class="zeobv-cms-preview-product-banner">
+    <div class="zeobv-cms-preview-product-banner__left">
+        <img
+            :src="'/administration/static/img/cms/preview_mountain_small.jpg' | asset"
+            alt=""
+        >
+        vraag het onze Anne
+    </div>
+    <div class="zeobv-cms-preview-product-banner__right">
+        <h2 class="zeobv-cms-preview-product-banner__right-title">Lorem ipsum dolor</h2>
+        <div class="zeobv-cms-preview-product-banner__right-products">
+            <sw-cms-product-box-preview />
+            <sw-cms-product-box-preview />
+            <sw-cms-product-box-preview />
+        </div>
+        <button class="btn btn-primary float-right">Click here</button>
+    </div>
+</div>
+{% endblock %}

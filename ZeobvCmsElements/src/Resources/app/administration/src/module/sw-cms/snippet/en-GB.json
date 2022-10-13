@@ -1,0 +1,66 @@
+{
+    "sw-cms": {
+        "elements": {
+            "image-caption": {
+                "label": "Image with text",
+                "tab": {
+                    "image": "Image",
+                    "caption": "Caption"
+                },
+                "config": {
+                    "label": {
+                        "minHeight": "Minimum height",
+                        "linkTo": "Link to",
+                        "linkNewTab": "Open link in new tab",
+                        "captionBackgroundColor": "Caption background",
+                        "captionPosition": "Position"
+                    },
+                    "placeholder": {
+                        "enterMinHeight": "Enter a minimum height...",
+                        "enterUrl": "Enter URL..."
+                    },
+                    "option" : {
+                        "captionPosition": {
+                            "top": "Top",
+                            "center": "Center",
+                            "bottom": "Bottom"
+                        }
+                    }
+                }
+            },
+            "text-icon": {
+                "label": "Text with icon",
+                "config": {
+                    "label": {
+                        "icon": "Font Awesome icon",
+                        "iconColor": "Icon color",
+                        "textImageLayout": "Layout",
+                        "iconSize": "Size",
+                        "tooltip": "Tooltip"
+                    },
+                    "placeholder": {
+                        "exampleTooltip": "optional Tooltip",
+                        "exampleIconSize": "Size in pixels, eg. 80px"
+                    }
+                },
+                "tab": {
+                    "general": "General",
+                    "icon": "Icon",
+                    "text": "Text",
+                    "tooltip": "Tooltip"
+                }
+            },
+            "text-read-more": {
+                "label": "Expandable text",
+                "config": {
+                    "initialContent": "Initial content",
+                    "expandedContent": "Expanded content",
+                    "expandButtonLabel":  "Expand button label",
+                    "expandButtonType": "Expand Button type",
+                    "collapseButtonLabel":  "Collapse button label",
+                    "collapseButtonType": "Collapse button type"
+                }
+            }
+        }
+    }
+}

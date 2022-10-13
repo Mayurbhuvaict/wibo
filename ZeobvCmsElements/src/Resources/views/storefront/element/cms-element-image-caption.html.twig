@@ -1,0 +1,12 @@
+{% sw_extends "@Storefront/storefront/element/cms-element-image.html.twig" %}
+
+{% block element_image_container %}
+    {{ parent() }}
+
+    {% set captionPosition = element.translated.config.captionPosition.value | default('bottom') %}
+    {% set captionBackgroundColor = element.translated.config.captionBackgroundColor.value | default('#D1D9E0') %}
+    <div class="cms-image-caption {{ 'cms-image-caption__position-'~captionPosition }}" {% if captionBackgroundColor %} style="background: {{ captionBackgroundColor }}"{% endif %}>
+        {{element.translated.config.caption.value | raw }}
+    </div>
+{% endblock %}
+

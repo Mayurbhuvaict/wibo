@@ -1,0 +1,16 @@
+{
+	"zeobv": {
+		"cms-elements": {
+			"block": {
+				"manufacturer-text": {
+					"title": "Warranty"
+				}
+			},
+			"banner": {
+				"fromLabel": "vanaf",
+				"fromPrice": "€5 euro",
+				"infoPrefix": "Welke blender?"
+			}
+		}
+	}
+}

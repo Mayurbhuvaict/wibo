@@ -1,0 +1,9 @@
+{% block component_product_box %}
+    {% if results %}
+        <div class="card box-{{ layout }} default-google-review-slider">
+            {% block component_product_box_content %}
+                <img style="margin-left: 15px; " src="{{ elementMedia.mediaUrl}}">
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

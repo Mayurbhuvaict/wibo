@@ -1,0 +1,12 @@
+{% block element_product_slider %}
+	{% if not sliderConfig %}
+		{% set sliderConfig = element.fieldConfig.elements %}
+	{% endif %}
+	<div class="cms-element-{{ element.type }}">
+        {% block element_text_alignment %}
+            {% if element.config.content.value %}
+                {{ element.config.content.value|raw }}
+            {% endif %}
+        {% endblock %}
+	</div>
+{% endblock %}

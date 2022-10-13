@@ -1,0 +1,66 @@
+{
+    "sw-cms": {
+        "elements": {
+            "image-caption": {
+                "label": "Bild",
+                "tab": {
+                    "image": "Image",
+                    "caption": "Caption"
+                },
+                "config": {
+                    "label": {
+                        "minHeight": "Minimale Höhe",
+                        "linkTo": "Link zu",
+                        "linkNewTab": "Link in neuem Tab öffnen",
+                        "captionBackgroundColor": "Caption background",
+                        "captionPosition": "Position"
+                    },
+                    "placeholder": {
+                        "enterMinHeight": "Minimale Höhe eingeben ...",
+                        "enterUrl": "URL eingeben ..."
+                    },
+                    "option" : {
+                        "captionPosition": {
+                            "top": "Top",
+                            "center": "Center",
+                            "bottom": "Bottom"
+                        }
+                    }
+                }
+            },
+            "text-icon": {
+                "label": "Text with icon",
+                "config": {
+                    "label": {
+                        "icon": "Font Awesome icon",
+                        "iconColor": "Icon color",
+                        "textImageLayout": "Layout",
+                        "iconSize": "Size",
+                        "tooltip": "Tooltip"
+                    },
+                    "placeholder": {
+                        "exampleTooltip": "optional Tooltip",
+                        "exampleIconSize": "Size in pixels, eg. 80px"
+                    }
+                },
+                "tab": {
+                    "general": "General",
+                    "icon": "Icon",
+                    "text": "Text",
+                    "tooltip": "Tooltip"
+                }
+            },
+            "text-read-more": {
+                "label": "Erweiterbarer Text",
+                "config": {
+                    "initialContent": "Anfangsinhalt",
+                    "expandedContent": "Erweiterter Inhalt",
+                    "expandButtonLabel":  "Label Expand-Button",
+                    "expandButtonType": "Typ Erweitern",
+                    "collapseButtonLabel":  "Collapse button label",
+                    "collapseButtonType": "Collapse button type"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,153 @@
+// Elements
+@import 'element/_image';
+@import 'element/_image-caption';
+@import 'element/_text-icon';
+@import 'element/_text-read-more';
+
+// Components
+@import 'element/_category_listing';
+
+// Module
+@import 'element/_product-banner';
+@import 'element/_category-banner';
+@import 'element/_text-image-text';
+@import 'element/_text-category-slider';
+@import 'element/_image-text-cover';
+@import 'element/_tweleve-column-slider';
+
+// Fonts
+@font-face {
+    font-family: 'alegreya_sansmedium';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-medium-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sanslight_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-lightitalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sanslight';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-light-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansitalic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-italic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansextrabold_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-extrabolditalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-extrabolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansextrabold';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-extrabold-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansbold_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-bolditalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansbold';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-bold-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansblack_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-blackitalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansblack';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-black-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'news_cycleregular';
+    src: url('../../../bundles/zeobvcmselements/fonts/newscycle-regular-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/newscycle-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'news_cyclebold';
+    src: url('../../../bundles/zeobvcmselements/fonts/newscycle-bold-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/newscycle-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansthin_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-thinitalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-thinitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansthin';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-thin-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansregular';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-regular-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansmedium_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-mediumitalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-mediumitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'saira_stencil_oneregular';
+    src: url('../../../bundles/zeobvcmselements/fonts/sairastencilone-regular-webfont.woff2') format('woff2'),
+    url('../../../bundles/zeobvcmselements/fonts/sairastencilone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Font Awesome 6 Pro";
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url('../../../bundles/zeobvcmselements/fonts/fa-light-300.woff2') format("woff2"),
+    url('../../../bundles/zeobvcmselements/fonts/fa-light-300.ttf') format("truetype");
+}
+@font-face {
+    font-family: "Font Awesome 6 Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('../../../bundles/zeobvcmselements/fonts/fa-regular-400.woff2') format("woff2"),
+    url('../../../bundles/zeobvcmselements/fonts/fa-regular-400.ttf') format("truetype");
+}
+@font-face {
+    font-family: "Font Awesome 6 Pro";
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url('../../../bundles/zeobvcmselements/fonts/fa-solid-900.woff2') format("woff2"),
+    url('../../../bundles/zeobvcmselements/fonts/fa-solid-900.ttf') format("truetype");
+}
+@font-face {
+    font-family: "Font Awesome 6 Pro";
+    font-style: normal;
+    font-weight: 100;
+    font-display: block;
+    src: url('../../../bundles/zeobvcmselements/fonts/fa-thin-100.woff2') format("woff2"),
+    url('../../../bundles/zeobvcmselements/fonts/fa-thin-100.ttf') format("truetype");
+}
