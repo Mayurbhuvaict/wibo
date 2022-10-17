@@ -8,7 +8,8 @@ import './module/zeobv-cms/blocks/commerce/product-banner';
 import './module/zeobv-cms/blocks/commerce/text-category-slider';
 import './module/zeobv-cms/blocks/commerce/text-image-text';
 import './module/zeobv-cms/blocks/commerce/image-tweleve-column';
-
+import './module/zeobv-cms/blocks/commerce/image-text-icon';
+import './module/zeobv-cms/blocks/commerce/icon';
 // Components
 import './module/sw-cms/component/sw-cms-text-image-layout';
 
@@ -21,6 +22,7 @@ import './module/zeobv-cms/elements/manufacturer-text';
 import './module/zeobv-cms/elements/product-banner-cta';
 import './module/zeobv-cms/elements/text-category-slider';
 import './module/zeobv-cms/elements/image-tweleve-column';
+import './module/zeobv-cms/elements/icon';
 
 // Snippets (translations)
 import swDeDE from './module/sw-cms/snippet/de-DE.json';

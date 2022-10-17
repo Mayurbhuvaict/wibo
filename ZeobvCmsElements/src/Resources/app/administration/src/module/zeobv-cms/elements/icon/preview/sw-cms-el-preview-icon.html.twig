@@ -1,0 +1,19 @@
+{% block sw_cms_element_icon_preview %}
+<div class="sw-cms-el-preview-icon">
+    <sw-icon
+        name="default-arrow-head-left"
+        size="10"
+    />
+    <div v-for="i in 5" :key="i">
+        <img
+            :src="'/administration/static/img/cms/preview_glasses_large.jpg' | asset"
+            width="50"
+            alt=""
+        >
+    </div>
+    <sw-icon
+        name="default-arrow-head-right"
+        size="10"
+    />
+</div>
+{% endblock %}

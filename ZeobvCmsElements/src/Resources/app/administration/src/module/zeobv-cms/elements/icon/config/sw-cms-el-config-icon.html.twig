@@ -1,0 +1,67 @@
+{% block sw_cms_element_image_config %}
+    <div class="sw-cms-el-config-image">
+        {% block sw_cms_element_image_config_media_upload_call %}
+            <sw-field v-model="element.config.callIcon.value"
+                      :label="$tc('zeobv-cms.elements.icon.phoneText')"
+                      @input="displayCallContent"
+                      tpye="text"></sw-field>
+        {% endblock %}
+        {% block sw_cms_icon_upload_call %}
+            <sw-cms-mapping-field
+                v-model="element.config.mediaCall"
+                :label="$tc('zeobv-cms.elements.icon.phoneIcon')"
+                value-types="entity"
+                entity="media"
+            >
+                <sw-media-upload-v2
+                    variant="regular"
+                    :upload-tag="uploadCallTag"
+                    :source="previewSourceMediaCall"
+                    :allow-multi-select="false"
+                    :default-folder="cmsPageState.pageEntityName"
+                    :caption="$tc('sw-cms.elements.general.config.caption.mediaUpload')"
+                    @media-upload-sidebar-open="onOpenMediaCallModal"
+                    @media-upload-remove-image="onImageMediaCallRemove"
+                />
+            </sw-cms-mapping-field>
+
+            <sw-upload-listener
+                :upload-tag="uploadCallTag"
+                auto-upload
+                @media-upload-finish="onImageMediaCallUpload"
+            />
+        {% endblock %}
+
+
+        {% block sw_cms_element_image_config_media_upload %}
+            <sw-field v-model="element.config.chatIcon.value"
+                      :label="$tc('zeobv-cms.elements.icon.chatText')"
+                      @input="displayContent"
+                      tpye="text">
+            </sw-field>
+        {% endblock %}
+        {% block sw_cms_icon_upload %}
+            <sw-cms-mapping-field
+                v-model="element.config.media"
+                :label="$tc('zeobv-cms.elements.icon.chatIcon')"
+                value-types="entity"
+                entity="media">
+                <sw-media-upload-v2
+                    variant="regular"
+                    :upload-tag="uploadTag"
+                    :source="previewSource"
+                    :allow-multi-select="false"
+                    :default-folder="cmsPageState.pageEntityName"
+                    :caption="$tc('sw-cms.elements.general.config.caption.mediaUpload')"
+                    @media-upload-sidebar-open="onOpenMediaModal"
+                    @media-upload-remove-image="onImageRemove">
+                </sw-media-upload-v2>
+            </sw-cms-mapping-field>
+            <sw-upload-listener
+                :upload-tag="uploadTag"
+                auto-upload
+                @media-upload-finish="onImageUpload"
+            />
+        {% endblock %}
+    </div>
+{% endblock %}

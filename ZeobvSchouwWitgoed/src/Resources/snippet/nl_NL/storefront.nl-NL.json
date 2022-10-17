@@ -29,6 +29,7 @@
     },
     "listing": {
         "discount-prefix-character": "-",
+        "cat-text" : "Wij hebben voor u",
         "sorting": {
             "title": "Sortering"
         }

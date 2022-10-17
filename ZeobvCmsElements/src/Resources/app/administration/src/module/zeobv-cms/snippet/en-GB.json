@@ -1,6 +1,11 @@
 {
     "zeobv-cms": {
         "blocks": {
+            "textImage": {
+                "imageTextIcon": {
+                    "label": "Image Text Icon Block"
+                }
+            },
             "product": {
                 "manufacturerText": {
                     "label": "Manufacturer text"
@@ -16,6 +21,12 @@
             }
         },
         "elements": {
+            "icon": {
+                "phoneIcon": "Phone Icon",
+                "phoneText": "Phone Text",
+                "chatIcon": "Chat Icon",
+                "chatText": "Chat Text"
+            },
             "general": {
                 "config": {
                     "label": {

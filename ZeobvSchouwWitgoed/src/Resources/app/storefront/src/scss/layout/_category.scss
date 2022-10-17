@@ -29,7 +29,13 @@ $listingRowHeight: 110px;
         }
 
         .category-title-results {
+            font-family: 'alegreya_sansregular', serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 32px;
             color: $sw-color-brand-primary;
+            color: #333432;
             display: none;
 
             @include media-breakpoint-up(md) {
@@ -38,26 +44,43 @@ $listingRowHeight: 110px;
 
             &--count {
                 color: $color-grey-5;
+                color: #0a0a0a;
+                font-weight: 700;
+            }
+            .category-name {
+                font-weight: 400;
+                text-transform: lowercase;
             }
         }
         .sorting-wrapper {
             display: flex;
             align-items: center;
-
+            background: #F4F3F9;
+            padding: 0 10px;
             .sorting-title {
                 @include media-breakpoint-down(sm) {
                     display: none;
                 }
                 color: $sw-color-brand-primary;
+                color: #0a0a0a;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 32px;
             }
             .sorting {
                 width: auto;
 
                 .custom-select {
                     background: url("../assets/images/caret-down.svg") no-repeat right 0.5625rem center/8px 10px;
-                    color: $color-grey-6;
                     border-color: $color-grey-5;
                     padding: 0 14px;
+                    border: 0;
+                    color: $sw-color-brand-primary;
+                    font-weight: bold;
+                }
+                .custom-select:focus{
+                    box-shadow: none;
                 }
             }
         }
