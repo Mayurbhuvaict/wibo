@@ -10,6 +10,7 @@ import './module/zeobv-cms/blocks/commerce/text-image-text';
 import './module/zeobv-cms/blocks/commerce/image-tweleve-column';
 import './module/zeobv-cms/blocks/commerce/image-text-icon';
 import './module/zeobv-cms/blocks/commerce/icon';
+import './module/zeobv-cms/blocks/commerce/text-image-text-uwaankooponzezorg';
 // Components
 import './module/sw-cms/component/sw-cms-text-image-layout';
 
