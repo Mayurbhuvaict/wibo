@@ -1,63 +1,26 @@
 {% sw_extends '@Storefront/storefront/component/product/card/box-standard.html.twig' %}
 
+{% block component_product_box_name %}
+    {% if element.config.navigation.value == true %}
+        <div class="product-title">{{ product.translated.name }}</div>
+    {% else %}
+        <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" class="product-name" title="{{ product.manufacturer.name }}"> {{ product.manufacturer.name }}
+            <span class="sku">{{  product.productNumber }}</span>
+        </a>
+    {% endif %}
+{% endblock %}
+
 {% block component_product_box_image %}
     <div classs="product-relative">
         {{ parent() }}
 
         {% if config('FlinkQuickView.config.buttonPosition') == 'below_thumb' %}
-            {% sw_include '@ZeobvSchouwWitgoed/storefront/component/flink-quick-view-button.html.twig' %}
+            {% sw_include '@Storefront/storefront/component/flink-quick-view-button.html.twig' %}
         {% endif %}
     </div>
 {% endblock %}
-{#
 
-{% block component_product_box_info %}
-    <div class="product-info">
-
-        {% block component_product_box_rating %}
-            {{ parent() }}
-        {% endblock %}
-        {% block component_product_box_name %}
-            {% if element.config.navigation.value == true %}
-                <div class="product-title">{{ product.translated.name }}</div>
-            {% else %}
-                <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" class="product-name" title="{{ product.manufacturer.name }}"> {{ product.manufacturer.name }}
-                    <span class="sku">{{  product.productNumber}}</span>
-                </a>
-            {% endif %}
-        {% endblock %}
-
-        {% block component_product_stock_data %}
-            <div class="product_stock_availability_info">
-                {% if product.availableStock > 0 %}
-                    <div class="in-stock"><span class="icon"></span></div>
-                    <p>{{ 'product.product-is-in-stock'|trans|sw_sanitize }}</p>
-                {% endif %}
-
-                <a href="{{ seoUrl('frontend.detail.page', {'productId': product.id}) }}"
-                   title="{{ name }}"
-                   class="product-image-link product-call-to-action is-{{ displayMode }} btn btn-success">
-                    {{ 'product.product-call-to-action'|trans|sw_sanitize }}
-                </a>
-            </div>
-        {% endblock %}
-
-        {% block component_product_box_variant_characteristics %}
-            {{ parent() }}
-        {% endblock %}
-
-        {% block component_product_box_description %}
-            {{ parent() }}
-        {% endblock %}
-        {% block component_product_box_price %}
-            {{ parent() }}
-        {% endblock %}
-        {% block component_product_box_action %}
-            {{ parent() }}
-        {% endblock %}
-
-        <button class="add-to-cart">Bekjik Product</button>
-    </div>
+{% block component_product_box_action %}
+    {{ parent() }}
+    <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" class="add-to-cart">Bekjik Product</a>
 {% endblock %}
-
-#}

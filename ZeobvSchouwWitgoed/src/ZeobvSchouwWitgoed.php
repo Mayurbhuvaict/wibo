@@ -45,4 +45,3 @@ class ZeobvSchouwWitgoed extends Plugin implements ThemeInterface
         }
     }
 }
-

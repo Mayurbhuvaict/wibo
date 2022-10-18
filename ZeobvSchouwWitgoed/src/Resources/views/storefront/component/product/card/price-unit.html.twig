@@ -2,22 +2,6 @@
 
 {% block component_product_box_price_info %}
     {{ parent() }}
-
-    {% block component_product_stock_availability_info %}
-        {# If stock more than 0 #}
-        <div class="product_stock_availability_info">
-            {% if product.availableStock > 0 %}
-                <div class="in-stock"><span class="icon"></span></div>
-                <p>{{ 'product.product-is-in-stock'|trans|sw_sanitize }}</p>
-            {% endif %}
-
-            <a href="{{ seoUrl('frontend.detail.page', {'productId': product.id}) }}"
-               title="{{ name }}"
-               class="product-image-link product-call-to-action is-{{ displayMode }} btn btn-success">
-                {{ 'product.product-call-to-action'|trans|sw_sanitize }}
-            </a>
-        </div>
-    {% endblock %}
 {% endblock %}
 
 {# remove emptey block #}
