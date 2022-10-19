@@ -5,6 +5,10 @@ $font-family_2: 'alegreya_sansregular';
 $font-family_3: 'alegreya_sansmedium';
 $font-family_4: 'alegreya_sansbold';
 $font-family_5: 'saira_stencil_oneregular';
+$tablet: 1024px;
+$tablet-sm: 768px;
+$mobile: 767px;
+$mobile-sm: 320px;
 
 .home-product-banner {
     .cms-block-container {
@@ -34,15 +38,30 @@ $font-family_5: 'saira_stencil_oneregular';
     }
     .cms-element-text {
         padding-left: 30px;
-        margin-bottom:56px;
+        margin-bottom:0px;
     }
     .card-col:last-child {
         .product-title, .product-price {
             font-family: $font-family_5;
         }
     }
+    .text-category-wrapper{
+        .cms-block-container{
+            .col-4{
+                .cms-element-text{
+                    h2{
+                        span{
+                            font-size: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .banner-title {
         .cms-element-text {
+        padding-left: 0;
+            padding-top: 35px;
             h2 {
                 span {
                     &:nth-child(odd) {
@@ -52,6 +71,8 @@ $font-family_5: 'saira_stencil_oneregular';
                         line-height: 47px;
                         text-align: left;
                         display: block;
+                        letter-spacing: 2px;
+                        margin-bottom: 7px;
                     }
                     &:nth-child(even) {
                         font-family: $font-family_2;
@@ -78,7 +99,7 @@ $font-family_5: 'saira_stencil_oneregular';
                 font-size: 10px;
                 position: relative;
                 top: -2px;
-                left: 43px;
+                left: 5px;
             }
         }
         float: right;
@@ -113,6 +134,129 @@ $font-family_5: 'saira_stencil_oneregular';
     .card.product-box {
         .product-price-info {
             margin-top: 0px;
+        }
+    }
+    .betty-wrapper{
+        background-color: none;
+        margin-top: 50px;
+    }
+}
+
+//
+// New 
+//
+
+                }
+    }
+    .category-slider{
+        .cms-section-default{
+            :nth-child(1){
+                .cms-block-container{
+                    display: none;
+                }
+            }
+        }
+    }
+    .product-click-wrapper{
+        padding: 20px 20px 0 20px;
+        .cms-section-default{
+            .cms-block-container{
+                padding-right: 0;
+                padding-left: 0;
+                .cms-element-text{
+                    h3{
+                        margin-bottom: 50px;
+                    }
+                    p{
+                        margin-bottom: 40px;
+                        font-size: 17px;
+                    }
+                    .mb-0{
+                        a{
+                            padding: 10px;
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .logo-slider-wrapper{
+        background-color: #f3f3f8;
+        .cms-section-default{
+            padding-right: 0;
+            padding-left: 0;
+            .cms-block-container{
+                padding: 20px 0 !important;
+                .wibo-cat-slider{
+                    .container{
+                        padding-right: 0;
+                        padding-left: 0;
+                        .tns-ovh{
+                            .product-slider-container{
+                                width: calc(470%) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .logo-slider-bottom-wrapper{
+        .cms-block-container{
+            .cms-element-text{
+                margin-left: 0;
+                .image-text-wrapper-text{
+                    :nth-child(1){
+                        font-size: 18px;
+                    }
+                    :nth-child(2){
+                        font-size: 30px;
+                    }
+                    :nth-child(3){
+                        margin-bottom: 25px;
+                    }
+                    br{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .betty-wrapper{
+        background: none !important;
+        .block-category-banner-left{
+            .cms-element-image-caption{
+                .cms-image-container{
+                    min-height: 240px !important;
+                }
+                .cms-image-caption{
+                    position: absolute;
+                    left: 160px;
+                    top: 20px;
+                    padding: 0;
+                    .right-main-text{
+                        width: 220px;
+                        margin-left: 0;
+                    }
+                    .right-text{
+                        width: 220px;
+                        padding: 0;
+                        float: none;
+                    }
+                }
+            }
+        }
+        .block-category-banner-right{
+            margin-top: 30px;
+            .row{
+                .card-col{
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: space-around;
+                    flex-direction: column;
+                }
+            }
         }
     }
 }
