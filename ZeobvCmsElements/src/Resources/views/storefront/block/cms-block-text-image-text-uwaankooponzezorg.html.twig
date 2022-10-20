@@ -1,5 +1,5 @@
 {% block block_text_image_text_uwaankooponzezorg %}
-    <div class="col-4">
+    <div class="col-3">
         {% block block_text_left_uwaankooponzezorg %}
             {% set element = block.slots.getSlot('left') %}
                 <div class="col-10" data-cms-element-id="{{ element.id }}">
@@ -11,7 +11,7 @@
         {% endblock %}
     </div>
     <div class="col-4">
-        <div class="row bg-img-text">
+        <div class="row bg-image">
             {% block block_text_center_uwaankooponzezorg %}
                 {% set element = block.slots.getSlot('center') %}
                 <div class="bg-img-uwaankooponzezorg" data-cms-element-id="{{ element.id }}">
@@ -22,10 +22,10 @@
             {% endblock %}
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-5">
         <div class="row">
             <div class="col-12 backgound-color">
-                <div class="row bg-img-text">
+                <div class="row bg-image">
                     {% block block_text_right %}
                         {% set element = block.slots.getSlot('right') %}
                         <div class="bg-text-content" data-cms-element-id="{{ element.id }}">

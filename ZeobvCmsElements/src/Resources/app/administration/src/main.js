@@ -24,7 +24,7 @@ import './module/zeobv-cms/elements/product-banner-cta';
 import './module/zeobv-cms/elements/text-category-slider';
 import './module/zeobv-cms/elements/image-tweleve-column';
 import './module/zeobv-cms/elements/icon';
-
+import './module/zeobv-cms/elements/text-image-text-uwaankooponzezorg';
 // Snippets (translations)
 import swDeDE from './module/sw-cms/snippet/de-DE.json';
 import swEnGB from './module/sw-cms/snippet/en-GB.json';

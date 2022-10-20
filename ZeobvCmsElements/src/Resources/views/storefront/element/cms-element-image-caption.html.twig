@@ -1,6 +1,13 @@
 {% sw_extends "@Storefront/storefront/element/cms-element-image.html.twig" %}
 
 {% block element_image_container %}
-    {% sw_include "@Storefront/storefront/block/cms-block-image-text-icon.html.twig" %}
+    {% set getElementSection = page.cmsPage.sections.elements %}
+    {% for section in getElementSection %}
+        {% for block in section.blocks %}
+            {% if block.type == 'image-text-icon' %}
+                {% sw_include "@Storefront/storefront/block/cms-block-image-text-icon.html.twig" %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
 {% endblock %}
 
