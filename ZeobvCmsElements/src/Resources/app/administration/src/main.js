@@ -15,6 +15,7 @@ import './module/sw-cms/component/sw-cms-text-image-layout';
 
 // Elements
 import './module/sw-cms/elements/image-caption';
+import './module/sw-cms/elements/product-slider';
 import './module/sw-cms/elements/text-icon';
 import './module/sw-cms/elements/text-read-more';
 import './module/zeobv-cms/elements/banner-entry';

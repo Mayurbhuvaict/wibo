@@ -5,6 +5,7 @@
      "@Storefront",
      "@Plugins",
      "@ZeobvSchouwWitgoed",
+     "@MoorlFoundation",
      "@ZeobvCmsElements"
   ],
   "style": [
