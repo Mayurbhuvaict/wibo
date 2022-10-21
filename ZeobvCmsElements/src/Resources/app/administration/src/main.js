@@ -37,3 +37,28 @@ Shopware.Locale.extend('en-GB', swEnGB);
 
 Shopware.Locale.extend('de-DE', zeoDeDE);
 Shopware.Locale.extend('en-GB', zeoEnGB);
+
+//extension
+import './extension/sw-product/page/sw-product-detail';
+import './extension/sw-product/view/sw-product-detail-description';
+import './extension/sw-product/snippet/en-GB.json';
+import './extension/sw-product/snippet/de-DE.json';
+
+//registering tab at product detail page
+Shopware.Module.register('sw-product-detail-tab-description', {
+
+    routeMiddleware(next, currentRoute) {
+        if (currentRoute.name === 'sw.product.detail') {
+            currentRoute.children.push({
+                name: 'sw.product.detail.description',
+                path: '/sw/product/detail/:id/description',
+                component: 'sw-product-detail-description',
+                meta: {
+                    parentPath: "sw.product.index"
+                }
+            });
+        }
+        next(currentRoute);
+    }
+});
+
