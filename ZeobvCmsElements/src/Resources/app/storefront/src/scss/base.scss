@@ -1,3 +1,6 @@
+//base
+@import "base/variables";
+
 // Elements
 @import 'element/_image';
 @import 'element/_image-caption';
@@ -6,6 +9,7 @@
 
 // Components
 @import 'element/_category_listing';
+@import "components/stock-subscriber";
 
 // Module
 @import 'element/_product-banner';
