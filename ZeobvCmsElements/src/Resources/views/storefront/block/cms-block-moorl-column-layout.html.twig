@@ -1,14 +1,20 @@
 <div class="col-md-12">
     {% if block.cssClass == 'mobile-slider' %}
         {% set productSliderOptions = {
-            productboxMinWidth: '400px' ,
+
             slider: {
-                gutter: 20,
+                gutter: 30,
                 autoplayButtonOutput: false,
                 nav: true,
                 mouseDrag: true,
                 controls: false,
-                autoplay: true
+                autoplay: true,
+                responsive: {
+                640: {
+                        items: 1,
+                        slideBy: 1
+                    }
+                }
             }
         } %}
         <div class="base-slider" data-product-slider="true" data-product-slider-options="{{ productSliderOptions|json_encode }}">

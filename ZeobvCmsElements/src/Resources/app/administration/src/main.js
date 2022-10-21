@@ -19,6 +19,7 @@ import './module/sw-cms/elements/image-caption';
 import './module/sw-cms/elements/product-slider';
 import './module/sw-cms/elements/text-icon';
 import './module/sw-cms/elements/text-read-more';
+import './module/sw-cms/elements/category-listing';
 import './module/zeobv-cms/elements/banner-entry';
 import './module/zeobv-cms/elements/manufacturer-text';
 import './module/zeobv-cms/elements/product-banner-cta';

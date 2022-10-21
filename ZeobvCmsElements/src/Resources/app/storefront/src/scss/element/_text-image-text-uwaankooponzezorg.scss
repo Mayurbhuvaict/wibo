@@ -4,3 +4,26 @@
     max-width: 100%;
     width: 400px;
 }
+@media (max-width: 767px) and (min-width: 320px) {
+    .product-uwaankooponzezorg{
+        .cms-block-container-row{
+            display: block;
+            flex-direction: column;
+            :nth-child(1){
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            :nth-child(2){
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            :nth-child(3){
+                flex: 0 0 100%;
+                max-width: 100%;
+                .row{
+                    display: block;
+                }
+            }
+        }
+    }
+}
