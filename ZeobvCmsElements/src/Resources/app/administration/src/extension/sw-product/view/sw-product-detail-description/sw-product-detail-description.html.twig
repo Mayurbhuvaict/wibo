@@ -1,0 +1,161 @@
+{% block sw_product_detail_description %}
+<sw-card-view>
+    <sw-card :title="$t('sw-product.description.cardTitleDescription')"
+    >
+        <div class="sw-product-detail-description-media">
+        {% block bfn_pay_want_you_want_config_detail_media_upload %}
+            <sw-upload-listener
+                :upload-tag="uploadTag"
+                auto-upload
+                @media-upload-finish="setMediaItem"></sw-upload-listener>
+            <sw-media-upload-v2
+                class="bfn-pay-what-you-want-config__logo-upload"
+                :source="mediaId"
+                :allow-multi-select="false"
+                variant="regular"
+                :upload-tag="uploadTag"
+                :label="$tc('sw-product.description.imageMedia')"
+                @sw-media-upload-v2-media-upload-success="setMediaItem"
+                @media-drop="onDropMedia"
+                @media-upload-sidebar-open="openMediaSidebar"
+                @media-upload-remove-image="onUnlinkLogo"
+            ></sw-media-upload-v2>
+        {% endblock %}
+            </div>
+
+        <div class="sw-product-detail-description mt-5">
+            <!--Main field-->
+            <sw-field
+                v-model="product.extensions.pageProduct.mainTitle"
+                :placeholder="$tc('sw-product.description.descriptionEntityLabelMain')"
+            >
+            </sw-field>
+            <sw-field
+                v-model="product.extensions.pageProduct.mainDescription"
+                :placeholder="$tc('sw-product.description.descriptionEntityPlaceholderMain')"
+            >
+            </sw-field>
+            <!--Main field-->
+
+            <!--First field-->
+            <sw-field
+                 v-model="product.extensions.pageProduct.subTitleOne"
+                :placeholder="$tc('sw-product.description.descriptionEntityLabelOne')"
+            >
+            </sw-field>
+            <sw-field
+                v-model="product.extensions.pageProduct.subDescriptionOne"
+                :placeholder="$tc('sw-product.description.descriptionEntityPlaceholderOne')"
+            >
+            </sw-field>
+            <!--First field-->
+
+            <!--Second field-->
+            <sw-field
+                v-model="product.extensions.pageProduct.subTitleTwo"
+                :placeholder="$tc('sw-product.description.descriptionEntityLabelTwo')"
+            >
+            </sw-field>
+            <sw-field
+                v-model="product.extensions.pageProduct.subDescriptionTwo"
+                :placeholder="$tc('sw-product.description.descriptionEntityPlaceholderTwo')"
+            >
+            </sw-field>
+            <!--Second field-->
+
+            <!--Third field-->
+            <sw-field
+                v-model="product.extensions.pageProduct.subTitleThree"
+                :placeholder="$tc('sw-product.description.descriptionEntityLabelThree')"
+            >
+            </sw-field>
+            <sw-field
+                v-model="product.extensions.pageProduct.subDescriptionThree"
+                :placeholder="$tc('sw-product.description.descriptionEntityPlaceholderThree')"
+            >
+            </sw-field>
+            <!--Third field-->
+
+            <!--Fourth field-->
+            <sw-field
+                v-model="product.extensions.pageProduct.subTitleFour"
+                :placeholder="$tc('sw-product.description.descriptionEntityLabelFour')"
+            >
+            </sw-field>
+            <sw-field
+                v-model="product.extensions.pageProduct.subDescriptionFour"
+                :placeholder="$tc('sw-product.description.descriptionEntityPlaceholderFour')"
+            >
+            </sw-field>
+            <!--Fourth field-->
+
+            <!--Fifth field-->
+            <sw-field
+                v-model="product.extensions.pageProduct.subTitleFive"
+                :placeholder="$tc('sw-product.description.descriptionEntityLabelFive')"
+            >
+            </sw-field>
+            <sw-field
+                v-model="product.extensions.pageProduct.subDescriptionFive"
+                :placeholder="$tc('sw-product.description.descriptionEntityPlaceholderFive')"
+            >
+            </sw-field>
+            <!--Fifth field-->
+
+            <!--Sixth field-->
+            <sw-field
+                v-model="product.extensions.pageProduct.subTitleSix"
+                :placeholder="$tc('sw-product.description.descriptionEntityLabelSix')"
+            >
+            </sw-field>
+            <sw-field
+                v-model="product.extensions.pageProduct.subDescriptionSix"
+                :placeholder="$tc('sw-product.description.descriptionEntityPlaceholderSix')"
+            >
+            </sw-field>
+            <!--Sixth field-->
+
+            <!--Seventh field-->
+            <sw-field
+                v-model="product.extensions.pageProduct.subTitleSeven"
+                :placeholder="$tc('sw-product.description.descriptionEntityLabelSeven')"
+            >
+            </sw-field>
+            <sw-field
+                v-model="product.extensions.pageProduct.subDescriptionSeven"
+                :placeholder="$tc('sw-product.description.descriptionEntityPlaceholderSeven')"
+            >
+            </sw-field>
+            <!--Seventh field-->
+
+            <!--Eight field-->
+            <sw-field
+                v-model="product.extensions.pageProduct.subTitleEight"
+                :placeholder="$tc('sw-product.description.descriptionEntityLabelEight')"
+            >
+            </sw-field>
+            <sw-field
+                v-model="product.extensions.pageProduct.subDescriptionEight"
+                :placeholder="$tc('sw-product.description.descriptionEntityPlaceholderEight')"
+            >
+            </sw-field>
+            <!--Eight field-->
+        </div>
+
+        {% block sw_product_detail_base_media_modal %}
+            <sw-media-modal-v2
+                v-if="showMediaModal"
+                :initial-folder-id="mediaDefaultFolderId"
+                :entity-context="product.getEntityName()"
+                @media-modal-selection-change="onAddMedia"
+                @modal-close="onCloseMediaModal"
+            />
+        {% endblock %}
+
+    </sw-card>
+    </sw-card-view>
+
+
+
+
+{% endblock %}
