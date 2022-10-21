@@ -11,6 +11,34 @@
 				"fromPrice": "€5 euro",
 				"infoPrefix": "Welke blender?"
 			}
-		}
+		},
+		"outOfStock" : {
+            "notifyMsg" : "Nu niet leverbaar",
+            "infoMsg": "Sorry! Dit product is nu niet voorradig.",
+            "descriptionMsg" : "Laat uw mailodres ochter en we geven u een seintje zodra hij er weer is.",
+            "general": {
+                "headline": "Vergelijk Producten",
+                "addToCompare": "Vergelijk",
+                "removeFromCompare": "Verwijderen uit vergelijking",
+                "maximumCompareProducts": "Het maximum aantal vergelijkbare producten is 4",
+                "empty": "Er is geen product toegevoegd ter vergelijking"
+            }
+        },
+        "productDetail": {
+            "quantityOption": "%qty% of meer %unit%",
+            "unitDefault": "stuks",
+            "buttonLabel": "Informeer mij",
+            "emailLabel": "Uw E-mail",
+            "successMessage": "Je krijgt een melding wanneer de opgegeven hoeveelheid weer op voorraad is!",
+            "failedMessage": "Er is iets niet gegaan zoals gepland. Probeer het later opnieuw.",
+            "invalidEmailMessage": "Voer een geldig e-mail adres in.",
+            "exceptionMessage": "Er is iets onverwachts gebeurd, probeer het later opnieuw.",
+            "outOfStock" : {
+                "notifyMsg" : "Nu niet leverbaar",
+                "infoMsg": "Sorry! Dit product is nu niet voorradig.",
+                "descriptionMsg" : "Laat uw mailodres ochter en we geven u een seintje zodra hij er weer is."
+            }
+        },
+        "privacyNotice": "Door het formulier in te dienen accepteer ik de <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"algemene voorwaarden\">algemene voorwaarden</a> evenals de <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informatie over gegevensbescherming\">privacybeleid</a>."
 	}
 }
