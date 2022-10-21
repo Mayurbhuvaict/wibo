@@ -1,8 +1,7 @@
 {% block block_text_image_icon %}
-    <div class="col-12 row">
+    <div class="col-12 row image-text-icon">
         <div class="col-8 image-icon">
             {% block block_text_left %}
-
                 {% set element = block.slots.getSlot('left') %}
                     <div class="col-2" data-cms-element-id="{{ element.id }}">
                         {% block block_text_inner_left %}
@@ -25,16 +24,17 @@
                 <div class="col-12 backgound-color">
                     <div class="row bg-img-text">
 
-
                         {% block block_text_right %}
                             {% set element = block.slots.getSlot('right') %}
                             <div class="bg-text-content" data-cms-element-id="{{ element.id }}">
                                 {% block block_text_inner_right %}
                                     {% block block_text_inner_right_chatIcon %}
+
                                         <img src="{{ element.config.mediaCallUrl.value }}">
                                         <label class="icon-content call-icon">{{ element.config.callIcon.value }}</label>
                                     {% endblock %}
                                     {% block block_text_inner_right_callIcon %}
+
                                         <img src="{{ element.config.mediaUrl.value }}">
                                         <label class="icon-content">{{ element.config.chatIcon.value }}</label>
                                     {% endblock %}

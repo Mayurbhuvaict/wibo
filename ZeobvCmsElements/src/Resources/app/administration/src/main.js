@@ -10,6 +10,7 @@ import './module/zeobv-cms/blocks/commerce/text-image-text';
 import './module/zeobv-cms/blocks/commerce/image-tweleve-column';
 import './module/zeobv-cms/blocks/commerce/image-text-icon';
 import './module/zeobv-cms/blocks/commerce/icon';
+import './module/zeobv-cms/blocks/commerce/text-image-text-uwaankooponzezorg';
 // Components
 import './module/sw-cms/component/sw-cms-text-image-layout';
 
@@ -18,13 +19,13 @@ import './module/sw-cms/elements/image-caption';
 import './module/sw-cms/elements/product-slider';
 import './module/sw-cms/elements/text-icon';
 import './module/sw-cms/elements/text-read-more';
+import './module/sw-cms/elements/category-listing';
 import './module/zeobv-cms/elements/banner-entry';
 import './module/zeobv-cms/elements/manufacturer-text';
 import './module/zeobv-cms/elements/product-banner-cta';
 import './module/zeobv-cms/elements/text-category-slider';
 import './module/zeobv-cms/elements/image-tweleve-column';
 import './module/zeobv-cms/elements/icon';
-
 // Snippets (translations)
 import swDeDE from './module/sw-cms/snippet/de-DE.json';
 import swEnGB from './module/sw-cms/snippet/en-GB.json';

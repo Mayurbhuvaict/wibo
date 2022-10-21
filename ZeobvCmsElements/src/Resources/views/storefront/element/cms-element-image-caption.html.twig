@@ -1,12 +1,23 @@
 {% sw_extends "@Storefront/storefront/element/cms-element-image.html.twig" %}
 
 {% block element_image_container %}
-    {{ parent() }}
-
-    {% set captionPosition = element.translated.config.captionPosition.value | default('bottom') %}
-    {% set captionBackgroundColor = element.translated.config.captionBackgroundColor.value | default('#D1D9E0') %}
-    <div class="cms-image-caption {{ 'cms-image-caption__position-'~captionPosition }}" {% if captionBackgroundColor %} style="background: {{ captionBackgroundColor }}"{% endif %}>
-        {{element.translated.config.caption.value | raw }}
-    </div>
+    {% if page.cmsPage.name == 'Schouw category layout with sidebar' %}
+        <div class="middle-section-category-listing">
+            {% set getElementSection = page.cmsPage.sections.elements %}
+            {% for section in getElementSection %}
+                {% for block in section.blocks %}
+                    {% if block.type == 'image-text-icon' %}
+                        {% sw_include "@Storefront/storefront/block/cms-block-image-text-icon.html.twig" %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% else %}
+        {{ parent() }}
+        {% set captionPosition = element.translated.config.captionPosition.value | default('bottom') %}
+        {% set captionBackgroundColor = element.translated.config.captionBackgroundColor.value | default('#D1D9E0') %}
+        <div class="cms-image-caption {{ 'cms-image-caption__position-'~captionPosition }}" {% if captionBackgroundColor %} style="background: {{ captionBackgroundColor }}"{% endif %}>
+            {{element.translated.config.caption.value | raw }}
+        </div>
+    {% endif %}
 {% endblock %}
-
