@@ -23,6 +23,7 @@ class Migration1665466581 extends MigrationStep
                             `created_at` DATETIME(3) NOT NULL,
                             `updated_at` DATETIME(3) NULL,
                             PRIMARY KEY (`id`),
+                            CONSTRAINT `json.product_page.translated` CHECK (JSON_VALID(`translated`)),
                             KEY `fk.product_page.media_id` (`media_id`),
                             CONSTRAINT `fk.product_page.media_id` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
