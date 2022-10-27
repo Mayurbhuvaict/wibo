@@ -12,10 +12,12 @@
         <span class="btn-text">{{ "froshProductCompare.general.addToCompare"|trans|sw_sanitize }}</span>
     </span>
 
-    <button class="btn {{ buttonClass }} {{ buttonExtraClasses }} flink-quickview-btn"
-            data-toggle="modal"
-            data-url="{{ path('widgets.quickview.minimal', { 'productId': id }) }}"
-            data-modal-class="quickview">
-        {% sw_icon 'eye-open' %}
-    </button>
+    {% if id != null %}
+        <button class="btn {{ buttonClass }} {{ buttonExtraClasses }} flink-quickview-btn"
+                data-toggle="modal"
+                data-url="{{ path('widgets.quickview.minimal', { 'productId': id }) }}"
+                data-modal-class="quickview">
+            {% sw_icon 'eye-open' %}
+        </button>
+    {% endif %}
 {% endblock %}
