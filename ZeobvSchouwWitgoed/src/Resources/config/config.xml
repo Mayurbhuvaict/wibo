@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../../vendor/shopware/platform/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Theme Settings</title>
+
+        <input-field type="bool">
+            <name>activeSocialFooter</name>
+            <label>Enable Social Icon In Footer</label>
+        </input-field>
+
+    </card>
+</config>

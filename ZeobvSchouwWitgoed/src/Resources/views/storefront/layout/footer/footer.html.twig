@@ -48,6 +48,7 @@
 
 {% block layout_footer_service_menu_content %}
 	{% block layout_footer_service_menu_content_socials %}
+        {% if config('ZeobvSchouwWitgoed.config.activeSocialFooter') %}
 		<ul class="footer-socials-menu-list list-unstyled">
 			<li class="footer-socials-menu-item">
 				<a class="footer-socials-menu-link facebook" href="{{ "footer.socials.facebook.link"|trans|sw_sanitize }}" title="{{ "footer.socials.facebook.title"|trans|sw_sanitize }}">
@@ -70,6 +71,7 @@
 				</a>
 			</li>
 		</ul>
+        {% endif %}
 	{% endblock %}
 
 	{% block layout_footer_service_menu_content_logo %}
