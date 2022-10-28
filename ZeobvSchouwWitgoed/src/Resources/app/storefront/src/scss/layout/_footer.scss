@@ -136,10 +136,17 @@
             .footer-logo-wrapper {
                 flex: 0 0 100%;
             }
+            .footer-logo-wrapper.center {
+                img{
+                    margin: 0 auto;
+                }
+            }
+        }
+        .footer-service-menu-list.center {
+            margin: 0 auto;
         }
         .footer-service-menu-list {
             text-align: center;
-
             .footer-service-menu-item {
                 font-weight: initial;
                 padding-right: 0;

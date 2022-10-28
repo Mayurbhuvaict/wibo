@@ -6,16 +6,32 @@
 {# Change to col-md-3 instead of 4. #}
 {% block layout_footer_navigation_column %}
 	<div class="col-md-3 footer-column js-footer-column">
-		{% block layout_footer_navigation_information_headline %} {{ parent() }}
+		{% block layout_footer_navigation_information_headline %}
+            {{ parent() }}
 		{% endblock %}
 
-		{% block layout_footer_navigation_information_content %} {{ parent() }}
+		{% block layout_footer_navigation_information_content %}
+            {{ parent() }}
 		{% endblock %}
 	</div>
 {% endblock %}
 
 {# Add our store and newsletter blocks to footer. #}
-{% block layout_footer_navigation_columns %} {{ parent() }}
+{% block layout_footer_navigation_columns %}
+    {{ parent() }}
+
+    {% block layout_footer_navigation_column_newsletter %}
+        <div class="col-md-3 footer-column js-footer-column">
+            <div class="footer-column-headline footer-headline js-collapse-footer-column-trigger" data-target="#collapseFooterTitle11" aria-expanded="true" aria-controls="collapseFooter11"> {{ "footer.newsletter.title"|trans|sw_sanitize }}
+            </div>
+            <div id="collapseFooter11" class="footer-column-content collapse js-footer-column-content" aria-labelledby="collapseFooterTitle11">
+                <div class="footer-column-content-inner">
+                    <p>{{ "footer.newsletter.subtitle"|trans|sw_sanitize }}</p>
+                    {% sw_include '@Storefront/storefront/component/footer/footer-newsletter.html.twig' %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
 
 	{% block layout_footer_navigation_column_store_info %}
 		<div class="col-md-3 footer-column js-footer-column">
@@ -30,18 +46,6 @@
 		</div>
 	{% endblock %}
 
-	{% block layout_footer_navigation_column_newsletter %}
-		<div class="col-md-3 footer-column js-footer-column">
-			<div class="footer-column-headline footer-headline js-collapse-footer-column-trigger" data-target="#collapseFooterTitle11" aria-expanded="true" aria-controls="collapseFooter11"> {{ "footer.newsletter.title"|trans|sw_sanitize }}
-			</div>
-			<div id="collapseFooter11" class="footer-column-content collapse js-footer-column-content" aria-labelledby="collapseFooterTitle11">
-				<div class="footer-column-content-inner">
-					<p>{{ "footer.newsletter.subtitle"|trans|sw_sanitize }}</p>
-					{% sw_include '@Storefront/storefront/component/footer/footer-newsletter.html.twig' %}
-				</div>
-			</div>
-		</div>
-	{% endblock %}
 {% endblock %}
 
 {% block layout_footer_payment_shipping_logos %}{% endblock %}
@@ -75,13 +79,13 @@
 	{% endblock %}
 
 	{% block layout_footer_service_menu_content_logo %}
-		<div class="footer-logo-wrapper">
+		<div class="footer-logo-wrapper {{ config('ZeobvSchouwWitgoed.config.footerBottomAlignment') }}">
 			<img alt="{{ "header.logoLink"|trans|striptags }}" class="footer-logo-picture" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/schouw-logo-wit.svg', 'asset') }}">
 		</div>
 	{% endblock %}
 
 	{% apply spaceless %}
-	<ul class="footer-service-menu-list list-unstyled">
+	<ul class="footer-service-menu-list list-unstyled {{ config('ZeobvSchouwWitgoed.config.footerCopyRightAlign') }}">
 		<li class="footer-service-menu-item">
 			<a class="footer-service-menu-link" href="/" title="De Schouw Witgoed">
 				© {{ "footer.copyrightInfo"|trans|sw_sanitize }}
