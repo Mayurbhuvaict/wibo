@@ -1,5 +1,12 @@
 {% sw_extends '@Storefront/storefront/layout/navigation/flyout.html.twig' %}
 
+{% block layout_navigation_flyout_bar_category %}
+
+{% endblock %}
+
+{% block layout_navigation_flyout_bar_close %}
+
+{% endblock %}
 {% block layout_navigation_flyout_teaser_image %}
     {% if category.extensions.menu_manufacturer.data is not empty %}
         {# Print the manufacturer. #}
