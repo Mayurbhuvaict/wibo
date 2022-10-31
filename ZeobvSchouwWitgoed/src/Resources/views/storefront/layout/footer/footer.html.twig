@@ -1,102 +1,108 @@
 {% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
 
+{% block layout_footer_navigation_columns %}
+
+    {% block layout_footer_navigation_column_newsletter %}
+        <div class="footer-column js-footer-column">
+            <div class="footer-column-headline footer-headline js-collapse-footer-column-trigger" data-target="#collapseFooterTitle11" aria-expanded="true" aria-controls="collapseFooter11">
+               <p> {{ "footer.newsletter.title"|trans|sw_sanitize }}</p>
+                <span>{{ "footer.newsletter.subtitle"|trans|sw_sanitize }}</span>
+            </div>
+            <div id="collapseFooter11" class="footer-column-content collapse js-footer-column-content" aria-labelledby="collapseFooterTitle11">
+                <div class="footer-column-content-inner">
+
+                    {% sw_include '@Storefront/storefront/component/footer/footer-newsletter.html.twig' %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block layout_footer_navigation_column_store_info %}
+        <div class="footer-column js-footer-column">
+            <div class="footer-column-headline footer-headline js-collapse-footer-column-trigger" data-target="#collapseFooterTitle10" aria-expanded="true" aria-controls="collapseFooter10"> {{ "footer.store-info.title"|trans|sw_sanitize }}
+            </div>
+            <div id="collapseFooter10" class="footer-column-content collapse js-footer-column-content" aria-labelledby="collapseFooterTitle10">
+                <div class="footer-column-content-inner">
+                    <p>{{ "footer.store-info.address"|trans|sw_sanitize }}</p>
+                    {% sw_include '@Storefront/storefront/component/footer/footer-store-info.html.twig' %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    {{ parent() }}
+{% endblock %}
+
 {# Don't render hotline. #}
 {% block layout_footer_navigation_hotline %}{% endblock %}
 
 {# Change to col-md-3 instead of 4. #}
 {% block layout_footer_navigation_column %}
-	<div class="col-md-3 footer-column js-footer-column">
-		{% block layout_footer_navigation_information_headline %} {{ parent() }}
-		{% endblock %}
+    <div class="col-md-3 footer-column js-footer-column">
+        {% block layout_footer_navigation_information_headline %}
+            {{ parent() }}
+        {% endblock %}
 
-		{% block layout_footer_navigation_information_content %} {{ parent() }}
-		{% endblock %}
-	</div>
+        {% block layout_footer_navigation_information_content %}
+            {{ parent() }}
+        {% endblock %}
+    </div>
 {% endblock %}
 
 {# Add our store and newsletter blocks to footer. #}
-{% block layout_footer_navigation_columns %} {{ parent() }}
-
-	{% block layout_footer_navigation_column_store_info %}
-		<div class="col-md-3 footer-column js-footer-column">
-			<div class="footer-column-headline footer-headline js-collapse-footer-column-trigger" data-target="#collapseFooterTitle10" aria-expanded="true" aria-controls="collapseFooter10"> {{ "footer.store-info.title"|trans|sw_sanitize }}
-			</div>
-			<div id="collapseFooter10" class="footer-column-content collapse js-footer-column-content" aria-labelledby="collapseFooterTitle10">
-				<div class="footer-column-content-inner">
-					<p>{{ "footer.store-info.address"|trans|sw_sanitize }}</p>
-					{% sw_include '@Storefront/storefront/component/footer/footer-store-info.html.twig' %}
-				</div>
-			</div>
-		</div>
-	{% endblock %}
-
-	{% block layout_footer_navigation_column_newsletter %}
-		<div class="col-md-3 footer-column js-footer-column">
-			<div class="footer-column-headline footer-headline js-collapse-footer-column-trigger" data-target="#collapseFooterTitle11" aria-expanded="true" aria-controls="collapseFooter11"> {{ "footer.newsletter.title"|trans|sw_sanitize }}
-			</div>
-			<div id="collapseFooter11" class="footer-column-content collapse js-footer-column-content" aria-labelledby="collapseFooterTitle11">
-				<div class="footer-column-content-inner">
-					<p>{{ "footer.newsletter.subtitle"|trans|sw_sanitize }}</p>
-					{% sw_include '@Storefront/storefront/component/footer/footer-newsletter.html.twig' %}
-				</div>
-			</div>
-		</div>
-	{% endblock %}
-{% endblock %}
 
 {% block layout_footer_payment_shipping_logos %}{% endblock %}
 
 {% block layout_footer_service_menu_content %}
-	{% block layout_footer_service_menu_content_socials %}
+    {% block layout_footer_service_menu_content_socials %}
         {% if config('ZeobvSchouwWitgoed.config.activeSocialFooter') %}
-		<ul class="footer-socials-menu-list list-unstyled">
-			<li class="footer-socials-menu-item">
-				<a class="footer-socials-menu-link facebook" href="{{ "footer.socials.facebook.link"|trans|sw_sanitize }}" title="{{ "footer.socials.facebook.title"|trans|sw_sanitize }}">
-					<img alt="Facebook" class="footer-logo-social" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/facebook-logo.svg', 'asset') }}">
-				</a>
-			</li>
-			<li class="footer-socials-menu-item">
-				<a class="footer-socials-menu-link instagram" href="{{ "footer.socials.instagram.link"|trans|sw_sanitize }}" title="{{ "footer.socials.instagram.title"|trans|sw_sanitize }}">
-					<img alt="Instagram" class="footer-logo-social" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/instagram-logo.svg', 'asset') }}">
-				</a>
-			</li>
-			<li class="footer-socials-menu-item">
-				<a class="footer-socials-menu-link youtube" href="{{ "footer.socials.youtube.link"|trans|sw_sanitize }}" title="{{ "footer.socials.youtube.title"|trans|sw_sanitize }}">
-					<img alt="Youtube" class="footer-logo-social" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/youtube-logo.svg', 'asset') }}">
-				</a>
-			</li>
-			<li class="footer-socials-menu-item">
-				<a class="footer-socials-menu-link pinterest" href="{{ "footer.socials.pinterest.link"|trans|sw_sanitize }}" title="{{ "footer.socials.pinterest.title"|trans|sw_sanitize }}">
-					<img alt="Pinterest" class="footer-logo-social" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/pinterest-logo.svg', 'asset') }}">
-				</a>
-			</li>
-		</ul>
+            <ul class="footer-socials-menu-list list-unstyled">
+                <li class="footer-socials-menu-item">
+                    <a class="footer-socials-menu-link facebook" href="{{ "footer.socials.facebook.link"|trans|sw_sanitize }}" title="{{ "footer.socials.facebook.title"|trans|sw_sanitize }}">
+                        <img alt="Facebook" class="footer-logo-social" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/facebook-logo.svg', 'asset') }}">
+                    </a>
+                </li>
+                <li class="footer-socials-menu-item">
+                    <a class="footer-socials-menu-link instagram" href="{{ "footer.socials.instagram.link"|trans|sw_sanitize }}" title="{{ "footer.socials.instagram.title"|trans|sw_sanitize }}">
+                        <img alt="Instagram" class="footer-logo-social" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/instagram-logo.svg', 'asset') }}">
+                    </a>
+                </li>
+                <li class="footer-socials-menu-item">
+                    <a class="footer-socials-menu-link youtube" href="{{ "footer.socials.youtube.link"|trans|sw_sanitize }}" title="{{ "footer.socials.youtube.title"|trans|sw_sanitize }}">
+                        <img alt="Youtube" class="footer-logo-social" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/youtube-logo.svg', 'asset') }}">
+                    </a>
+                </li>
+                <li class="footer-socials-menu-item">
+                    <a class="footer-socials-menu-link pinterest" href="{{ "footer.socials.pinterest.link"|trans|sw_sanitize }}" title="{{ "footer.socials.pinterest.title"|trans|sw_sanitize }}">
+                        <img alt="Pinterest" class="footer-logo-social" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/pinterest-logo.svg', 'asset') }}">
+                    </a>
+                </li>
+            </ul>
         {% endif %}
-	{% endblock %}
+    {% endblock %}
 
-	{% block layout_footer_service_menu_content_logo %}
-		<div class="footer-logo-wrapper">
-			<img alt="{{ "header.logoLink"|trans|striptags }}" class="footer-logo-picture" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/schouw-logo-wit.svg', 'asset') }}">
-		</div>
-	{% endblock %}
+    {% block layout_footer_service_menu_content_logo %}
+        <div class="footer-logo-wrapper {{ config('ZeobvSchouwWitgoed.config.footerBottomAlignment') }}">
+            <img alt="{{ "header.logoLink"|trans|striptags }}" class="footer-logo-picture" src="{{ asset('bundles/zeobvschouwwitgoed/assets/images/schouw-logo-wit.svg', 'asset') }}">
+        </div>
+    {% endblock %}
 
-	{% apply spaceless %}
-	<ul class="footer-service-menu-list list-unstyled">
-		<li class="footer-service-menu-item">
-			<a class="footer-service-menu-link" href="/" title="De Schouw Witgoed">
-				© {{ "footer.copyrightInfo"|trans|sw_sanitize }}
-			</a>
-		</li>
-		{% for serviceMenuItem in page.header.serviceMenu %}
-			{% block layout_footer_service_menu_item %}
-				<li class="footer-service-menu-item">
-					<a class="footer-service-menu-link" href="{{ category_url(serviceMenuItem) }}" {% if category_linknewtab(serviceMenuItem) %} target="_blank" {% endif %} title="{{ serviceMenuItem.translated.name }}"> {{ serviceMenuItem.translated.name }}
-					</a>
-				</li>
-			{% endblock %}
-		{% endfor %}
-	</ul>
-	{% endapply %}
+    {% apply spaceless %}
+        <ul class="footer-service-menu-list list-unstyled {{ config('ZeobvSchouwWitgoed.config.footerBottomAlignment') }}">
+            <li class="footer-service-menu-item">
+                <a class="footer-service-menu-link" href="/" title="De Schouw Witgoed">
+                    © {{ "footer.copyrightInfo"|trans|sw_sanitize }}
+                </a>
+            </li>
+            {% for serviceMenuItem in page.header.serviceMenu %}
+                {% block layout_footer_service_menu_item %}
+                    <li class="footer-service-menu-item">
+                        <a class="footer-service-menu-link" href="{{ category_url(serviceMenuItem) }}" {% if category_linknewtab(serviceMenuItem) %} target="_blank" {% endif %} title="{{ serviceMenuItem.translated.name }}"> {{ serviceMenuItem.translated.name }}
+                        </a>
+                    </li>
+                {% endblock %}
+            {% endfor %}
+        </ul>
+    {% endapply %}
 {% endblock %}
 
 
