@@ -20,6 +20,8 @@
 @import 'element/_tweleve-column-slider';
 @import 'element/_image-text-icon';
 @import 'element/_text-image-text-uwaankooponzezorg';
+@import 'element/_home-product-slider';
+
 
 // Fonts
 @font-face {
@@ -156,4 +158,10 @@
     font-display: block;
     src: url('../../../bundles/zeobvcmselements/fonts/fa-thin-100.woff2') format("woff2"),
     url('../../../bundles/zeobvcmselements/fonts/fa-thin-100.ttf') format("truetype");
+}
+
+
+
+.product-myimage{
+    max-height: unset !important;
 }

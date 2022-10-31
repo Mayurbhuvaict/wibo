@@ -1,0 +1,10 @@
+{% block sw_cms_element_category_listing_config_layout_select %}
+    {% parent %}
+    <sw-field
+        v-model="element.config.enableListSlider.value"
+        type="switch"
+        bordered
+        label="Enable Slider"
+        @change="enableListSlider"
+    />
+{% endblock %}

@@ -19,5 +19,34 @@
             <tag name="shopware.cms.data_resolver" />
         </service>
 
+        <!--  start custom product description service  -->
+        <service id="Zeobv\CmsElements\Core\Content\ProductPage\ProductPageDefinition">
+        <tag name="shopware.entity.definition" entity="product_page"/>
+        </service>
+        <service id="Zeobv\CmsElements\Core\Content\Extension\LanguageExtension">
+        <tag name="shopware.entity.extension"/>
+        </service>
+        <service id="Zeobv\CmsElements\Core\Content\Extension\ProductExtension">
+        <tag name="shopware.entity.extension"/>
+        </service>
+        <service id="Zeobv\CmsElements\Core\Content\Extension\MediaExtension">
+        <tag name="shopware.entity.extension"/>
+        </service>
+        <!--  end custom product description service  -->
+        
+        <!-- Registration of product page subscriber -->
+        <service id="Zeobv\CmsElements\Storefront\Page\Product\Subscriber\ProductPageSubscriber">
+        <argument type="service" id="sales_channel.product.repository"/>
+        <argument type="service" id="product_page.repository"/>
+        <argument type="service" id="product.repository"/>
+        <tag name="kernel.event_subscriber"/>
+        </service>
+        <!-- Registration of product page subscriber -->
+        <!--   start Registration of aggregate service  -->
+        <service id="Zeobv\CmsElements\Core\Content\ProductPage\Aggregate\ProductPageTranslation\ProductPageTranslationDefinition">
+        <tag name="shopware.entity.definition" entity="product_page_translation"/>
+        </service>
+        <!--   end Registration of aggregate service  -->
+
     </services>
 </container>

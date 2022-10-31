@@ -1,0 +1,17 @@
+.category-slider{
+    .product-slider-item{
+        margin-top: 15px;
+        .card-body{
+            .product-title{
+                height: 85px;
+            }
+        }
+        &:hover{
+            box-shadow: 0 2px 8px rgb(0 0 0 / 14%);
+            .add-to-cart{
+                display: block;
+            }
+        }
+    }
+}
+
