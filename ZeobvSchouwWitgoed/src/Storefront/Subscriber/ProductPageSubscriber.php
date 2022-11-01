@@ -111,8 +111,10 @@ class ProductPageSubscriber implements EventSubscriberInterface
 
         $productWriteData = [];
         foreach ($productEntities as $productEntity) {
+            $productCustomFields = $productEntity->getCustomFields() ?: [];
             $downloadUrls = [];
-            foreach ($productEntity->getCustomFields() as $customFieldName => $customFieldValue) {
+
+            foreach ($productCustomFields as $customFieldName => $customFieldValue) {
                 // If custom field name starts right prefix
                 if (substr($customFieldName, 0, strlen($downloadsCustomFieldNamePrefix)) === $downloadsCustomFieldNamePrefix) {
                     $downloadUrls[$customFieldName] = $customFieldValue;
