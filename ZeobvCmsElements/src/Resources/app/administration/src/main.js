@@ -11,6 +11,7 @@ import './module/zeobv-cms/blocks/commerce/image-tweleve-column';
 import './module/zeobv-cms/blocks/commerce/image-text-icon';
 import './module/zeobv-cms/blocks/commerce/icon';
 import './module/zeobv-cms/blocks/commerce/text-image-text-uwaankooponzezorg';
+import './module/zeobv-cms/blocks/commerce/image-uwaankooponzezorg';
 // Components
 import './module/sw-cms/component/sw-cms-text-image-layout';
 
@@ -26,7 +27,7 @@ import './module/zeobv-cms/elements/product-banner-cta';
 import './module/zeobv-cms/elements/text-category-slider';
 import './module/zeobv-cms/elements/image-tweleve-column';
 import './module/zeobv-cms/elements/icon';
-import './module/zeobv-cms/elements/text-image-text-uwaankooponzezorg';
+import './module/zeobv-cms/elements/image-uwaankooponzezorg';
 // Snippets (translations)
 import swDeDE from './module/sw-cms/snippet/de-DE.json';
 import swEnGB from './module/sw-cms/snippet/en-GB.json';
