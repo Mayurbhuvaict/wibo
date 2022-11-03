@@ -23,9 +23,9 @@
                 <span itemprop="name">{{ name }}</span>
             </div>
             {% if treeItem.children|length > 0 %}
-            <div class="main-navigation-link-icon">
-                <i class="icon-caret-down" aria-hidden="true"></i>
-            </div>
+                <div class="main-navigation-link-icon">
+                    <i class="icon-caret-down" aria-hidden="true"></i>
+                </div>
             {% endif %}
             {% if category.customFields.custom_menu_label_text %}
                 {% set labelStyles = [] %}
@@ -40,5 +40,3 @@
         </a>
     {% endif %}
 {% endblock %}
-
-

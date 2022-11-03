@@ -10,5 +10,31 @@
             <label>Enable Social Icon In Footer</label>
         </input-field>
 
+        <input-field type="single-select">
+            <name>footerBottomAlignment</name>
+            <label>Footer Bottom Alignment</label>
+            <options>
+                <option>
+                    <id>left</id>
+                    <name>Left</name>
+                </option>
+                <option>
+                    <id>center</id>
+                    <name>Center</name>
+                </option>
+                <option>
+                    <id>right</id>
+                    <name>Right</name>
+                </option>
+            </options>
+            <defaultValue>center</defaultValue>
+        </input-field>
+    </card>
+    <card>
+        <title>Header</title>
+        <input-field type="checkbox">
+            <name>activateSwitch</name>
+            <label>Active Top Bar Secondary Menu</label>
+        </input-field>
     </card>
 </config>

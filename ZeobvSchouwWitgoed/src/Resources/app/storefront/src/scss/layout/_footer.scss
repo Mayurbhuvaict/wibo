@@ -64,49 +64,49 @@ footer.footer-main {
                 }
             }
             .js-footer-column-content {
-                    width: 65%;
-                    display: flex;
-                    align-items: center;
-                    @media(max-width: 767px) {
-                        width: 100%;
-                    }
+                width: 65%;
+                display: flex;
+                align-items: center;
+                @media(max-width: 767px) {
+                    width: 100%;
+                }
                 .footer-column-content-inner {
                     width: 100%;
                 }
-                    .cms-block-form {
-                        width: 100%;
-                        .input-group {
-                            display: flex;
-                            flex-wrap: wrap;
-                            .form-group {
-                                width: 70%;
-                                padding-right: 17px;
-                                @media(max-width: 767px) {
-                                    width: 100%;
-                                    padding-right: 0px;
-                                    padding-bottom: 10px;
-                                    padding-top: 10px;
-                                }
-                                input {
-                                    margin-bottom: 0;
-                                    height: 48px;
-                                    border: 1px solid #63637F;
-                                }
+                .cms-block-form {
+                    width: 100%;
+                    .input-group {
+                        display: flex;
+                        flex-wrap: wrap;
+                        .form-group {
+                            width: 70%;
+                            padding-right: 17px;
+                            @media(max-width: 767px) {
+                                width: 100%;
+                                padding-right: 0px;
+                                padding-bottom: 10px;
+                                padding-top: 10px;
                             }
-                            .input-group-append {
-                                width: 30%;
-                                @media(max-width: 767px) {
-                                    width: 100%;
-                                }
-                                button {
-                                    background: #2C2C53;
-                                    height: 48px;
+                            input {
+                                margin-bottom: 0;
+                                height: 48px;
+                                border: 1px solid #63637F;
+                            }
+                        }
+                        .input-group-append {
+                            width: 30%;
+                            @media(max-width: 767px) {
+                                width: 100%;
+                            }
+                            button {
+                                background: #2C2C53;
+                                height: 48px;
 
-                                }
                             }
                         }
                     }
                 }
+            }
         }
     }
 }

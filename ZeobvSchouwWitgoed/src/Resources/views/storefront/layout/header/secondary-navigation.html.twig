@@ -1,0 +1,19 @@
+{% block layout_footer_navigation_columns %}
+    {% for root in page.footer.navigation.tree %}
+        {% if root.category.translated.name == 'Klantenservice' %}
+            {% block layout_footer_navigation_column1 %}
+                {% block layout_footer_navigation_information_headline1 %}
+                    {% if root.category.type == 'folder' %}
+                        {{ root.category.translated.name }}
+                    {% else %}
+                        <a style="color:#ffffff" href="{{ category_url(root.category) }}"
+                       {% if category_linknewtab(root.category) %}target="_blank"{% endif %}
+                       title="{{ root.category.translated.name }}">
+                        {{ root.category.translated.name }}
+                        </a>
+                    {% endif %}
+                {% endblock %}
+            {% endblock %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}
