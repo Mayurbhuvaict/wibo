@@ -6,6 +6,15 @@ footer.footer-main {
         left: 0;
         height: 146px;
         background: #333363;
+        @media(max-width: 767px) {
+            height: 243px;
+        }
+        @media(max-width: 457px) {
+            height: 268px;
+        }
+        @media(max-width: 345px) {
+            height: 293px;
+        }
     }
     .container {
         padding: 0 20px;
