@@ -1,9 +1,10 @@
 {% block sw_product_detail_description %}
+
 <sw-card-view>
     <sw-card :title="$t('sw-product.description.cardTitleDescription')"
     >
         <div class="sw-product-detail-description-media">
-        {% block bfn_pay_want_you_want_config_detail_media_upload %}
+        {% block sw_product_detail_description_media_upload %}
             <sw-upload-listener
                 :upload-tag="uploadTag"
                 auto-upload
@@ -17,13 +18,12 @@
                 :label="$tc('sw-product.description.imageMedia')"
                 @sw-media-upload-v2-media-upload-success="setMediaItem"
                 @media-drop="onDropMedia"
-                @media-upload-sidebar-open="openMediaSidebar"
                 @media-upload-remove-image="onUnlinkLogo"
             ></sw-media-upload-v2>
         {% endblock %}
             </div>
 
-        <div class="sw-product-detail-description mt-5">
+        <div class="sw-product-detail-description" style="margin-top: 20px">
             <!--Main field-->
             <sw-field
                 v-model="product.extensions.pageProduct.mainTitle"
@@ -142,20 +142,7 @@
             <!--Eight field-->
         </div>
 
-        {% block sw_product_detail_base_media_modal %}
-            <sw-media-modal-v2
-                v-if="showMediaModal"
-                :initial-folder-id="mediaDefaultFolderId"
-                :entity-context="product.getEntityName()"
-                @media-modal-selection-change="onAddMedia"
-                @modal-close="onCloseMediaModal"
-            />
-        {% endblock %}
-
     </sw-card>
     </sw-card-view>
-
-
-
-
 {% endblock %}
+

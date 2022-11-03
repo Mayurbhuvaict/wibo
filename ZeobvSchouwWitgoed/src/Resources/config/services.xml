@@ -4,6 +4,18 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+
+        <service id="Zeobv\SchouwWitgoed\Storefront\Framework\Seo\SeoUrlRoute\PdfSeoUrlRoute">
+            <argument type="service" id="Shopware\Core\Content\Media\MediaDefinition"/>
+
+            <tag name="shopware.seo_url.route"/>
+        </service>
+        <service id="Zeobv\SchouwWitgoed\Storefront\Subscriber\DynamicSeoUrlPageSubscriber" >
+            <argument type="service" id="Shopware\Core\Content\Seo\SeoUrlUpdater" />
+
+            <tag name="kernel.event_subscriber" />
+        </service>
+
         <service id="Zeobv\SchouwWitgoed\Storefront\Subscriber\CategoryPageSubscriber">
             <argument id="language.repository" type="service" />
             <argument id="product_manufacturer.repository" type="service" />
@@ -54,6 +66,16 @@ xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/sc
         <service id="Zeobv\SchouwWitgoed\Storefront\Service\CustomFieldsService"
                  class="Zeobv\SchouwWitgoed\Storefront\Service\CustomFieldsService">
             <argument id="custom_field.repository" type="service" />
+        </service>
+
+        <service id="Zeobv\SchouwWitgoed\Storefront\Controller\MediaController" public="true">
+            <argument id="media.repository" type="service" />
+            <argument type="service" id="shopware.filesystem.public"/>
+            <argument type="service" id="Shopware\Core\Content\Media\Pathname\UrlGeneratorInterface"/>
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
         </service>
     </services>
 </container>

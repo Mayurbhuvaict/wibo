@@ -1,8 +1,27 @@
 footer.footer-main {
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 146px;
+        background: #333363;
+        @media(max-width: 767px) {
+            height: 243px;
+        }
+        @media(max-width: 457px) {
+            height: 268px;
+        }
+        @media(max-width: 345px) {
+            height: 293px;
+        }
+    }
     .container {
         padding: 0 20px;
     }
     .footer-columns {
+        position: relative;
+        padding-top: 47px;
         .js-footer-column {
             max-width: 20%;
             @media(max-width: 992px) {
@@ -17,7 +36,7 @@ footer.footer-main {
                 align-items: center;
                 flex-wrap: wrap;
                 order:0;
-                margin-bottom: 60px;
+                margin-bottom: 77px;
                 max-width: 100%;
                 @media(max-width: 767px) {
                     margin-bottom: 30px;
@@ -114,7 +133,7 @@ footer.footer-main {
 .footer {
     &-main {
         font-family: $sw-font-family-headline;
-        padding: 50px 0 100px;
+        padding: 0;
         border: 0;
         @include media-breakpoint-up(md) {
             .container {
