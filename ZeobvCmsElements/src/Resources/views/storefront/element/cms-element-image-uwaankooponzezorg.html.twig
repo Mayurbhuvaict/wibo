@@ -12,7 +12,7 @@
         <div class="uw-aankoop-onze-zorg">
             <label class="icon-content call-icon">{{ element.config.displayText.value }}</label>
             <label class="icon-content call-icon">{{ element.config.displaySymbol.value }}</label>
-            <label class="icon-content call-icon">
+            <label class="icon-content call-icon priceView">
                 {% set decimal = element.config.displayPrice.value|split('.') %}
                 <b class="decimal-value">{{ decimal[0] }}</b><sup>{{ decimal[1] }}</sup></label>
         </div>
