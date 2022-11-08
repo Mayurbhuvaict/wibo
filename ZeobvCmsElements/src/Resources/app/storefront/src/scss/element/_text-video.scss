@@ -1,0 +1,77 @@
+.text-video {
+    background: #f3f3f8;
+    padding: 40px 0;
+    .sw-cms-el-text-image-block {
+        position: relative;
+        .cms-element-image-text:last-child {
+            position: absolute;
+            top: 125px;
+            z-index: 9;
+            right: 38px;
+            h3 {
+                font-size: 32px;
+                margin-bottom: 0;
+                color: #3B3B71;
+                font-weight: 600;
+            }
+            p {
+                font-size: 32px;
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .col-6 {
+        &:first-child {
+            @media(max-width: 992px) {
+                flex: 0 0 40%;
+                max-width: 40%;
+            }
+            @media(max-width: 767px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+        &:last-child {
+            @media(max-width: 992px) {
+                flex: 0 0 60%;
+                max-width: 60%;
+            }
+            @media(max-width: 767px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            > div {
+                display: flex;
+                flex-wrap: wrap;
+                @media(max-width: 767px) {
+                    margin-bottom: 50px;
+                }
+                .cms-element-youtube-video standard,
+                > div{
+                    width: 50%;
+                    @media(max-width: 767px) {
+                        width: 100%;
+                    }
+                }
+                > div {
+                    padding-left: 15px;
+                    margin: 0 0 30px;
+                    @media(max-width: 767px) {
+                        margin: 0 0 10px;
+                    }
+                    h5 {
+                        font-weight: 600;
+                        font-size: 18px;
+                    }
+                    p {
+                        color: #333432;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
