@@ -307,10 +307,6 @@
         .boxed{
             .cms-block-container-row{
                 flex-direction: column;
-                :nth-child(1){
-                    max-width: 100%;
-                    width: 100%;
-                }
                 :nth-child(2){
                     order: 3;
                     width: 100%;
