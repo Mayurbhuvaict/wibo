@@ -1,0 +1,79 @@
+{% block sw_cms_element_text_product_video_config %}
+    <div class="sw-cms-el-config-text-product-video">
+        {% block sw_cms_element_text_product_video_config_media_upload %}
+                <sw-media-upload-v2
+                    :label="$tc('sw-cms.elements.image-text.config.label.image')"
+                    variant="regular"
+                    :upload-tag="uploadTag"
+                    :source="previewSource"
+                    :allow-multi-select="false"
+                    :default-folder="cmsPageState.pageEntityName"
+                    :caption="$tc('sw-cms.elements.general.config.caption.mediaUpload')"
+                    @media-upload-sidebar-open="onOpenMediaModal"
+                    @media-upload-remove-image="onImageRemove"
+                />
+
+                <div
+                    slot="preview"
+                    slot-scope="{ demoValue }"
+                    class="sw-cms-el-config-image__mapping-preview"
+                >
+                    <img
+                        v-if="demoValue.url"
+                        :src="demoValue.url"
+                        alt=""
+                    >
+                    <sw-alert
+                        v-else
+                        class="sw-cms-el-config-image__preview-info"
+                        variant="info"
+                    >
+                        {{ $tc('sw-cms.detail.label.mappingEmptyPreview') }}
+                    </sw-alert>
+                </div>
+            </sw-cms-mapping-field>
+
+            <sw-upload-listener
+                :upload-tag="uploadTag"
+                auto-upload
+                @media-upload-finish="onImageUpload"
+            />
+        {% endblock %}
+
+        {% block sw_cms_element_custom_image_config_media_modal %}
+            <sw-media-modal-v2
+                v-if="mediaModalIsOpen"
+                variant="regular"
+                :caption="$tc('sw-cms.elements.general.config.caption.mediaUpload')"
+                :entity-context="cmsPageState.entityName"
+                :allow-multi-select="false"
+                :initial-folder-id="cmsPageState.defaultMediaFolderId"
+                @media-upload-remove-image="onImageRemove"
+                @media-modal-selection-change="onSelectionChanges"
+                @modal-close="onCloseModal"
+            />
+        {% endblock %}
+
+       <!--  Text field block start  -->
+        {% block sw_cms_el_custom_text_config_content %}
+
+                    <sw-text-editor
+                        :label="$tc('sw-cms.elements.image-text.config.label.overlayText')"
+                        v-model="element.config.content.value"
+                        :allow-inline-data-mapping="true"
+                        sanitize-input
+                        @input="onInput"
+                        @blur="onBlur"
+                    />
+
+                    <div
+                        slot="preview"
+                        slot-scope="{ demoValue }"
+                        class="sw-cms-el-config-text__mapping-preview"
+                    >
+                        <div v-html="$sanitize(demoValue)"></div>
+                    </div>
+        {% endblock %}
+    </div>
+{% endblock %}
+

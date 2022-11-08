@@ -1,0 +1,30 @@
+{% block sw_cms_element_text_product_video %}
+    <div class="sw-cms-el-text-image-block">
+        <div
+            class="sw-cms-el-custom-image"
+            :class="displayModeClass"
+            :style="styles"
+        >
+            {% block sw_cms_element_text_product_video_content %}
+                <img
+                    :src="mediaUrl"
+                    :style="imgStyles"
+                    alt=""
+                >
+            {% endblock %}
+        </div>
+
+        <div class="sw-cms-el-custom-text">
+            <sw-text-editor
+                v-model="element.config.content.value"
+                :disabled="disabled"
+                :vertical-align="element.config.verticalAlign.value"
+                :is-inline-edit="true"
+                sanitize-input
+                @blur="onBlur"
+                @input="onInput"
+            />
+
+        </div>
+    </div>
+{% endblock %}
