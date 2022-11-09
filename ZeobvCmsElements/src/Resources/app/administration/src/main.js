@@ -2,6 +2,11 @@
 import './module/sw-cms/base/fa-icon';
 import './module/sw-cms/base/fa-icon-picker';
 
+//text-video 
+import './module/sw-cms/blocks/text-video';
+import './module/sw-cms/elements/image-text';
+import './module/sw-cms/elements/text-product-video';
+
 // Block
 import './module/zeobv-cms/blocks/product/manufacturer-text';
 import './module/zeobv-cms/blocks/commerce/product-banner';

@@ -60,6 +60,30 @@
                     "collapseButtonLabel":  "Collapse button label",
                     "collapseButtonType": "Collapse button type"
                 }
+            },
+             "image-text": {
+                "label": "Bild über Text",
+                "config": {
+                    "label": {
+                        "image": "Bild hochladen",
+                        "overlayText": "Text über Bild"
+                    }
+                }
+            },
+            "text-product-video": {
+                "label": "Wim-Videos",
+                "config":{
+                    "label": {
+                        "videoUrl": "Video-URL",
+                        "videoHeader": "Video-Header",
+                        "content": "Videobeschreibung",
+                        "autoPlay": "Automatisch abspielen",
+                        "loop": "Video wiederholen",
+                        "showControls": "Video-Steuerung anzeigen",
+                        "advancedPrivacy": "Erweiterter Datenschutzmodus",
+                        "needsConfirmation": "Video erst nach Bestätigung durch den User laden"
+                    }
+                }
             }
         }
     }
