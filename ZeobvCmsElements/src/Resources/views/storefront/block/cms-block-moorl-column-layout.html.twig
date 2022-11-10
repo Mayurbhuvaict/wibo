@@ -8,55 +8,55 @@
             nav: false,
             mouseDrag:  true,
             controls: false,
-            autoplay: true
+            autoplay: false
         }
     } %}
-        <div class="schouw-fullwidth-slider base-slider"
-             data-product-slider="true"
-             data-product-slider-options="{{ productSliderOptions|json_encode }}">
-            <div class="product-slider-container" data-product-slider-container="true">
-                {% for letter in 'a'..'z' %}
-                    {% set element = block.slots.getSlot("slot-#{letter}") %}
+    <div class="schouw-fullwidth-slider base-slider"
+         data-product-slider="true"
+         data-product-slider-options="{{ productSliderOptions|json_encode }}">
+        <div class="product-slider-container" data-product-slider-container="true">
+            {% for letter in 'a'..'z' %}
+            {% set element = block.slots.getSlot("slot-#{letter}") %}
 
-                    {% if element %}
-                        {% set moorlAnimation = element.config.moorlAnimation.value %}
+            {% if element %}
+            {% set moorlAnimation = element.config.moorlAnimation.value %}
 
-                        {% if moorlAnimation %}
-                            {% if moorlAnimation.in.active or moorlAnimation.out.active or moorlAnimation.hover.active %}
-                                <div data-moorl-animation='{{ moorlAnimation|json_encode|raw }}'>
-                                    {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
-                                </div>
-                            {% else %}
+            {% if moorlAnimation %}
+            {% if moorlAnimation.in.active or moorlAnimation.out.active or moorlAnimation.hover.active %}
+                <div data-moorl-animation='{{ moorlAnimation|json_encode|raw }}'>
+                    {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+                </div>
+            {% else %}
 
-                                {% if block.cssClass == 'mobile-slider' and element.type == 'text' %}
-                                {% if element.slot == 'slot-a' or element.slot == 'slot-c' %}
-                                <div class="product-slider-item">
-                                <div class="card product-box box-standard">
-                                <div class="card-body">
-                                {% endif %}
-                                {% endif %}
+                {% if block.cssClass == 'mobile-slider' and element.type == 'text' %}
+                    {% if element.slot == 'slot-a' or element.slot == 'slot-c' %}
+                        <div class="product-slider-item">
+                        <div class="card product-box box-standard">
+                        <div class="card-body">
+                    {% endif %}
+                {% endif %}
 
-                                    {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+                {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
 
-                                {% if block.cssClass == 'mobile-slider' and element.type == 'image' %}
-                                {% if element.slot == 'slot-b' or element.slot == 'slot-d' %}
-                                </div>
-                                </div>
-                                </div>
-                                {% endif %}
-                                {% endif %}
+                {% if block.cssClass == 'mobile-slider' and element.type == 'image' %}
+                    {% if element.slot == 'slot-b' or element.slot == 'slot-d' %}
+                        </div>
+                        </div>
+                        </div>
+                    {% endif %}
+                {% endif %}
 
-                            {% endif %}
-                        {% else %}
+            {% endif %}
+            {% else %}
 
-                            {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+            {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
 
-                            {% if block.cssClass == 'mobile-slider' and element.type == 'image' %}
-                            {% if element.slot == 'slot-b' or element.slot == 'slot-d' %}
-                            </div>
-                            </div>
-                            </div>
-                            {% endif %}
+            {% if block.cssClass == 'mobile-slider' and element.type == 'image' %}
+            {% if element.slot == 'slot-b' or element.slot == 'slot-d' %}
+        </div>
+    </div>
+</div>
+{% endif %}
                             {% endif %}
 
 
@@ -113,10 +113,10 @@
                        {% endif %}
                    {% endif %}
                {% endfor %}
-            </div>
-        </div>
-    {% else %}
-        <div class="moorl-column-layout">
+</div>
+</div>
+{% else %}
+    <div class="moorl-column-layout">
         {% for letter in 'a'..'z' %}
             {% set element = block.slots.getSlot("slot-#{letter}") %}
 
@@ -136,6 +136,6 @@
                 {% endif %}
             {% endif %}
         {% endfor %}
-        </div>
+    </div>
     {% endif %}
 </div>

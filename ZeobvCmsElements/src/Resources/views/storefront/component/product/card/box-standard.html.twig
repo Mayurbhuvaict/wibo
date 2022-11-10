@@ -7,20 +7,16 @@
         {% if element.type  == "product-slider" %}
             <div class="product-title">{{ product.translated.name }}</div>
             <div class="sku">{{  product.productNumber }}</div>
-        <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" class="product-name" title="{{ product.manufacturer.name }}"> {{ product.manufacturer.name }}
-            <span class="sku">{{  product.productNumber }}</span>
-        </a>
+            <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" class="product-name" title="{{ product.manufacturer.name }}"> {{ product.manufacturer.name }}
+                <span class="sku">{{  product.productNumber }}</span>
+            </a>
         {% endif %}
     {% endif %}
 {% endblock %}
 
 {% block component_product_box_image %}
-    <div classs="product-relative">
+    <div class="product-relative">
         {{ parent() }}
-
-{#        {% if config('FlinkQuickView.config.buttonPosition') == 'below_thumb' %}#}
-{#            {% sw_include '@Storefront/storefront/component/flink-quick-view-button.html.twig' %}#}
-{#        {% endif %}#}
     </div>
 {% endblock %}
 

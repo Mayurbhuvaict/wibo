@@ -763,7 +763,7 @@ $mobile-sm: 320px;
             padding-left: 0;
             .cms-block-container{
                 padding: 20px 0 !important;
-                .schouw-cat-slider{
+                .wibo-cat-slider{
                     .container{
                         padding-right: 0;
                         padding-left: 0;
@@ -830,6 +830,35 @@ $mobile-sm: 320px;
                     flex-wrap: wrap;
                     align-content: space-around;
                     flex-direction: column;
+                }
+            }
+        }
+    }
+    .desktop-slider{
+        .mobile-slider{
+            .product-slider-item{
+                .card-body{
+                    display: flex;
+                    align-items: center;
+                    .cms-element-text{
+                        word-break: normal;
+                        width: 27%;
+                        p{
+                            a{
+                                border: none;
+                                padding: 0;
+                                font-size: 12px;
+                                &:after{
+                                    content: "❯";
+                                    position: absolute;
+                                    align-items: center;
+                                    font-size: 11px;
+                                    margin-left: 6px;
+                                    margin-right: 6px;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

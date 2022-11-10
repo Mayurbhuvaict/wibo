@@ -16,7 +16,6 @@ Component.register('sw-cms-el-config-text-image-text-uwaankooponzezorg', {
 
     methods: {
         createdComponent() {
-            alert("Hey Wibo");
             this.initElementConfig('text-image-text-uwaankooponzezorg');
         },
     },

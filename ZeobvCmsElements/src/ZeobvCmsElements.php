@@ -166,10 +166,10 @@ class ZeobvCmsElements extends Plugin
                                                 <i><b>webshop</b></i> deschouwwitgoed.nl
                                             </div>
                                             <div>
-                                                <i><b>iban</b></i> NL40 ABNA 061 375 3372 &nbsp; &nbsp;
+                                                <i><b>iban</b></i> NL40 ABNA 0613753372 &nbsp; &nbsp;
                                                 <i><b>bic</b></i> ABNANL2A &nbsp; &nbsp;
                                                 <i><b>kvk</b></i> 32138748 &nbsp; &nbsp;
-                                                <i><b>btw</b></i> NL 8197 80 832 B01
+                                                <i><b>btw</b></i> NL 819780832B01
                                             </div>
                                         </td>'.
                                     '</tr>'.

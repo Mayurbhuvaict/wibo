@@ -17,7 +17,7 @@ Shopware.Service('cmsService').registerCmsBlock({
     slots: {
         left: 'text',
         center: {
-            type: 'image',
+            type: 'image-uwaankooponzezorg',
             default: {
                 config: {
                     displayMode: {source: 'static', value: 'standard'},

@@ -4,6 +4,19 @@
     max-width: 100%;
     width: 400px;
 }
+.upper-bar{
+    .container{
+        .contact-wrapper{
+            a{
+                font-family: 'alegreya_sansregular';
+                letter-spacing: 1px;
+                &:before {
+                    filter: invert(1);
+                }
+            }
+        }
+    }
+}
 @media (max-width: 767px) and (min-width: 320px) {
     .product-uwaankooponzezorg {
         .cms-block-container-row {

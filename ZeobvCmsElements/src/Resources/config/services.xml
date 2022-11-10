@@ -48,22 +48,5 @@
         </service>
         <!--   end Registration of aggregate service  -->
 
-        <!-- start Registration of Image-text block data resolver -->
-        <service id="Zeobv\CmsElements\Core\Content\Product\Cms\ProductDataResolver">
-            <argument type="service" id="Shopware\Core\Content\Product\SalesChannel\CrossSelling\ProductCrossSellingRoute"/>
-            <argument id="sales_channel.product.repository" type="service"/>
-            <argument id="order_line_item.repository" type="service"/>
-            <tag name="shopware.cms.data_resolver"/>
-        </service>
-        <!-- end Registration of Image-text block data resolver -->
-
-        <!--  start Registration of Image-video block data resolver  -->
-        <service id="Zeobv\CmsElements\Core\Content\Product\Cms\ThemeImageVideoCmsElementResolver">
-            <argument id="sales_channel.product.repository" type="service"/>
-            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
-            <tag name="shopware.cms.data_resolver"/>
-        </service>
-        <!--  end Registration of Image-video block data resolver  -->
-
     </services>
 </container>
