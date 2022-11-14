@@ -153,10 +153,7 @@
     margin-top: 20px;
 }
 
-.product-detail-price {
-
-    &.with-list-price {
-        font-weight: bold;
-    }
+.is-ctl-product .cms-block-gallery-buybox .cms-block-container .product-detail-price {
+    font-weight: bold !important;
 }
 
