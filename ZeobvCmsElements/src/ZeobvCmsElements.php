@@ -8,10 +8,13 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Plugin;
+use Shopware\Core\Framework\Plugin\Context\ActivateContext;
 use Shopware\Core\Framework\Plugin\Context\InstallContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Symfony\Component\Serializer\Annotation\Context;
+use Doctrine\DBAL\Connection;
+use Zeobv\CmsElements\Installer\CustomFieldInstaller;
 
 class ZeobvCmsElements extends Plugin
 {
@@ -19,6 +22,40 @@ class ZeobvCmsElements extends Plugin
     {
         parent::install($installContext);
         $this->createEmailHeaderFooterTemplate($installContext);
+        $this->getCustomFieldInstaller()->install($installContext);
+    }
+
+    public function activate(ActivateContext $activateContext): void
+    {
+        parent::activate($activateContext);
+
+        /**
+         * @var Connection $connection ()
+         */
+        $connection = $this->container->get(Connection::class);
+
+        /**
+         * @var EntityRepositoryInterface $productVideoRepository ()
+         */
+
+        $productVideoRepository = $this->container->get('product.repository');
+
+    }
+
+    private function getCustomFieldInstaller(): CustomFieldInstaller
+    {
+        /**
+         * @var EntityRepositoryInterface $customFieldSetRepository
+         */
+        $customFieldSetRepository = $this->container->get('custom_field_set.repository');
+
+        /**
+         * @var EntityRepositoryInterface $customFieldRepository
+         */
+
+        $customFieldRepository = $this->container->get('custom_field.repository');
+
+        return new CustomFieldInstaller($customFieldSetRepository, $customFieldRepository);
     }
 
     public function createEmailHeaderFooterTemplate(InstallContext $installContext){
@@ -203,6 +240,11 @@ class ZeobvCmsElements extends Plugin
     public function uninstall(UninstallContext $uninstallContext): void
     {
         parent::uninstall($uninstallContext);
+
+        if ($uninstallContext->keepUserData()) {
+            return;
+        }
+        $this->getCustomFieldInstaller()->uninstall($uninstallContext);
 
         /**
          * @var EntityRepositoryInterface $mailTemplateRepository

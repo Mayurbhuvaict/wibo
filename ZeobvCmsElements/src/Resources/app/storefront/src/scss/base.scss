@@ -149,3 +149,14 @@
     overflow: auto;
 }
 
+.breadcrumb{
+    margin-top: 20px;
+}
+
+.product-detail-price {
+
+    &.with-list-price {
+        font-weight: bold;
+    }
+}
+
