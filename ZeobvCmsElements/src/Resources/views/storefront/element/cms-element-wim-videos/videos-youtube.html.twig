@@ -1,0 +1,122 @@
+{% block element_youtube_video %}
+    {% set config = configYoutube %}
+
+    {% set elementData = elementDataYoutube %}
+
+    {% if videoBlock == 'one'  %}
+        {% set videoNo = elementData.videoId.product_video_description_block_two_url %}
+    {% endif %}
+    {% if videoBlock == 'two'  %}
+        {% set videoNo = elementData.videoId.product_video_description_block_three_url %}
+    {% endif %}
+    {% if videoBlock == 'one'  %}
+        {% set videoHeader = elementData.videoHeader.product_video_description_block_two_title %}
+    {% endif %}
+    {% if videoBlock == 'two'  %}
+        {% set videoHeader = elementData.videoHeader.product_video_description_block_three_title %}
+    {% endif %}
+
+    {% if videoBlock == 'one'  %}
+        {% set videoDescription = elementData.content.product_video_description_block_two_desc %}
+    {% endif %}
+    {% if videoBlock == 'two'  %}
+        {% set videoDescription = elementData.content.product_video_description_block_three_desc %}
+    {% endif %}
+
+    {% if config.advancedPrivacyMode.value == true %}
+        {% set videoUrl = 'https://www.youtube-nocookie.com/embed/' %}
+    {% else %}
+        {% set videoUrl = 'https://www.youtube.com/embed/' %}
+    {% endif %}
+
+    {% if config.videoID.source === 'mapped' %}
+        {% set videoUrl = videoUrl ~ videoNo ~ '?' ~ 'rel=0' ~ '&' %}
+    {% else %}
+        {% set videoUrl = videoUrl ~ config.videoID.value ~ '?' ~ 'rel=0' ~ '&' %}
+    {% endif %}
+
+
+    {% if config.autoPlay.value %}
+        {% set videoUrl = videoUrl ~ 'autoplay=1' ~ '&' %}
+    {% endif %}
+
+    {% if config.loop.value %}
+        {% if config.videoID.source === 'mapped' %}
+            {% set videoUrl = videoUrl ~ 'loop=1' ~ '&' ~ 'playlist=' ~ videoNo ~ '&' %}
+        {% else %}
+            {% set videoUrl = videoUrl ~ 'loop=1' ~ '&' ~ 'playlist=' ~ config.videoID.value ~ '&' %}
+        {% endif %}
+    {% endif %}
+
+    {% if config.showControls.value == false %}
+        {% set videoUrl = videoUrl ~ 'controls=0' ~ '&' %}
+    {% endif %}
+
+    {% set videoUrl = videoUrl ~ 'disablekb=1' %}
+
+    <div class="cms-element-youtube-video standard">
+
+        {% block element_youtube_video_inner %}
+            {% set iframeClass = 'cms-element-youtube-video__video' %}
+            {% if config.needsConfirmation.value == false %}
+                <iframe class="{{ iframeClass }}"
+                        src="{{ videoUrl }}">
+                </iframe>
+            {% else %}
+                {% set pluginConfiguration = {
+                    videoUrl: videoUrl,
+                    iframeClasses: [ iframeClass ],
+                    btnClasses: [ 'btn', 'btn-outline-secondary' ],
+                    backdropClasses: [ 'cms-element-youtube-video__backdrop' ],
+                    confirmButtonText: 'component.cms.vimeo.acceptButtonLabel'|trans,
+                    overlayText: 'component.cms.vimeo.privacyNotice'|trans({
+                        '%url%': path('frontend.cms.page',{ id: config('core.basicInformation.privacyPage') }),
+                        '%platform%': 'YouTube'
+                    })|raw
+                } %}
+
+                {% block element_youtube_video_placeholder %}
+                    <div class="cms-element-youtube-video__placeholder"
+                         data-cms-gdpr-video-element="true"
+                         data-cms-gdpr-video-element-options="{{ pluginConfiguration|json_encode }}">
+
+                        {% if elementData.media %}
+                            {% sw_thumbnails 'cms-element-youtube-video__placeholder' with {
+                                media: elementData.media
+                            } %}
+                        {% endif %}
+                    </div>
+                {% endblock %}
+            {% endif %}
+        {% endblock %}
+    </div>
+
+    <div>
+        <h5>
+            {% if config.videoHeader.source === 'mapped' %}
+                {{ videoHeader }}
+            {% else %}
+                {{ config.videoHeader.value }}
+            {% endif %}
+        </h5>
+        <div
+            class="cms-element-{{ elementData.type }}{% if config.verticalAlign.value %} has-vertical-alignment{% endif %}">
+            {% block element_text_alignment %}
+                {% if config.verticalAlign.value %}
+                    <div class="cms-element-alignment{% if config.verticalAlign.value == "center" %} align-self-center{% elseif config.verticalAlign.value == "flex-end" %} align-self-end{% else %} align-self-start{% endif %}">
+                {% endif %}
+                {% block element_text_inner %}
+                    {% if config.content.source === 'mapped' %}
+                        {{ videoDescription |raw }}
+                    {% else %}
+                        {{ config.content.value |raw }}
+                    {% endif %}
+                {% endblock %}
+                {% if config.verticalAlign.value %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    </div>
+
+{% endblock %}
