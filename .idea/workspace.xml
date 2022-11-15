@@ -12,7 +12,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../ZEObv" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,7 +42,7 @@
       <updated>1668408532393</updated>
       <workItem from="1668408535297" duration="1537000" />
       <workItem from="1668410101820" duration="4247000" />
-      <workItem from="1668422018185" duration="3149000" />
+      <workItem from="1668422018185" duration="4902000" />
     </task>
     <servers />
   </component>

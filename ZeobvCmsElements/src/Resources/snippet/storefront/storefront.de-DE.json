@@ -24,6 +24,10 @@
                 "empty": "Zum Vergleich wurde kein Produkt hinzugefügt"
             }
         },
+        "delivery": {
+          "deliveryMsg" : "auf Anfrage erhältlich",
+          "onedayMsg" : "1 Tag Lieferzeit"
+        },
         "productDetail": {
             "quantityOption": "%qty% oder mehr %unit%",
             "unitDefault": "Einheiten",

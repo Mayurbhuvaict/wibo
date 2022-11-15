@@ -157,3 +157,12 @@
     font-weight: bold !important;
 }
 
+.parent {
+    float: left;
+    text-align: center;
+}
+.child {
+    display: inline-block;
+    vertical-align: middle;
+}
+
