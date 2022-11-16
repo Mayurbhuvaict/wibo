@@ -1,0 +1,23 @@
+.sw-cms-preview-text-video {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+
+    &__img {
+        width: 100%;
+        height: auto;
+    }
+
+    &__icon {
+        $icon-height: 50px;
+
+        height: $icon-height;
+        position: absolute;
+    }
+}
+.sw-cms-preview-text-video .col-md-7 {
+    padding-left: 20px;
+}
