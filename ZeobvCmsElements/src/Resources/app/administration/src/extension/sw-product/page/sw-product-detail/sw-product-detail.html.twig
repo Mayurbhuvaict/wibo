@@ -1,0 +1,6 @@
+{% block sw_product_detail_content_tabs_reviews %}
+    {% parent %}
+    <sw-tabs-item :route="{ name: 'sw.product.detail.description', params: { id: $route.params.id } }" title="description">
+        {{ $tc('sw-product.description.cardTitleDescription') }}
+    </sw-tabs-item>
+{% endblock %}

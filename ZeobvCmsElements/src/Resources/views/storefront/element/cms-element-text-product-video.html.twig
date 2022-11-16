@@ -1,0 +1,37 @@
+{% block cms_element_text_product_videos %}
+    {% set config1 = element1.config %}
+    {% set config2 = element2.config %}
+
+    {% if config1.videoType.value == 'youtube' %}
+       {% sw_include '@ZeobvCmsElements/storefront/element/cms-element-wim-videos/videos-youtube.html.twig' with {
+            'configYoutube': config1,
+            'elementDataYoutube': element1.data,
+            'videoBlock': 'one'
+        } %}
+    {% endif %}
+
+    {% if config1.videoType.value == 'vimeo' %}
+       {% sw_include '@ZeobvCmsElements/storefront/element/cms-element-wim-videos/videos-vimeo.html.twig' with {
+            'configVimeo': config1,
+            'elementDataVimeo': element1.data,
+           'videoBlock': 'one'
+        } %}
+    {% endif %}
+
+    {% if config2.videoType.value == 'youtube' %}
+       {% sw_include '@ZeobvCmsElements/storefront/element/cms-element-wim-videos/videos-youtube.html.twig' with {
+            'configYoutube': config2,
+            'elementDataYoutube': element2.data,
+           'videoBlock': 'two'
+        } %}
+    {% endif %}
+
+    {% if config2.videoType.value == 'vimeo' %}
+       {% sw_include '@ZeobvCmsElements/storefront/element/cms-element-wim-videos/videos-vimeo.html.twig' with {
+            'configVimeo': config2,
+            'elementDataVimeo': element2.data,
+           'videoBlock': 'two'
+        } %}
+    {% endif %}
+
+{% endblock %}

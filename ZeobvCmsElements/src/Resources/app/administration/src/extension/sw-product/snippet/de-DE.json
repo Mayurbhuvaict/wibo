@@ -1,0 +1,26 @@
+{
+      "sw-product": {
+        "description": {
+            "cardTitleDescription": "Beschreibung der Produktseite",
+            "descriptionEntityLabelMain": "Überschrift",
+            "descriptionEntityPlaceholderMain": "Hauptbeschreibung eingeben",
+            "descriptionEntityLabelOne": "Untertitel Eins",
+            "descriptionEntityPlaceholderOne": "Beschreibung eingeben",
+            "descriptionEntityLabelTwo": "Untertitel zwei",
+            "descriptionEntityPlaceholderTwo": "Beschreibung eingeben",
+            "descriptionEntityLabelThree": "Untertitel drei",
+            "descriptionEntityPlaceholderThree": "Beschreibung eingeben",
+            "descriptionEntityLabelFour": "Untertitel für",
+            "descriptionEntityPlaceholderFour": "Beschreibung eingeben",
+            "descriptionEntityLabelFive": "Untertiteldatei",
+            "descriptionEntityPlaceholderFive": "Beschreibung eingeben",
+            "descriptionEntityLabelSix": "Untertitel sechs",
+            "descriptionEntityPlaceholderSix": "Beschreibung eingeben",
+            "descriptionEntityLabelSeven": "Untertitel Sieben",
+            "descriptionEntityPlaceholderSeven": "Beschreibung eingeben",
+            "descriptionEntityLabelEight": "Untertitel acht",
+            "descriptionEntityPlaceholderEight": "Beschreibung eingeben",
+            "imageMedia": "Medien-Upload"
+        }
+    }
+}

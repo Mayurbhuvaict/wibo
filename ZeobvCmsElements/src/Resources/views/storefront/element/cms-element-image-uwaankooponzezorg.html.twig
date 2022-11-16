@@ -1,0 +1,20 @@
+{% block element_image %}
+    {% block element_image_uwaankooponzezorg_image %}
+        {% set config = element.config %}
+        <div class="cms-element-image">
+            <div class="cms-image-container">
+                <img src="{{ config.url.value }}" class="cms-image">
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block element_image_uwaankooponzezorg_field %}
+        <div class="uw-aankoop-onze-zorg">
+            <label class="icon-content call-icon">{{ element.config.displayText.value }}</label>
+            <label class="icon-content call-icon">{{ element.config.displaySymbol.value }}</label>
+            <label class="icon-content call-icon priceView">
+                {% set decimal = element.config.displayPrice.value|split('.') %}
+                <b class="decimal-value">{{ decimal[0] }}</b><sup>{{ decimal[1] }}</sup></label>
+        </div>
+    {% endblock %}
+{% endblock %}

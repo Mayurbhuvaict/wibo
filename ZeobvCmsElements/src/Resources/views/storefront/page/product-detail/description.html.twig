@@ -1,0 +1,353 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/description.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+
+<div class="container">
+        <style>
+            [data-toggle="collapse"] .fa:before {
+                content: "\f139";
+            }
+
+            [data-toggle="collapse"].collapsed .fa:before {
+                content: "\f13a";
+            }
+        </style>
+    {% set pageDescription = page.product.extensions.pageProduct.elements %}
+    {% for data in pageDescription %}
+
+               {% if data.media != null %}
+                   <div class="row" style="background-color:#F4F3F8">
+                       <div class="col-lg-6">
+                           {% block element_product_slider_inner_description %}
+                               <div class="h3 product-detail-description-title">
+                                   {{ data.mainTitle }}
+                               </div>
+                           {% endblock %}
+                           {% block element_product_slider_inner_item_one %}
+                               <div class="h4 product-detail-mainDescription">
+                                   {{ data.mainDescription }}
+                               </div>
+                           {% endblock %}
+
+                           <div class="container">
+                               <div id="accordion">
+                                   <div class="card">
+                                       <div class="card-header" id="headingOne">
+                                           <h5 class="mb-0">
+                                              {% if data.subTitleOne != "" %}
+                                               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">               <i class="fa" aria-hidden="true"></i>
+                                                   {{ data.subTitleOne }}
+                                               </button>
+                                              {% endif %}
+                                           </h5>
+                                       </div>
+
+                                       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionOne }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingTwo">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                   {% if data.subTitleTwo != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleTwo }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionTwo }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingThree">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleThree != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleThree }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionThree }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingFour">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleFour != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleFour }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionFour }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingFive">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleFive != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleFive }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionFive }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingSix">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleSix != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleSix }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                                           <div class="card-body">
+                                               {{ data.subDescriptionSix }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingSeven">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleSeven != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleSeven }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionSeven }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingEight">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleEight != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleEight }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionEight }}
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-lg-6">
+                           {% block page_product_detail_media %}
+                               {% set attributes = {
+                                   'class': 'product-image is-cover product-myimage'
+                               } %}
+
+                               {% if displayMode == 'cover' or displayMode == 'contain' %}
+                                   {% set attributes = attributes|merge({ 'data-object-fit': displayMode }) %}
+                               {% endif %}
+
+                               {% sw_thumbnails 'product-image-thumbnails' with {
+                                   media: data.media ,
+                               } %}
+                           {% endblock %}
+                       </div>
+                   </div>
+               {% endif %}
+
+               {% if data.media == null %}
+                   <div class="row" style="background-color:#F4F3F8">
+                       <div class="col-lg-12">
+                           {% block element_product_slider_inner_description_else %}
+                               <div class="h3 product-detail-description-title">
+                                   {{ data.mainTitle }}
+                               </div>
+                           {% endblock %}
+                           {% block element_product_slider_inner_item_one_else %}
+                               <div class="h4 product-detail-mainDescription">
+                                   {{ data.mainDescription }}
+                               </div>
+                           {% endblock %}
+
+                           <div class="container">
+                               <div id="accordion">
+                                   <div class="card">
+                                       <div class="card-header" id="headingOne">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">               <i class="fa" aria-hidden="true"></i>
+                                                   {{ data.subTitleOne }}
+                                               </button>
+                                           </h5>
+                                       </div>
+
+                                       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionOne }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingTwo">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                   {% if data.subTitleTwo != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleTwo }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionTwo }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingThree">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleThree != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleThree }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionThree }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingFour">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleFour != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleFour }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionFour }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingFive">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleFive != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleFive }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionFive }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingSix">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleSix != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleSix }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                                           <div class="card-body">
+                                               {{ data.subDescriptionSix }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingSeven">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleSeven != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleSeven }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionSeven }}
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div class="card-header" id="headingEight">
+                                           <h5 class="mb-0">
+                                               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
+                                                   {% if data.subTitleEight != "" %}
+                                                       <i class="fa" aria-hidden="true"></i>
+                                                   {% endif %}
+                                                   {{ data.subTitleEight }}
+                                               </button>
+                                           </h5>
+                                       </div>
+                                       <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+                                           <div class="card-body" style="padding-left: 40px">
+                                               {{ data.subDescriptionEight }}
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               {% endif %}
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}
+
+

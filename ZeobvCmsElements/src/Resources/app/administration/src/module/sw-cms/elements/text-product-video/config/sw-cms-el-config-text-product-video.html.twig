@@ -1,0 +1,188 @@
+{% block sw_cms_element_text_product_video1_config %}
+    <div class="sw-cms-el-config-text-product-video">
+
+        {% block sw_cms_element_text_product_video1_config_video_id %}
+
+            <sw-cms-mapping-field
+                v-model="element.config.videoID"
+                :label="$tc('sw-cms.elements.text-product-video.config.label.videoUrl')"
+
+            >
+                <sw-text-field
+                    v-model="element.config.videoID.value"
+                    :allow-inline-data-mapping="true"
+                    sanitize-input
+                    @input="onInputVideoUrl"
+                />
+
+                <div
+                    slot="preview"
+                    slot-scope="{ demoValue }"
+                    class="sw-cms-el-config-text__mapping-preview"
+                >
+                    <div v-html="$sanitize(demoValue)"></div>
+                </div>
+
+            </sw-cms-mapping-field>
+            <sw-cms-mapping-field
+                v-model="element.config.videoHeader"
+                :label="$tc('sw-cms.elements.text-product-video.config.label.videoHeader')"
+
+            >
+                <sw-text-field
+                    v-model="element.config.videoHeader.value"
+                    class="sw-cms-el-config-text-product-video__video1"
+                    :placeholder="$tc('sw-cms.elements.vimeoVideo.config.placeholder.videoHeader')"
+                    @input="onInputHeader"
+                />
+
+                <div
+                    slot="preview"
+                    slot-scope="{ demoValue }"
+                    class="sw-cms-el-config-text__mapping-preview"
+                >
+                    <div v-html="$sanitize(demoValue)"></div>
+                </div>
+
+            </sw-cms-mapping-field>
+
+            <sw-cms-mapping-field
+                v-model="element.config.content"
+                :label="$tc('sw-cms.elements.text-product-video.config.label.content')"
+            >
+                <sw-text-editor
+                    v-model="element.config.content.value"
+                    sanitize-input
+                    @input="onInput"
+                    @blur="onBlur"
+                />
+
+                <div
+                    slot="preview"
+                    slot-scope="{ demoValue }"
+                    class="sw-cms-el-config-text__mapping-preview"
+                >
+                    <div v-html="$sanitize(demoValue)"></div>
+                </div>
+
+            </sw-cms-mapping-field>
+        {% endblock %}
+
+                <!-- Video default fields starts -->
+
+                        <div class="sw-cms-el-config-text-product-video__switches">
+
+                            {% block sw_cms_element_text_product_video1_config_autoplay %}
+                                <sw-switch-field
+                                    v-model="element.config.autoPlay.value"
+                                     :label="$tc('sw-cms.elements.text-product-video.config.label.autoPlay')"
+                                    :help-text="$tc('sw-cms.elements.vimeoVideo.config.helpText.autoPlay')"
+                                />
+                            {% endblock %}
+
+                            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                            {% block sw_cms_element_text_product_video1_config_loop %}
+                                <sw-switch-field
+                                    v-model="element.config.loop.value"
+                                     :label="$tc('sw-cms.elements.text-product-video.config.label.loop')"
+                                />
+                            {% endblock %}
+
+                            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                            {% block sw_cms_element_text_product_video1_config_show_controls %}
+                                <sw-switch-field
+                                    v-model="element.config.showControls.value"
+                                     :label="$tc('sw-cms.elements.text-product-video.config.label.showControls')"
+                                />
+                            {% endblock %}
+
+                            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                            {% block sw_cms_element_text_product_video1_config_advanced_privacy_mode %}
+                                <sw-switch-field
+                                    v-model="element.config.advancedPrivacyMode.value"
+                                     :label="$tc('sw-cms.elements.text-product-video.config.label.advancedPrivacy')"
+                                    :help-text="$tc('sw-cms.elements.vimeoVideo.config.helpText.advancedPrivacy')"
+                                />
+                            {% endblock %}
+                        </div>
+
+                <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                        {% block sw_cms_element_text_product_video1_config_needs_confirmation %}
+                            <div class="sw-cms-el-config-text-product-video__confirmation">
+                                <sw-switch-field
+                                    v-model="element.config.needsConfirmation.value"
+                                     :label="$tc('sw-cms.elements.text-product-video.config.label.needsConfirmation')"
+                                />
+                            </div>
+                        {% endblock %}
+
+                <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                        {% block sw_cms_element_text_product_video1_config_preview_media %}
+                            <sw-cms-mapping-field
+                                v-if="element.config.needsConfirmation.value"
+                                v-model="element.config.previewMedia"
+                                :label="$tc('sw-cms.elements.vimeoVideo.config.label.previewImage')"
+                                value-types="entity"
+                                entity="media"
+                            >
+                                <sw-media-upload-v2
+                                    variant="regular"
+                                    :upload-tag="uploadTag"
+                                    :source="previewSource"
+                                    :allow-multi-select="false"
+                                    :default-folder="cmsPageState.pageEntityName"
+                                    :caption="$tc('sw-cms.elements.general.config.caption.mediaUpload')"
+                                    @media-upload-sidebar-open="onOpenMediaModal"
+                                    @media-upload-remove-image="onImageRemove"
+                                />
+
+                                <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                                {% block sw_cms_element_text_product_video1_config_preview_media_display %}
+                                    <div
+                                        slot="preview"
+                                        slot-scope="{ demoValue }"
+                                        class="sw-cms-el-config-image__mapping-preview"
+                                    >
+                                        <img
+                                            v-if="demoValue.url"
+                                            :src="demoValue.url"
+                                            alt=""
+                                        >
+                                        <sw-alert
+                                            v-else
+                                            class="sw-cms-el-config-image__preview-info"
+                                            variant="info"
+                                        >
+                                            {{ $tc('sw-cms.detail.label.mappingEmptyPreview') }}
+                                        </sw-alert>
+                                    </div>
+                                {% endblock %}
+                            </sw-cms-mapping-field>
+
+                            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                            {% block sw_cms_element_text_product_video1_config_preview_media_upload_listener %}
+                                <sw-upload-listener
+                                    :upload-tag="uploadTag"
+                                    auto-upload
+                                    @media-upload-finish="onImageUpload"
+                                />
+                            {% endblock %}
+
+                            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                            {% block sw_cms_element_text_product_video1_config_preview_media_modal %}
+                                <sw-media-modal-v2
+                                    v-if="mediaModalIsOpen"
+                                    variant="regular"
+                                    :caption="$tc('sw-cms.elements.general.config.caption.mediaUpload')"
+                                    :entity-context="cmsPageState.entityName"
+                                    :allow-multi-select="false"
+                                    :initial-folder-id="cmsPageState.defaultMediaFolderId"
+                                    @media-upload-remove-image="onImageRemove"
+                                    @media-modal-selection-change="onSelectionChanges"
+                                    @modal-close="onCloseModal"
+                                />
+                            {% endblock %}
+                        {% endblock %}
+
+    </div>
+{% endblock %}

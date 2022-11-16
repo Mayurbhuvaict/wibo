@@ -1,6 +1,7 @@
 {
     "zeobv-cms": {
         "blocks": {
+
             "textImage": {
                 "imageTextIcon": {
                     "label": "Image Text Icon Block"
@@ -21,6 +22,15 @@
             }
         },
         "elements": {
+            "Text": {
+                "displayText" : "Text Field"
+            },
+            "Price": {
+                "displayPrice": "Price Field"
+            },
+            "Symbol": {
+                "displaySymbol": "Euro Symbol"
+            },
             "icon": {
                 "phoneIcon": "Phone Icon",
                 "phoneText": "Phone Text",
