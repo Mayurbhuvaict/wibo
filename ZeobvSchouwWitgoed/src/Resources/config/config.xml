@@ -29,7 +29,6 @@
             </options>
             <defaultValue>center</defaultValue>
         </input-field>
-<<<<<<< HEAD
     </card>
     <card>
         <title>Header</title>
@@ -37,8 +36,5 @@
             <name>activateSwitch</name>
             <label>Active Top Bar Secondary Menu</label>
         </input-field>
-=======
-
->>>>>>> 573c2661ec5c1d0087191848f1d00eb44fe64c8b
     </card>
 </config>
