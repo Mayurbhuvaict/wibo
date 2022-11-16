@@ -19,5 +19,57 @@
             <tag name="shopware.cms.data_resolver" />
         </service>
 
+        <!--  start custom product description service  -->
+        <service id="Zeobv\CmsElements\Core\Content\ProductPage\ProductPageDefinition">
+        <tag name="shopware.entity.definition" entity="product_page"/>
+        </service>
+        <service id="Zeobv\CmsElements\Core\Content\Extension\LanguageExtension">
+        <tag name="shopware.entity.extension"/>
+        </service>
+        <service id="Zeobv\CmsElements\Core\Content\Extension\ProductExtension">
+        <tag name="shopware.entity.extension"/>
+        </service>
+        <service id="Zeobv\CmsElements\Core\Content\Extension\MediaExtension">
+        <tag name="shopware.entity.extension"/>
+        </service>
+        <!--  end custom product description service  -->
+
+        <!-- Registration of product page subscriber -->
+        <service id="Zeobv\CmsElements\Storefront\Page\Product\Subscriber\ProductPageSubscriber">
+        <argument type="service" id="sales_channel.product.repository"/>
+        <argument type="service" id="product_page.repository"/>
+        <argument type="service" id="product.repository"/>
+        <tag name="kernel.event_subscriber"/>
+        </service>
+        <!-- Registration of product page subscriber -->
+        <!--   start Registration of aggregate service  -->
+        <service id="Zeobv\CmsElements\Core\Content\ProductPage\Aggregate\ProductPageTranslation\ProductPageTranslationDefinition">
+        <tag name="shopware.entity.definition" entity="product_page_translation"/>
+        </service>
+        <!--   end Registration of aggregate service  -->
+
+        <!-- start Registration of Image-text block data resolver -->
+        <service id="Zeobv\CmsElements\Core\Content\Product\Cms\ProductDataResolver">
+            <argument type="service" id="Shopware\Core\Content\Product\SalesChannel\CrossSelling\ProductCrossSellingRoute"/>
+            <argument id="sales_channel.product.repository" type="service"/>
+            <argument id="order_line_item.repository" type="service"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+        <!-- end Registration of Image-text block data resolver -->
+
+        <!--  start Registration of Image-video block data resolver  -->
+        <service id="Zeobv\CmsElements\Core\Content\Product\Cms\ThemeImageVideoCmsElementResolver">
+            <argument id="sales_channel.product.repository" type="service"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+        <!--  end Registration of Image-video block data resolver  -->
+
+        <service id="Zeobv\CmsElements\Controller\StockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
     </services>
 </container>

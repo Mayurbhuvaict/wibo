@@ -1,24 +1,6 @@
 {% sw_extends '@Storefront/storefront/page/product-detail/buy-widget.html.twig' %}
 
 {% block page_product_detail_buy_container %}
-
-    <div class="review-mobile-menu" style="margin-bottom: 10px;">
-        <a href="https://nl.trustpilot.com/review/www.deschouwwitgoed.nl" title="Trustpilot de Schouw Witgoed" class="review-wrapper" >
-                                <span class="review-text-first" style="color:#3b3b71;">
-                                    {{ "upper-bar.review.text-first"|trans|sw_sanitize }} {{ "upper-bar.review.score"|trans|sw_sanitize }}
-                                </span>
-            <span class="review-score">
-                                    {% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
-                                        points: 0 + "upper-bar.review.score"|trans,
-                                        style: 'text-primary'
-                                    } %}
-                                </span>
-            <span class="review-text-second" style="color:#3b3b71;">
-                                    {{ "upper-bar.review.text-last"|trans|sw_sanitize }}
-                                </span>
-        </a>
-    </div>
-
     <div itemprop="offers"
          itemscope
          itemtype="{% if page.product.calculatedPrices|length > 1 %}http://schema.org/AggregateOffer{% else %}http://schema.org/Offer{% endif %}">
@@ -60,57 +42,24 @@
             {% endblock %}
 
             {% block page_product_detail_tax %}
-                <div class="row">
-                    <div class="col-8">
-                        <div class="product-detail-tax-container">
-                            {% if context.taxState == "gross" %}
-                                {% set taxText = "general.grossTaxInformation"|trans|sw_sanitize %}
-                            {% else %}
-                                {% set taxText = "general.netTaxInformation"|trans|sw_sanitize %}
-                            {% endif %}
+                <div class="product-detail-tax-container">
+                    {% if context.taxState == "gross" %}
+                        {% set taxText = "general.grossTaxInformation"|trans|sw_sanitize %}
+                    {% else %}
+                        {% set taxText = "general.netTaxInformation"|trans|sw_sanitize %}
+                    {% endif %}
 
-                            <p class="product-detail-tax" style="margin-top: 25px">
-                                {% block page_product_detail_tax_link %}
-                                    <a class="product-detail-tax-link"
-                                       href="{{ path('frontend.cms.page',{ id: config('core.basicInformation.shippingPaymentInfoPage') }) }}"
-                                       title="{{ taxText }}"
-                                    {{ dataBsToggleAttr }}="modal"
-                                    data-url="{{ path('frontend.cms.page',{ id: config('core.basicInformation.shippingPaymentInfoPage') }) }}">
-                                    {{ taxText }}
-                                    </a>
-                                {% endblock %}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        {% block page_product_detail_manufacturers %}
-                            {% if page.product.manufacturer %}
-                                <div class="product-detail-manufacturer">
-                                    {% block page_product_detail_manufacturer_inners %}
-                                        {% block page_product_detail_manufacturer_links %}
-                                            <a href="{{ page.product.manufacturer.link }}"
-                                               class="product-detail-manufacturer-link"
-                                               rel="noreferrer noopener"
-                                               target="_blank"
-                                               title="{{ page.product.manufacturer.translated.name }}">
-                                                {% if page.product.manufacturer.media %}
-                                                    {% block page_product_detail_manufacturer_logos %}
-                                                        <img src="{{ page.product.manufacturer.media|sw_encode_media_url }}"
-                                                             class="product-detail-manufacturer-logo"
-                                                             alt="{{ page.product.manufacturer.translated.name }}"/>
-                                                    {% endblock %}
-                                                {% else %}
-                                                    {% block page_product_detail_manufacturer_texts %}
-                                                        {{ page.product.manufacturer.translated.name }}
-                                                    {% endblock %}
-                                                {% endif %}
-                                            </a>
-                                        {% endblock %}
-                                    {% endblock %}
-                                </div>
-                            {% endif %}
+                    <p class="product-detail-tax">
+                        {% block page_product_detail_tax_link %}
+                            <a class="product-detail-tax-link"
+                               href="{{ path('frontend.cms.page',{ id: config('core.basicInformation.shippingPaymentInfoPage') }) }}"
+                               title="{{ taxText }}"
+                            {{ dataBsToggleAttr }}="modal"
+                            data-url="{{ path('frontend.cms.page',{ id: config('core.basicInformation.shippingPaymentInfoPage') }) }}">
+                            {{ taxText }}
+                            </a>
                         {% endblock %}
-                    </div>
+                    </p>
                 </div>
             {% endblock %}
 

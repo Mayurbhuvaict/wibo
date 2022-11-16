@@ -22,7 +22,7 @@
                             {{ "upper-bar.review.text-last"|trans|sw_sanitize }}
 						</span>
 					</a>
-					<div class="usp-wrapper active-switch">
+					<div class="usp-wrapper">
 						<span class="usp usp-1">
                             {{ "upper-bar.usps.usp-1"|trans|sw_sanitize }}
                         </span>
@@ -31,12 +31,11 @@
                         </span>
 					</div>
 
-                    {% set activateSwitch = config('ZeobvSchouwWitgoed.config.activateSwitch') %}
-                    {% if activateSwitch == true %}
+                    <div class="footer-category">
                         {% sw_include '@ZeobvSchouwWitgoed/storefront/layout/header/secondary-navigation.html.twig' %}
-                    {% endif %}
+                    </div>
 
-                    <div class="contact-wrapper">
+					<div class="contact-wrapper">
 						<a href="{{ "upper-bar.contact.phoneLink"|trans|sw_sanitize }}">
                             {{ "upper-bar.contact.phoneText"|trans|sw_sanitize }}
                         </a>

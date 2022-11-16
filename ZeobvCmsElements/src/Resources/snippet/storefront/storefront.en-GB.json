@@ -24,10 +24,6 @@
                 "empty": "No product is added to compare"
             }
         },
-         "delivery": {
-            "deliveryMsg" : "not available, on request",
-            "onedayMsg" : "1 day delivery time"
-        },
         "productDetail": {
             "quantityOption": "%qty% or more %unit%",
             "unitDefault": "units",
