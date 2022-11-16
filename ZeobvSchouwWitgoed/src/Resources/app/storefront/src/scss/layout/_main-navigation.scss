@@ -1,0 +1,59 @@
+.main-navigation {
+    background-color: $color-grey;
+    nav.nav.main-navigation-menu {
+        justify-content: flex-start;
+        .main-navigation-link {
+            margin-right: 1.2%;
+            padding-right: 0;
+            color: $sw-color-brand-primary;
+            // //home link = nth 1 and displayed none
+            // &:nth-child(2) {
+            // }
+            .main-navigation-link-text {
+                border: 0;
+                padding: 10px 0;
+                font-size: 15px;
+            }
+            .main-navigation-link-icon {
+                margin-left: 6px;
+            }
+            span {
+                font-weight: 500;
+            }
+            &.has-icon-right {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .navigation-flyout {
+        background-color: $color-grey;
+        .navigation-flyout-link.is-level-0 {
+            font-weight: 400;
+        }
+    }
+    .btn {
+        padding: 0;
+    }
+}
+
+.home-link {
+    display: none;
+}
+
+.navigation-flyout {
+    .navigation-flyout-content {
+        .navigation-flyout-teaser {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            .manufacturer-menu-reference {
+                &-image {
+                    max-height: 40px;
+                }
+            }
+        }
+    }
+}

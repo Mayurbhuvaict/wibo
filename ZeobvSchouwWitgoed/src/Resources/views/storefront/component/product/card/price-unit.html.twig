@@ -1,0 +1,48 @@
+{% sw_extends '@Storefront/storefront/component/product/card/price-unit.html.twig' %}
+
+{% block component_product_box_price_info %}
+    {{ parent() }}
+{% endblock %}
+
+{# remove emptey block #}
+{% block component_product_box_price_unit %}{% endblock %}
+
+{% block component_product_box_price %}
+    {% if product.extensions.ZeobvSchouwWitgoed.showPrice %}
+        <div class="product-price-wrapper">
+            {% set price = real %}
+
+            {% if displayFrom %}
+                {{ "listing.listingTextFrom"|trans|sw_sanitize }}
+            {% endif %}
+
+            {% set isListPrice = price.listPrice.percentage > 0 %}
+        <span class="fromLabel">{{ 'zeobv.cms-elements.banner.fromLabel'|trans }}</span>
+
+            <span class="product-price{% if isListPrice and not displayFrom %} with-list-price{% endif %}">
+                {{ price.unitPrice|currency }}{{ "general.star"|trans|sw_sanitize }}
+
+                {% if isListPrice and not displayFrom %}
+                    {% set afterListPriceSnippetExists = "listing.afterListPrice"|trans|length > 0 %}
+                    {% set beforeListPriceSnippetExists = "listing.beforeListPrice"|trans|length > 0 %}
+                    {% set hideStrikeTrough = beforeListPriceSnippetExists or afterListPriceSnippetExists %}
+
+                    <span class="list-price{% if hideStrikeTrough %} list-price-no-line-through{% endif %}">
+                        {% if beforeListPriceSnippetExists %}{{ "listing.beforeListPrice"|trans|trim|sw_sanitize }}{% endif %}
+
+                        <span class="list-price-price">{{ price.listPrice.price|currency }}{{ "general.star"|trans|sw_sanitize }}</span>
+
+                        {% if afterListPriceSnippetExists %}{{ "listing.afterListPrice"|trans|trim|sw_sanitize }}{% endif %}
+
+                        <span class="list-price-percentage">{{ "detail.listPricePercentage"|trans({'%price%': price.listPrice.percentage })|sw_sanitize }}</span>
+                    </span>
+                {% endif %}
+            </span>
+        </div>
+    {% else %}
+        <span class="fromLabel">{{ 'zeobv.cms-elements.banner.fromLabel'|trans }}</span>
+        <div class="product-price-wrapper">
+            <span class="product-price behind-request">{{ "detail.hidePrice.label"|trans }}</span>
+        </div>
+    {% endif %}
+{% endblock %}

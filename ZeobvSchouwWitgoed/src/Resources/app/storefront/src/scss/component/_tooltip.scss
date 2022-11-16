@@ -1,0 +1,59 @@
+.cms-section-sidebar .cms-element-sidebar-filter .filter-panel-item .filter-panel-item-toggle .filter-multi-select-tooltip {
+    position: relative;
+    display: inline-block;
+    background: none;
+    margin: 3px;
+
+    &:before {
+        display: inline-flex;
+        align-items: center;
+        content: "";
+        height: 21px;
+        width: 21px;
+        background-image: url("../assets/images/schouw-i.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 13px;
+    }
+
+    .schouw-tooltip-text {
+        display: none;
+    }
+}
+
+.schouw-tooltip {
+    box-sizing: border-box;
+    color: #FFFFFF;
+    max-width: 320px;
+    padding: 6px 10px;
+    border-radius: 3px;
+    z-index: 100;
+    box-shadow: 2px 2px 3px rgb(0 0 0 / 40%);
+    background-color: rgba(32, 32, 35, .95);
+    margin-left: 5px;
+
+    .tooltip-arrow {
+        border-width: 5px 5px 5px 0;
+        border-right-color: #000000;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        left: -5px;
+        margin: 0;
+
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        position: absolute;
+    }
+}
+
+// Do not show tooltip for mobile devices.
+.offcanvas-filter {
+    .filter-panel-item {
+        .filter-multi-select-tooltip {
+            display: none;
+        }
+    }
+}

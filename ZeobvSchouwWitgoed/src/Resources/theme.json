@@ -1,0 +1,24 @@
+{
+  "name": "ZeobvSchouwWitgoed",
+  "author": "Zeo Bv",
+  "views": [
+     "@Storefront",
+     "@Plugins",
+     "@ZeobvSchouwWitgoed",
+     "@MoorlFoundation",
+     "@ZeobvCmsElements"
+  ],
+  "style": [
+    "app/storefront/src/scss/overrides.scss",
+    "@Storefront",
+    "app/storefront/src/scss/base.scss"
+  ],
+  "script": [
+    "@Storefront",
+    "app/storefront/dist/storefront/js/zeobv-schouw-witgoed.js"
+  ],
+  "asset": [
+    "@Storefront",
+    "app/storefront/src/assets"
+  ]
+}

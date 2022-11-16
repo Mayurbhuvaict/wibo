@@ -1,0 +1,20 @@
+{
+  "name": "zeobv/schouw-witgoed",
+  "description": "Schouw Witgoed Theme",
+  "version": "1.0.1",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Zeobv\\SchouwWitgoed\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "Zeobv\\SchouwWitgoed\\ZeobvSchouwWitgoed",
+    "copyright": "(c) ZEO BV. All Rights Reserved.",
+    "label": {
+      "de-DE": "Theme ZeobvSchouwWitgoed plugin",
+      "en-GB": "Theme ZeobvSchouwWitgoed plugin"
+    }
+  }
+}

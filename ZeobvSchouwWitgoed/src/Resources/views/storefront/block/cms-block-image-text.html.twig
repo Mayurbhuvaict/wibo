@@ -1,0 +1,27 @@
+{% sw_extends '@Storefront/storefront/block/cms-block-image-text.html.twig' %}
+
+{% block block_image_text_left %}
+	{% if block.name !=("product-click-block") %} {{ parent() }}
+	{% else %}
+		{% set element = block.slots.getSlot('left') %}
+        <div class="col-12 col-lg-6 order-2 order-lg-1" data-cms-element-id="{{ element.id }}">
+			{% block block_image_text_left_inner %}
+				{% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+			{% endblock %}
+		</div>
+	{% endif %}
+
+{% endblock %}
+
+{% block block_image_text_right %}
+	{% if block.name !=("product-click-block") %} {{ parent() }}
+	{% else %}
+		{% set element = block.slots.getSlot('right') %}
+		<div class="col-12 col-lg-6 order-1 order-lg-2" data-cms-element-id="{{ element.id }}">
+			{% block block_image_text_right_inner %}
+				{% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+			{% endblock %}
+		</div>
+	{% endif %}
+
+{% endblock %}

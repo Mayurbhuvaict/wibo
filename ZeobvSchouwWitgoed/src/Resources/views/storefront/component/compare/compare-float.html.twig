@@ -1,0 +1,13 @@
+{% sw_extends '@FroshProductCompare/storefront/component/compare/compare-float.html.twig' %}
+
+{% block frosh_product_compare_float_button %}
+    <div class="compare-float-button js-compare-float-button">
+        <button
+            class="btn btn-primary">
+            {% block frosh_product_compare_float_icon %}
+                {% sw_icon 'compare' %}
+            {% endblock %}
+            <span class="badge badge-primary header-compare-badge"></span>
+        </button>
+    </div>
+{% endblock %}

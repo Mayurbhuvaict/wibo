@@ -1,0 +1,36 @@
+.whatsapp-container {
+    display: block;
+    position: fixed;
+    z-index: 999;
+    right: 1.5rem;
+    bottom: 1.5rem;
+
+    background-color: #69c063;
+    width: 45px;
+    height: 40px;
+
+    box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+    border-radius: 3px;
+
+    visibility: visible;
+    opacity: 1;
+
+    svg {
+        color: #ffffff;
+        padding: 5px 10px;
+    }
+
+    @media only screen and (min-width: $screen-sm) {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+#trengo-web-widget {
+    // Use !important to revert the all: unset style used by external script.
+    display: none !important;
+
+    @media only screen and (min-width: $screen-sm) {
+        display: block !important;
+    }
+}

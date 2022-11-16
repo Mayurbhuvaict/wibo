@@ -1,0 +1,133 @@
+$upperBarHeight: 46px;
+.upper-bar {
+    display: none;
+
+    background-color: $sw-color-brand-primary;
+    color: $color-white;
+    height: $upperBarHeight;
+    width: 100%;
+    padding: 0 20px;
+    line-height: 46px;
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        height: $upperBarHeight;
+
+        color: $color-white;
+
+        .review-wrapper {
+            color: #ffffff;
+            width: 364px;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            .review-score {
+                .product-review-rating {
+                    margin: 0 10px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        .usp-wrapper {
+            height: $upperBarHeight;
+            display: flex;
+            flex-wrap: wrap;
+            @include media-breakpoint-up(xl) {
+                margin-left: -20%;
+            }
+            .usp {
+                margin-left: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:before {
+                    display: inline-block;
+                    content: " ";
+                    height: 15px;
+                    width: 15px;
+                    margin-right: 9px;
+                    background-image: url("../assets/images/usp-check.svg");
+                    background-size: contain;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        a.review-wrapper {
+            height: 46px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        span.review-text-first {
+            height: 46px;
+            display: inline-block;
+        }
+
+        span.review-score {
+            height: 46px;
+            display: flex;
+        }
+
+        span.product-review-rating {
+            height: 46px;
+            display: inline-block !important;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            min-width: 99px;
+        }
+        .point-rating {
+            display: flex;
+            top: 0;
+            left: 0;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            height: 46px;
+        }
+
+        span.product-review-point {
+            height: 46px;
+        }
+
+        .contact-wrapper {
+            height: $upperBarHeight;
+            a {
+                position: relative;
+                display: flex;
+                align-items: center;
+                color: $color-white;
+                font-weight: 600;
+
+                &:before {
+                    content: " ";
+                    background-image: url("../assets/images/callw.svg");
+                    color: #000000;
+                    height: 46px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    position: absolute;
+                    top: 0;
+                    left: -34px;
+                    display: block;
+                    width: 25px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,162 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-product-description-reviews.html.twig' %}
+
+
+{% block element_product_desciption_reviews_tabs_navigation_container %}
+	<div class="nav-tabs-wrapper">
+		<div class="container">
+			<ul class="nav nav-tabs product-detail-tab-navigation-list" id="product-detail-tabs" role="tablist">
+				{# Remove active and data-toggle. #}
+				{% block element_product_desciption_reviews_tabs_navigation_description %}
+					<li class="nav-item">
+						<a class="nav-link product-detail-tab-navigation-link" id="{{ descriptionTabId }}" href="{{ descriptionTabHref }}">
+							<span>{{ "detail.tabsDescription"|trans|sw_sanitize }}</span>
+						</a>
+					</li>
+				{% endblock %}
+
+				{# Remove active and data-toggle and add properties button. #}
+				{% block element_product_desciption_reviews_tabs_navigation_review %}
+					{% if config('core.listing.showReview') %}
+						<li class="nav-item">
+							<a class="nav-link product-detail-tab-navigation-link review-tab" id="{{ reviewTabId }}" href="{{ reviewTabHref }}"> {{ "detail.tabsReview"|trans|sw_sanitize }}
+							</a>
+						</li>
+					{% endif %}
+				{% endblock %}
+
+				{# add properties button #}
+				{% block element_product_desciption_reviews_tabs_navigation_properties %}
+					{% if element.data.product.sortedProperties|length > 0 %}
+						<li class="nav-item">
+							<a class="nav-link product-detail-tab-navigation-link" id="properties-tab" href="#properties-tab-pane"> {{ "detail.tabsProperties"|trans|sw_sanitize }}
+							</a>
+						</li>
+					{% endif %}
+				{% endblock %}
+
+				{# add warrenty text tab #}
+				{# hoe correct checken op warrenty custom data manufacturer? #}
+				{% block page_product_details_tabs_warrenty %}
+					{% if page.product.manufacturer is not empty %}
+						<li class="nav-item">
+							<a class="nav-link product-detail-tab-navigation-link" id="warrenty-tab" href="#warrenty-tab-pane"> {{ "detail.tabsWarrenty"|trans|sw_sanitize }}
+								<span class="product-detail-tab-navigation-icon">
+									{% sw_icon 'arrow-medium-right' style {'pack':'solid'} %}
+								</span>
+							</a>
+						</li>
+					{% endif %}
+				{% endblock %}
+
+				{# add downloads button #}
+				{% block element_product_desciption_tabs_downloads %}
+					{% if page.product.customFields.zeobv_schouw_witgoed_custom_product_downloads is not empty %}
+						<li class="nav-item">
+							<a class="nav-link product-detail-tab-navigation-link" id="downloads-tab" href="#downloads-tab-pane" data-offcanvas-tabs="true" aria-controls="downloads-tab-pane" aria-selected="true"> {{ "detail.tabsDownloads"|trans|sw_sanitize }}
+								<span class="product-detail-tab-navigation-icon">
+									{% sw_icon 'arrow-medium-right' style {'pack':'solid'} %}
+								</span>
+							</a>
+						</li>
+					{% endif %}
+				{% endblock %}
+
+				{# add FAQ button #}
+				{% block page_product_detail_tabs_navigation_hbcom_product_faqs %}{% endblock %}
+				{% block zeo_hbcom_product_faqs_button %}
+					<li class="nav-item">
+						<a class="nav-link product-detail-tab-navigation-link" id="hbcom-product-faqs-tab" data-offcanvas-tabs="true" href="#hbcom-product-faqs-tab-pane" role="tab" aria-controls="hbcom-product-faqs-tab-pane" aria-selected="true">
+							<span>
+								<span>{{ "hbcom-product-faqs.faqs.title"|trans|sw_sanitize }}</span>
+							</span>
+							<span class="product-detail-tab-navigation-icon">
+								{% sw_icon 'arrow-medium-right' style {'pack':'solid'} %}
+							</span>
+						</a>
+					</li>
+				{% endblock %}
+
+				{# add print button #}
+				{% block element_product_desciption_tabs_print_util %}
+					{# {% if page.product.customFields.zeobv_schouw_witgoed_custom_product_downloads is not empty %} #}
+					{% block page_product_details_tabs_print_button %}
+						<span class="print-btn ml-auto" title="{{ "print.printProduct"|trans|striptags }}" data-print-button> {{ "print.printProduct"|trans|sw_sanitize }}
+							<i class="print-icon"></i>
+						</span>
+					{% endblock %}
+					{# {% endif %} #}
+				{% endblock %}
+
+				{# buy button #}
+				{% block page_product_details_tabs_add_to_cart_button_wrapper %}
+					{% block page_product_details_tabs_add_to_cart_button %}
+						{% if element.data.product.extensions.ZeobvSchouwWitgoed.showPrice %}
+							<button class="btn btn-secondary btn-buy ml-auto" title="{{ "detail.addProduct"|trans|striptags }}" data-toggle="modal" data-target="#addToCartModal"> {{ "detail.addProduct"|trans|sw_sanitize }}
+							</button>
+						{% endif %}
+					{% endblock %}
+				{% endblock %}
+			</ul>
+		</div>
+	</div>
+
+	{# modal #}
+	{% block page_product_detail_buy_modal %}
+		{% sw_include '@Storefront/storefront/page/product-detail/modal.html.twig' %}
+	{% endblock %}
+{% endblock %}{# Add the tab title and properties tab. #}{% block element_product_desciption_reviews_tabs_content_review %}
+	{% if config('core.listing.showReview') %}
+		<div class="tab-pane fade collapsable-tab review-tab" id="{{ reviewTabContent }}" role="tabpanel" aria-labelledby="{{ reviewTabId }}" data-collapsable-tab>
+			<div class="h3 tab-pane--title">{{ "detail.tabsReview"|trans|sw_sanitize }}</div>
+			{% sw_include '@Storefront/storefront/component/review/review.html.twig' with {
+                reviews: element.data.reviews,
+                product: element.data.product
+            } %}
+
+			{% block element_product_desciption_reviews_tabs_content_review_form_teaser_button %}
+				<button class="btn btn-primary product-detail-review-teaser-btn mb-2" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="review-form review-list">
+					<span class="product-detail-review-teaser-show">
+						{% if not reviews.customerReview %} {{ "detail.reviewTeaserButton"|trans|sw_sanitize }}
+						{% else %} {{ "detail.reviewExistsTeaserButton"|trans|sw_sanitize }}
+						{% endif %}
+					</span>
+					<span class="product-detail-review-teaser-hide"> {{ "detail.reviewTeaserButtonHide"|trans|sw_sanitize }}
+					</span>
+				</button>
+			{% endblock %}
+
+			<button class="btn btn-primary toggle-collapsable-tab-btn mb-2"> {{ "detail.reviewsShowMoreTab"|trans|sw_sanitize }}
+			</button>
+		</div>
+	{% endif %}
+
+
+	{% block element_product_desciption_reviews_tabs_content_properties %}
+		<div class="tab-pane fade collapsable-tab properties-tab" id="properties-tab-pane" role="tabpanel" aria-labelledby="properties-tab" data-collapsable-tab>
+			{% if product.sortedProperties|length > 0 %}
+				<div class="h3 tab-pane--title">{{ "detail.tabsProperties"|trans|sw_sanitize }}</div>
+				<div class="product-detail-properties-tab tab-pane-container">
+					{% sw_include '@Storefront/storefront/component/product/properties.html.twig' %}
+				</div>
+			{% endif %}
+			<button class="btn btn-primary toggle-collapsable-tab-btn"> {{ "detail.propertiesShowMore"|trans|sw_sanitize }}
+			</button>
+		</div>
+	{% endblock %}
+
+	{# add faq block #}
+	{% block page_product_detail_tabs_content_hbcom_product_faqs %}{% endblock %}
+	{% block zeo_hbcom_product_faqs_tab %}
+		<div class="tab-pane fade show" id="hbcom-product-faqs-tab-pane" role="tabpanel" aria-labelledby="hbcom-product-faqs-tab">
+			<div class="h3 tab-pane--title">{{ "detail.tabsFaqs"|trans|sw_sanitize }}
+				{% set amountFaqs = page.extensions.hbcom_product_faqs.hbcom_product_total_faqs %}
+				({{amountFaqs}})
+			</div>
+			{% sw_include '@Storefront/storefront/page/product-detail/hbcom_product_faqs/product-faqs-panel.html.twig' with {'product_faqs': page.extensions.hbcom_product_faqs} %}
+		</div>
+	{% endblock %}
+
+
+	{# add downloads block #}
+	{% sw_include "@ZeobvSchouwWitgoed/component/product/downloads.html.twig" %}
+{% endblock %}

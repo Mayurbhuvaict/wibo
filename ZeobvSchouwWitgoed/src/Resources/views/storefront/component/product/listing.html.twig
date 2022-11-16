@@ -1,0 +1,18 @@
+{% sw_extends '@Storefront/storefront/component/product/listing.html.twig' %}
+
+{% block element_product_listing_pagination_nav_top %}
+    <div class="category-title-results add-snippet">
+        {{ 'listing.cat-text'|trans|sw_sanitize }} : <span class="category-title-results--count">{{ searchResult.total }}</span>
+        <span class="category-name">{{ page.header.navigation.active.name }}</span>
+    </div>
+{% endblock %}
+
+{% block element_product_listing_sorting %}
+    <div class="sorting-wrapper">
+        <span class="sorting-title">{{ "listing.sorting.title"|trans|sw_sanitize }}:</span> {{ parent() }}
+    </div>
+{% endblock %}
+
+{% block element_product_listing_col %}
+    {% set listingColumns = 'col-6 col-lg-4 col-xl-3' %} {{ parent() }}
+{% endblock %}

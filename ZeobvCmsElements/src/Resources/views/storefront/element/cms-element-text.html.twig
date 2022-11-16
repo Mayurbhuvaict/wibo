@@ -1,4 +1,11 @@
 {% block element_product_slider %}
+    {% if block.cssClass == 'mobile-slider' %}
+    {% if element.slot == 'slot-a' or element.slot == 'slot-c' %}
+        <div class="product-slider-item" data-cms-element-id="{{ element.id }}">
+            <div class="card">
+                <div class="card-body">
+    {% endif %}
+    {% endif %}
 
     {% if not sliderConfig %}
 		{% set sliderConfig = element.fieldConfig.elements %}

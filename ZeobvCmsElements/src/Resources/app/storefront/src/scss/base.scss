@@ -1,6 +1,3 @@
-//base
-@import "base/variables";
-
 // Elements
 @import 'element/_image';
 @import 'element/_image-caption';
@@ -9,7 +6,6 @@
 
 // Components
 @import 'element/_category_listing';
-@import "components/stock-subscriber";
 
 // Module
 @import 'element/_product-banner';
@@ -22,7 +18,6 @@
 @import 'element/_text-image-text-uwaankooponzezorg';
 @import 'element/_home-product-slider';
 @import 'element/_product-list';
-
 
 // Fonts
 @font-face {
@@ -128,6 +123,35 @@
     font-weight: normal;
     font-style: normal;
 }
-.product-myimage{
-    max-height: unset !important;
+@font-face {
+    font-family: "Font Awesome 6 Pro";
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url('../../../bundles/zeobvcmselements/fonts/fa-light-300.woff2') format("woff2"),
+    url('../../../bundles/zeobvcmselements/fonts/fa-light-300.ttf') format("truetype");
+}
+@font-face {
+    font-family: "Font Awesome 6 Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('../../../bundles/zeobvcmselements/fonts/fa-regular-400.woff2') format("woff2"),
+    url('../../../bundles/zeobvcmselements/fonts/fa-regular-400.ttf') format("truetype");
+}
+@font-face {
+    font-family: "Font Awesome 6 Pro";
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url('../../../bundles/zeobvcmselements/fonts/fa-solid-900.woff2') format("woff2"),
+    url('../../../bundles/zeobvcmselements/fonts/fa-solid-900.ttf') format("truetype");
+}
+@font-face {
+    font-family: "Font Awesome 6 Pro";
+    font-style: normal;
+    font-weight: 100;
+    font-display: block;
+    src: url('../../../bundles/zeobvcmselements/fonts/fa-thin-100.woff2') format("woff2"),
+    url('../../../bundles/zeobvcmselements/fonts/fa-thin-100.ttf') format("truetype");
 }

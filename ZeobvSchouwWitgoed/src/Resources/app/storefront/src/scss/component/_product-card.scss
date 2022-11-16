@@ -1,0 +1,176 @@
+span.product-price.with-list-price {
+    color: $sw-color-brand-primary;
+}
+
+.card.product-box {
+    border: 0;
+    .card-body {
+        padding-left: 0;
+    }
+    // hide percentage behind price
+    span.product-price.with-list-price span.list-price-percentage {
+        display: none;
+    }
+    @include media-breakpoint-down(md) {
+        .card-body {
+            padding:0;
+        }
+    }
+    //add styling for compare button
+    //position compare button
+    .compare-button {
+        position: absolute;
+        top: 150px;
+        right: 2rem;
+
+        .btn.btn-block.btn-compare {
+            height: 40px;
+            width: 40px;
+            background: $color-grey-4;
+            border-radius: 50%;
+            border-style: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                top: 0;
+                width: 18px;
+                height: 18px;
+
+                path, use {
+                    color: $color-grey-2;
+                }
+            }
+
+            &.is-added-to-compare {
+                background: $color-blue;
+
+                svg path {
+                    fill: $color-white;
+                }
+            }
+        }
+    }
+
+    .product-image-anchor {
+        @extend .product-image-link;
+    }
+
+    .product-action {
+        margin: 0;
+        .swag-cms-extensions-quickview-listing-button-detail {
+            display: none;
+        }
+    }
+
+    .product-get-notified-form-container {
+        display: none;
+    }
+
+    //product name
+    a.product-name,
+    a.product-name-anchor {
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: 600;
+
+        color: $color-blue;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        margin-bottom: 10px;
+        height: auto;
+        font-size: 18px;
+        line-height: 22px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &:hover {
+            text-decoration: none;
+        }
+
+        span.sku {
+            font-weight: 400;
+            color: $color-grey-3;
+            padding-left: 5px;
+            display: inline-block;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .product-price-info {
+        margin-top: 45px;
+    }
+
+    .product-info.has-review {
+        .product-price-info {
+            margin-top: 15px;
+        }
+    }
+
+    .product-price {
+        font-weight: 600;
+
+        &.behind-request {
+            font-size: 0.8em;
+        }
+    }
+    span.product-price.with-list-price {
+        color: $color-blue;
+    }
+    //twig logic is broken, always true, price-unit.html.twig/hideStrikeTrough
+    .product-price .list-price-no-line-through .list-price-price {
+        text-decoration: line-through;
+    }
+
+    // voorraad info
+    .product_stock_availability_info {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .btn.btn-success {
+            margin-left: auto;
+            flex: 0 0 100%;
+            @include media-breakpoint-up(md) {
+                flex: 0 0 90px;
+            }
+        }
+        .in-stock {
+            .icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 15px;
+                width: 15px;
+
+                &:before {
+                    display: inline-block;
+                    content: " ";
+                    height: 100%;
+                    width: 100%;
+                    margin-right: 2px;
+                    background-image: url("../assets/images/check.svg");
+                    background-size: contain;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+        p {
+            font-size: 12px;
+            font-weight: 700;
+            margin: 0;
+            color: $color-green;
+        }
+        @include media-breakpoint-down(md) {
+            p,
+            .in-stock {
+                display: none;
+            }
+        }
+    }
+}

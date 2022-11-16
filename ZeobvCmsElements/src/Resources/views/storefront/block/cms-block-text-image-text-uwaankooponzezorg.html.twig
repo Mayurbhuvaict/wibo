@@ -16,7 +16,7 @@
                 {% set element = block.slots.getSlot('center') %}
                 <div class="bg-img-uwaankooponzezorg" data-cms-element-id="{{ element.id }}">
                     {% block block_text_inner_center_uwaankooponzezorg %}
-                        {% sw_include "@ZeobvCmsElements/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+                        {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
                     {% endblock %}
                 </div>
             {% endblock %}
@@ -38,4 +38,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
+{% endblock %} 

@@ -1,0 +1,120 @@
+{
+    "upper-bar": {
+        "contact": {
+            "phoneLink": "tel:0356918115",
+            "phoneText": "035 69 18 115"
+        },
+        "usps": {
+            "usp-1": "Al bijna 100 jaar topservice",
+            "usp-2": "Gratis bezorging vanaf €100,-"
+        },
+        "review": {
+            "text-first": "Wij scoren een",
+            "text-last": "uit 2900 reviews!",
+            "score": "4.5"
+        }
+    },
+    "print": {
+        "printProduct": "Print",
+        "printHeaderText": "Nieuwe Brink 20, \n 1404 KB BUSSUM \n <span class=\"silka\">tel</span> +31 (0)35 691 8115",
+        "printFooterText": "<span class=\"silka\">mail</span> info@deschouwwitgoed.nl     <span class=\"silka\">webshop</span> deschouwwitgoed.nl <br/> <span class=\"silka\">iban</span>  NL40 ABNA 061 375 3372     <span class=\"silka\">bic</span>  ABNANL2A     <span class=\"silka\">kvk</span>  32138748     <span class=\"silka\">btw</span>  NL 8197 80 832 B01"
+    },
+    "product": {
+        "product-call-to-action": "Bekijk",
+        "product-is-in-stock": "Op voorraad",
+        "add-to-cart-modal": {
+            "add-to-cart": "Toevoegen aan je winkelwagen",
+            "close-modal-keep-shopping": "Verder Winkelen"
+        }
+    },
+    "listing": {
+        "discount-prefix-character": "-",
+        "cat-text" : "Wij hebben voor u",
+        "sorting": {
+            "title": "Sortering"
+        }
+    },
+    "footer": {
+        "store-info": {
+            "title": "Onze winkel",
+            "address": "Nieuwe Brink 20 1404KB Bussum",
+            "text-1": "035 69 18 115",
+            "link-1": "tel:0356918115",
+            "text-2": "afdeling verkoop",
+            "link-2": "mailto:verkoop@deschouwwitgoed.nl",
+            "text-3": "afdeling klantenservice",
+            "link-3": "mailto:klantenservice@deschouwwitgoed.nl"
+        },
+        "newsletter": {
+            "title": "Meld je aan voor onze nieuwsbrief",
+            "subtitle": "Ontvang de scherpste aanbiedingen in uw mailbox",
+            "formSubmit": "Aanmelden"
+        },
+        "socials": {
+            "facebook": {
+                "title": "Facebook - De Schouw Witgoed",
+                "link": "https://www.facebook.com/deschouwwitgoed/"
+            },
+            "instagram": {
+                "title": "Instagram - De Schouw Witgoed",
+                "link": "https://www.instagram.com/deschouwwitgoed/"
+            },
+            "youtube": {
+                "title": "Youtube - De Schouw Witgoed",
+                "link": "https://www.youtube.com/user/deschouwwitgoed"
+            },
+            "pinterest": {
+                "title": "Pinterest - De Schouw Witgoed",
+                "link": "https://pinterest.com/deschouwwitgoed/"
+            }
+        }
+    },
+    "cookie-popup": {
+        "title1": "Onze",
+        "title2": "cookies",
+        "subtitle": "Gaan normaal in een goede oven"
+    },
+    "whatsapp": {
+        "href": "whatsapp://send?phone=+31356918115&amp;text=Stel%20uw%20vraag%20aan%20De%20Schouw%20Witgoed:%20",
+        "title": "Stel uw vraag direct via Whatsapp"
+    },
+    "detail": {
+        "reviewsShowMoreTab": "Toon alle reviews",
+        "propertiesShowMore": "Toon alle specificaties",
+        "tabsProperties": "Specificaties",
+        "tabsDownloads": "Downloads",
+        "tabsDownloadsTitle": "Downloads",
+        "tabsDownloadsDescription": "Hieronder vindt u officiële documentatie bij dit product. Voor het openen van deze documenten kunt u <a href=\"https://get.adobe.com/reader/?loc=nl\" rel=\"nofollow noopener\" class=\"bluelink\">Adobe Reader</a> installeren.",
+        "tabsWarrenty": "Garantie",
+        "tabsWarrentyTitle": "Garantie",
+        "tabsWarrentyDescription": "garantie beschrijving",
+        "tabsFaqsTitle": "Vragen",
+        "tabsFaqs": "Product vraag & antwoord ",
+        "reviewFormDisplayedNameLabel": "Naam",
+        "reviewFormEmailLabel": "Email",
+        "usps": {
+            "usp-1": "Gratis bezorging in Nederland",
+            "usp-2": "Liever later bezorgd? Geen probleem",
+            "usp-3": "Oude apparaat meegenomen"
+        },
+        "hidePrice": {
+            "label": "Prijs op aanvraag",
+            "contact": "Neem contact met ons op via tel. <a href=\"tel:0356918115\">035 69 18 115</a>, chat, whatsapp of op <a href=\"https://www.deschouwwitgoed.nl/contact\">andere wijze</a>",
+            "buttonText": "Bel 035-6918115 of mail ons",
+            "buttonLink": "mailto:winkel@deschouwwitgoed.nl?subject=Prijsaanvraag%20%%product_sku%&body=Aan%3A%20De%20Schouw%20Witgoed%2C%0D%0AGraag%20ontvang%20ik%20van%20u%20een%20prijsopgaaf%20van%20het%20volgende%20product%3A%0D%0A%%product_name%%0D%0A%0D%0AAlvast%20bedankt%20voor%20de%20moeite%2C%0D%0A%0D%0AMet%20vriendelijke%20groeten%2C%0D%0Avul%20hier%20uw%20eigen%20naam%20en%20telefoonnummer%20in.%20Verzend%20daarna%20deze%20e-mail%0D%0A",
+            "request": {
+                "title": "Interesse? Vraag prijs aan",
+                "text": "Wij doen u graag een passende aanbieding voor deze %%product_name%."
+            },
+            "store": {
+                "title": "Interesse?",
+                "text": "Dit artikel is alleen via onze winkel verkrijgbaar."
+            },
+            "notAvailable": {
+                "title": "Helaas!",
+                "subtitle": "Dit artikel is uit het assortiment",
+                "text": "Bekijk direct welke <a href=\"%%product_url%\" title=\"%%product_manufacturer% %%product_type%\">%%product_manufacturer% %%product_type%</a> hiervoor de opvolger is."
+            }
+        }
+    }
+}

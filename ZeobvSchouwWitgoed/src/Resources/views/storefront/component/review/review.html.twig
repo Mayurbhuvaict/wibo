@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/component/review/review.html.twig' %}
+
+{% block component_review_aside %}
+{% endblock %}
+
+{% block component_review_list_actions %}
+{% endblock %}
+
+{% block component_review_form_container %}
+    <div class="collapse multi-collapse {% if ratingSuccess == -1 %}show{% endif %}" id="review-form">
+        <div class="product-detail-review-form">
+            {% sw_include '@Storefront/storefront/page/product-detail/review/review-form.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

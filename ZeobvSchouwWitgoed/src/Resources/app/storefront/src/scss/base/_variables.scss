@@ -1,0 +1,64 @@
+// Color system
+$color-white: #ffffff;
+$color-blue: #3b3b71;
+// $color-light-blue: #d7d7ea;
+$color-light-blue: #f4f3f9;
+$color-grey: #f3f3f8;
+$color-grey-2: #878787;
+$color-grey-3: #666666;
+$color-grey-4: #f9f9f9;
+$color-dark-gray: #aaaaaa;
+$color-grey-5: #cccccc;
+$color-grey-6: #444444;
+$color-grey-7: #777777;
+$color-grey-8: #808080;
+$color-green: #57ad5c;
+$color-green-2: #56ab5b;
+$color-dark-orange: #ff6133;
+$color-orange: #fcb24b;
+$energylabelGreen: #20943d;
+
+// Color system
+$sw-color-brand-primary: $color-blue !default;
+$sw-color-brand-secondary: $color-light-blue !default;
+$sw-color-price: $color-blue !default;
+$price-color: $sw-color-price !default;
+
+$sw-color-success: $color-green !default;
+$sw-color-info: #26b6cf !default;
+$sw-color-warning: $color-orange !default;
+$sw-color-danger: #e52427 !default;
+
+$sw-background-color: $color-white !default;
+$sw-text-color: #333333 !default;
+$sw-headline-color: $color-blue !default;
+$sw-border-color: #bcc1c7 !default;
+
+$sw-color-buy-button: $sw-color-success !default;
+$sw-color-buy-button-text: $color-white !default;
+
+//fonts
+$sw-font-family-base: "Silka", sans-serif !default;
+$sw-font-family-headline: "Silka", sans-serif !default;
+$sw-font-family-headline-italic: "Utopia Std", sans-serif !default;
+
+//== Media queries breakpoints
+// Extra small screen / phone
+$screen-xs: 480px !default;
+$screen-xs-min: $screen-xs !default;
+$screen-phone: $screen-xs-min !default;
+
+// Small screen / tablet
+$screen-sm: 768px !default;
+$screen-sm-min: 768px !default;
+$screen-tablet: $screen-sm-min !default;
+
+// Medium screen / desktop
+$screen-md: 992px !default;
+$screen-md-min: $screen-md !default;
+$screen-desktop: $screen-md-min !default;
+
+// Large screen / wide desktop
+$screen-lg: 1200px !default;
+$screen-lg-min: $screen-lg !default;
+$screen-lg-desktop: $screen-lg-min !default;

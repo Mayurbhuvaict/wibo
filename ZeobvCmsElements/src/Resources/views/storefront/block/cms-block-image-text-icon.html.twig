@@ -29,13 +29,12 @@
                             <div class="bg-text-content" data-cms-element-id="{{ element.id }}">
                                 {% block block_text_inner_right %}
                                     {% block block_text_inner_right_chatIcon %}
+                                        <img src="{{ element.config.mediaUrl.value }}">
 
-                                        <img src="{{ element.config.mediaCallUrl.value }}">
                                         <label class="icon-content call-icon">{{ element.config.callIcon.value }}</label>
                                     {% endblock %}
                                     {% block block_text_inner_right_callIcon %}
-
-                                        <img src="{{ element.config.mediaUrl.value }}">
+                                        <img src="{{ element.config.mediaCallUrl.value }}">
                                         <label class="icon-content">{{ element.config.chatIcon.value }}</label>
                                     {% endblock %}
 

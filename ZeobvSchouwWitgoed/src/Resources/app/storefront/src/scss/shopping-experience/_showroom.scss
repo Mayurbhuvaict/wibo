@@ -1,0 +1,51 @@
+.showroom-wrapper {
+    h2 {
+        @extend %silka;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 25px;
+        line-height: 30px;
+        letter-spacing: 0.503226px;
+    }
+    p {
+        @extend %silka;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 25px;
+        margin: 0;
+        b {
+            @extend %silka;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 21px;
+            margin: 0;
+        }
+    }
+    a {
+        text-decoration: underline;
+        line-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    .cms-block-container {
+        @extend .container;
+        @include media-breakpoint-up(md) {
+            .cms-element-image {
+                width: 50vw;
+            .cms-image-container {
+                img {
+                        width: 50vw;
+                        position: relative;
+                    }
+                }
+            }
+        }
+        .col-md-6 {
+            &:nth-child(2) {
+                padding: 0;
+            }
+        }
+    }
+}

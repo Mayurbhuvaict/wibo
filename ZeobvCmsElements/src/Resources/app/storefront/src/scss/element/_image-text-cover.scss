@@ -4,6 +4,15 @@ $color_1: #3B3B71;
 $color_2: #333432;
 
 .image-text-wrapper {
+    i {
+        font-family: "Font Awesome 6 Pro";
+        font-style: normal;
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .fa-location-dot:before, .fa-map-marker-alt:before {
+        content: "\f3c5";
+    }
     .cms-element-text {
         max-width: 545px;
         margin-left: auto;

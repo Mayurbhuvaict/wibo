@@ -1,0 +1,175 @@
+.is-ctl-product {
+    @include media-breakpoint-up(lg) {
+        .cms-block-product-heading {
+            display: none;
+        }
+    }
+
+    .product-detail-name {
+        font-weight: 600;
+        @include media-breakpoint-up(lg) {
+            font-weight: 400;
+        }
+        font-size: 32px;
+    }
+
+    .product-detail-name-container {
+        .product-detail-name {
+            display: none;
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+        }
+    }
+
+    .cms-block-gallery-buybox {
+        .cms-block-container {
+            padding: 0;
+            .product-detail-energy-usage {
+                margin-bottom: 10px;
+            }
+
+            .product-detail-delivery-information {
+                margin-bottom: 15px;
+            }
+
+            .product-detail-form-container {
+                margin-bottom: 40px;
+
+                .buy-widget-container {
+                    .compare-button {
+                        .btn-compare {
+                            @extend .btn-transparent;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .btn-text {
+                                display: inline;
+                                margin-left: 10px;
+                            }
+
+                            &:active {
+                                @extend .btn-light;
+                            }
+
+                            &.is-added-to-compare {
+                                background: $color-blue;
+                                color: $color-white;
+
+                                svg path {
+                                    fill: $color-white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .product-detail-price {
+                color: $sw-color-brand-primary;
+                font-weight: 400;
+                font-size: 25px;
+            }
+        }
+    }
+
+    .product-question {
+        margin-left: auto;
+        margin-right: 0;
+        padding: 0;
+
+        @include media-breakpoint-up(md) {
+            padding: inherit;
+        }
+
+        .cms-block-container-row {
+            padding: 20px;
+            background: $sw-color-brand-secondary;
+            margin: 0;
+
+            .col-md-6 {
+                flex: inherit;
+                max-width: none;
+
+                &:first-of-type {
+                    width: 25%;
+                    padding: 0;
+                    margin: 0;
+
+                    .cms-element-image {
+                        img {
+                            width: 100%;
+                            border-radius: 50%;
+                        }
+                    }
+
+                    @include media-breakpoint-up(md) {
+                        width: 15%;
+                    }
+                }
+
+                &:last-of-type {
+                    width: 75%;
+                    padding-right: 0;
+
+                    .cms-element-text {
+                        padding-top: 0;
+                        color: $sw-color-brand-primary;
+                        font-weight: 600;
+
+                        p {
+                            margin: 0;
+                        }
+
+                        a {
+                            color: $sw-color-brand-primary;
+                            text-decoration: underline;
+                            font-weight: 400;
+                            display: block;
+                            margin-top: 10px;
+                        }
+                    }
+
+                    @include media-breakpoint-up(md) {
+                        width: 85%;
+                    }
+                }
+            }
+        }
+    }
+
+    .cms-element-buy-box {
+        .buy-widget {
+            display: flex;
+            flex-direction: column;
+
+            .product-wishlist {
+                margin-top: 0;
+
+                .icon-heart,
+                .icon-heart-fill {
+                    svg {
+                        color: $sw-color-buy-button;
+                    }
+                }
+
+                .btn {
+                    padding: 2px 12px;
+                    font-size: 1rem;
+                    line-height: 38px;
+                    border-radius: 3px;
+                    justify-content: center;
+
+                    .product-wishlist-btn-content {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        .swag-customized-products-share__card {
+            display: none;
+        }
+    }
+}

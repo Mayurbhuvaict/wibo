@@ -1,0 +1,29 @@
+{% sw_extends '@Storefront/storefront/component/review/point.html.twig' %}
+
+{% block component_review_point %}
+    {% if size is not defined %}
+        {% set size = 'xs' %}
+    {% endif %}
+
+    <span class="product-review-point">
+        {% if type == 'half' %}
+            <div class="point-container">
+                <div class="point-rating point-half">
+                    {% sw_icon 'star-half' style { 'color': 'review', 'size': size, 'namespace' : 'ZeobvSchouwWitgoed', 'pack' : 'schouw' } %}
+                </div>
+            </div>
+        {% elseif type == 'blank' %}
+            <div class="point-container">
+                <div class="point-rating point-blank">
+                    {% sw_icon 'star' style { 'size': size, 'namespace' : 'ZeobvSchouwWitgoed', 'pack' : 'schouw' } %}
+                </div>
+            </div>
+        {% else %}
+            <div class="point-container">
+                <div class="point-rating point-full">
+                    {% sw_icon 'star-full' style { 'color': 'review', 'size': size, 'namespace' : 'ZeobvSchouwWitgoed', 'pack' : 'schouw' } %}
+                </div>
+            </div>
+        {% endif %}
+    </span>
+{% endblock %}

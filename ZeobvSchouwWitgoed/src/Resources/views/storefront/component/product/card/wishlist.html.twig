@@ -1,0 +1,35 @@
+{% sw_extends '@Storefront/storefront/component/product/card/wishlist.html.twig' %}
+
+{% block component_product_wishlist %}
+    {% set addToWishlistOptions = {
+        productId: productId,
+        router: {
+            add: {
+                afterLoginPath: path('frontend.wishlist.add.after.login', { productId: productId }),
+                path: path('frontend.wishlist.product.add', { productId: productId }),
+                token: sw_csrf('frontend.wishlist.product.add', {"mode": "token"})
+            },
+            remove: {
+                path: path('frontend.wishlist.product.remove', { productId: productId }),
+                token: sw_csrf('frontend.wishlist.product.remove', {"mode": "token"}),
+            }
+        }
+    } %}
+
+    {% set size = size ?? 'md' %}
+
+    <div class="product-wishlist {% if showText %}col-12 col-md-3 mt-3 mt-md-0{% endif %}">
+        {% block component_product_wishlist_button %}
+            <button
+                class="product-wishlist-{{ productId }} product-wishlist-action{% if appearance == 'circle' %}-circle{% endif %} product-wishlist-not-added product-wishlist-loading {% if showText %}btn btn-transparent btn-block{% endif %}"
+                title="{{ "listing.toggleWishlist"|trans|sw_sanitize }}"
+                data-add-to-wishlist="true"
+                data-add-to-wishlist-options="{{ addToWishlistOptions|json_encode }}"
+            >
+                {% block component_product_wishlist_icon %}
+                    {{ parent() }}
+                {% endblock %}
+            </button>
+        {% endblock %}
+    </div>
+{% endblock %}
