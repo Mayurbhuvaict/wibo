@@ -3,7 +3,7 @@ import './preview';
 
 Shopware.Service('cmsService').registerCmsBlock({
     name: 'text-image-text-uwaankooponzezorg',
-    label: 'text-image-text-uw aan koop onze zorg',
+    label: 'Text Image Text Block',
     category: 'commerce',
     component: 'sw-cms-block-text-image-text-uwaankooponzezorg',
     previewComponent: 'sw-cms-preview-text-image-text-uwaankooponzezorg',

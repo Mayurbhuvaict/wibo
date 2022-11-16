@@ -1,0 +1,11 @@
+{
+    "stock-import": {
+        "general": {
+            "mainMenuItemGeneral": "Stock Import"
+        },
+        "label": {
+            "title": "Stock Import",
+            "btn" : "AEP Supplier"
+        }
+    }
+}
