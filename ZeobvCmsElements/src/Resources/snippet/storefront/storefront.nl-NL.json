@@ -24,6 +24,10 @@
                 "empty": "Er is geen product toegevoegd ter vergelijking"
             }
         },
+          "delivery": {
+            "deliveryMsg" : "niet liverbaar, op aanvraag",
+            "onedayMsg" : "1 dag levertijd"
+        },
         "productDetail": {
             "quantityOption": "%qty% of meer %unit%",
             "unitDefault": "stuks",
