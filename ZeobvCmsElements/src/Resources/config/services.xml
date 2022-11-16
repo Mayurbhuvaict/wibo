@@ -33,7 +33,7 @@
         <tag name="shopware.entity.extension"/>
         </service>
         <!--  end custom product description service  -->
-        
+
         <!-- Registration of product page subscriber -->
         <service id="Zeobv\CmsElements\Storefront\Page\Product\Subscriber\ProductPageSubscriber">
         <argument type="service" id="sales_channel.product.repository"/>
@@ -65,5 +65,11 @@
         </service>
         <!--  end Registration of Image-video block data resolver  -->
 
+        <service id="Zeobv\CmsElements\Controller\StockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
     </services>
 </container>

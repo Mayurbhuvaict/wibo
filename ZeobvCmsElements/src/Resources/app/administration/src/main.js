@@ -2,7 +2,7 @@
 import './module/sw-cms/base/fa-icon';
 import './module/sw-cms/base/fa-icon-picker';
 
-//text-video 
+//text-video
 import './module/sw-cms/blocks/text-video';
 import './module/sw-cms/elements/image-text';
 import './module/sw-cms/elements/text-product-video';
@@ -50,6 +50,9 @@ import './extension/sw-product/page/sw-product-detail';
 import './extension/sw-product/view/sw-product-detail-description';
 import './extension/sw-product/snippet/en-GB.json';
 import './extension/sw-product/snippet/de-DE.json';
+
+//module
+import './module/stock-import';
 
 //registering tab at product detail page
 Shopware.Module.register('sw-product-detail-tab-description', {
