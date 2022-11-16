@@ -54,32 +54,32 @@
         }
     }
 
-        .uw-aankoop-onze-zorg {
-            height: 81px;
-            width: 81px !important;
-            bottom: 30px;
-            right: 50px;
+    .uw-aankoop-onze-zorg {
+        height: 81px;
+        width: 81px !important;
+        bottom: 30px;
+        right: 50px;
 
-            label {
-                font-size: 10px;
-                &:nth-child(2) {
-                    left: 20px;
-                    top: 18px;
-                    font-size: 18px;
-                }
-                &:nth-child(3) {
-                    left: 50px !important;
-                    top: -16px !important;
-                }
-                b.decimal-value {
-                    font-size: 20px !important;
-                }
-                sup {
-                    top: -8px !important;
-                    font-size: 12px !important;
-                }
+        label {
+            font-size: 10px;
+            &:nth-child(2) {
+                left: 20px;
+                top: 18px;
+                font-size: 18px;
+            }
+            &:nth-child(3) {
+                left: 50px !important;
+                top: -16px !important;
+            }
+            b.decimal-value {
+                font-size: 20px !important;
+            }
+            sup {
+                top: -8px !important;
+                font-size: 12px !important;
             }
         }
+    }
     body .cms-element-product-listing .cms-listing-row {
         border-top: 0;
     }
@@ -190,6 +190,17 @@
     }
     .cms-block-product-listing {
         .card.product-box {
+            .product-desktop-title{
+                display: none;
+            }
+            .product-mobile-title{
+                display: block;
+                .sku{
+                    line-height: 11px;
+                    padding-left: 25px;
+                    color: #3B3B71;
+                }
+            }
             .compare-button {
                 .btn.btn-block.btn-compare {
                     height: 29px;
