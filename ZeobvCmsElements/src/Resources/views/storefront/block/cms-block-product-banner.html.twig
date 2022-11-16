@@ -1,0 +1,107 @@
+{% block block_zeobv_product_banner %}
+	<div class="col-12 p-0">
+		{% block block_zeobv_product_banner_inner %}
+			<div class="row align-items-end">
+				<div class="col-12 col-md-6 col-lg-4">
+					{% block block_zeobv_product_banner_inner_left %}
+						{% block block_zeobv_product_banner_inner_left_banner %}
+							{% set element = block.slots.getSlot('banner') %}
+							{% if element %}
+								<div data-cms-element-id="{{ element.id }}">
+									{% block block_zeobv_product_banner_inner_left_banner_inner %}
+										{% sw_include "@Storefront/storefront/element/cms-element-image.html.twig" %}
+									{% endblock %}
+								</div>
+							{% endif %}
+						{% endblock %}
+
+						{% block block_zeobv_product_banner_inner_left_cta %}
+							{% set element = block.slots.getSlot('ctaLink') %}
+							{% if element %}
+								<div class="cta-link d-none d-sm-block" data-cms-element-id="{{ element.id }}">
+									{% block block_zeobv_product_banner_inner_left_cta_inner %}
+										<span class="info-prefix">{{ 'zeobv.cms-elements.banner.infoPrefix'|trans }}&nbsp;
+										</span>
+										{% sw_include "@ZeobvCmsElements/storefront/element/cms-element-product-banner-cta.html.twig" %}
+									{% endblock %}
+								</div>
+							{% endif %}
+						{% endblock %}
+					{% endblock %}
+				</div>
+
+				<div class="col-12 col-md-6 col-lg-8">
+					{% block block_zeobv_product_banner_inner_right %}
+						{% block block_zeobv_product_banner_inner_right_title %}
+							{% set element = block.slots.getSlot('title') %}
+							{% if element %}
+								<div class="banner-title" data-cms-element-id="{{ element.id }}">
+									{% block block_zeobv_product_banner_inner_right_title_inner %}
+										{% sw_include "@Storefront/storefront/element/cms-element-text.html.twig" %}
+									{% endblock %}
+								</div>
+							{% endif %}
+						{% endblock %}
+
+						{% block block_zeobv_product_banner_inner_right_entries %}
+                            {% set productSliderOptions = {
+                                productboxMinWidth: '200px' ,
+                                slider: {
+                                    speed: 400,
+                                    autoplay: true,
+                                    autoplayHoverPause: false,
+                                    autoplayTimeout: 3500,
+                                    mode:"carousel",
+                                    gutter: 30,
+                                    nav: false,
+                                    controls: false,
+                                    mouseDrag: true,
+                                    autoplayButtonOutput: false,
+                                    swipeAngle: false,
+                                    autoHeight: false,
+                                    autoplayButtonOutput: false
+                                }
+                            } %}
+                            <div class="base-slider" data-product-slider="true" data-product-slider-options="{{ productSliderOptions|json_encode }}">
+                                <div class="product-slider-container" data-product-slider-container="true">
+                                    {% for element in [block.slots.getSlot('entryOne'), block.slots.getSlot('entryTwo'), block.slots.getSlot('entryThree')] %}
+                                        {% if element.data.product or element.data.category %}
+                                            <div class="product-slider-item card-col" data-cms-element-id="{{ element.id }}">
+                                                {% block block_zeobv_product_banner_inner_right_entries_entry %}
+                                                    {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+                                                {% endblock %}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+						{% endblock %}
+
+						{% block block_zeobv_product_banner_inner_right_cta %}
+							{% set element = block.slots.getSlot('ctaButton') %}
+							{% if element %}
+								<div class="banner-link" data-cms-element-id="{{ element.id }}">
+									{% block block_zeobv_product_banner_inner_right_cta_inner %}
+										{% sw_include "@ZeobvCmsElements/storefront/element/cms-element-product-banner-cta.html.twig" %}
+									{% endblock %}
+								</div>
+							{% endif %}
+						{% endblock %}
+                        {% block block_zeobv_product_banner_inner_bottom_cta %}
+                            {% set element = block.slots.getSlot('ctaLink') %}
+                            {% if element %}
+                                <div class="cta-link d-block d-sm-none" data-cms-element-id="{{ element.id }}">
+                                    {% block block_zeobv_product_banner_inner_botto_cta_inner %}
+                                        <span class="info-prefix">{{ 'zeobv.cms-elements.banner.infoPrefix'|trans }}&nbsp;
+										</span>
+                                        {% sw_include "@ZeobvCmsElements/storefront/element/cms-element-product-banner-cta.html.twig" %}
+                                    {% endblock %}
+                                </div>
+                            {% endif %}
+                        {% endblock %}
+					{% endblock %}
+				</div>
+			</div>
+		{% endblock %}
+	</div>
+{% endblock %}

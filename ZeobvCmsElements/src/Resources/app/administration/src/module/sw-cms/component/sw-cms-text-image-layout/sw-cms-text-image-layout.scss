@@ -1,0 +1,64 @@
+@import "~scss/variables";
+
+.sw-cms-text-image-layout {
+    display: flex;
+    justify-content: space-around;
+
+    &__sample-container {
+        display: flex;
+        flex: auto;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+    }
+
+    &__sample-icon {
+        padding: 2px 4px;
+    }
+
+    &__sample-text {
+        padding: 2px 4px;
+    }
+
+    &__layout {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 0;
+        cursor: pointer;
+        padding: 5px 10px;
+        border-right: 1px solid $color-gray-300;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        &-selected {
+            background: $color-gray-100;
+        }
+
+        &-icon-left-text-right {
+            .sw-cms-text-image-layout__sample-container{
+                flex-direction: row;
+            }
+        }
+
+        &-icon-top-text-bottom {
+            .sw-cms-text-image-layout__sample-container{
+                flex-direction: column;
+            }
+        }
+
+        &-icon-right-text-left {
+            .sw-cms-text-image-layout__sample-container{
+                flex-direction: row-reverse;
+            }
+        }
+
+        &-icon-bottom-text-top {
+            .sw-cms-text-image-layout__sample-container{
+                flex-direction: column-reverse;
+            }
+        }
+    }
+}

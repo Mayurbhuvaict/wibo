@@ -1,0 +1,48 @@
+{
+	"zeobv": {
+		"cms-elements": {
+			"block": {
+				"manufacturer-text": {
+					"title": "Warranty"
+				}
+			},
+			"banner": {
+				"fromLabel": "vanaf",
+				"fromPrice": "€5 euro",
+				"infoPrefix": "Welke blender?"
+			}
+		},
+		"outOfStock" : {
+            "notifyMsg" : "Not available now",
+            "infoMsg": "Sorry! this product is currently out of stock.",
+            "descriptionMsg" : "Leave your e-mail address and we'll let you know as soon as it's back.",
+            "general": {
+                "headline": "Compare products",
+                "addToCompare": "Compare",
+                "removeFromCompare": "Remove from compare",
+                "maximumCompareProducts": "Maximum number of compare products is 4",
+                "empty": "No product is added to compare"
+            }
+        },
+         "delivery": {
+            "deliveryMsg" : "not available, on request",
+            "onedayMsg" : "1 day delivery time"
+        },
+        "productDetail": {
+            "quantityOption": "%qty% or more %unit%",
+            "unitDefault": "units",
+            "buttonLabel": "Notify me",
+            "emailLabel": "Your E-mail",
+            "successMessage": "Done. You will be notified when the specified quantity is back in stock!",
+            "failedMessage": "Something didn't go as planned, please try again at a later time.",
+            "invalidEmailMessage": "Please provide a valid e-mail address.",
+            "exceptionMessage": "Something unexpected happened, please try again later.1111111",
+            "outOfStock" : {
+                "notifyMsg" : "Not available now",
+                "infoMsg": "Sorry! this product is currently out of stock.",
+                "descriptionMsg" : "Leave your e-mail address and we'll let you know as soon as it's back."
+            }
+        },
+        "privacyNotice": "By submitting the form, I accept the <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"general terms and conditions\">general terms and conditions</a> as well as the <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Information on data protection\">privacy policy</a>."
+	}
+}

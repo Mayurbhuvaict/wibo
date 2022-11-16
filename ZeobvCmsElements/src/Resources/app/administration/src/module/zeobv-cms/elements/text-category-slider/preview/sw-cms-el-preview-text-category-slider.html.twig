@@ -1,0 +1,15 @@
+{% block sw_cms_element_product_slider_preview %}
+<div class="sw-cms-el-preview-text-category-slider">
+    <div class="sw-cms-el-preview-text">
+
+    </div>
+	<div class="sw-cms-el-preview-category-slider">
+		<sw-icon name="default-arrow-head-left" size="10"></sw-icon>
+		<div>
+			<img :src="'/administration/static/img/cms/preview_mountain_small.jpg' | asset"><p></p>
+			<p>{{$tc('sw-cms.elements.categorySlider.category')}}</p>
+		</div>
+		<sw-icon name="default-arrow-head-right" size="10"></sw-icon>
+	</div>
+</div>
+{% endblock %}

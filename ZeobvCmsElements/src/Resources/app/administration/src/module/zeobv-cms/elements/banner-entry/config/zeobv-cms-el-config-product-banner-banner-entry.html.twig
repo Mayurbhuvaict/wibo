@@ -1,0 +1,46 @@
+{% block zeobv_cms_el_product_banner_banner_entry_config %}
+<div class="zeobv-cms-el-config-product-banner-cta">
+
+    {% block zeobv_cms_el_product_banner_banner_entry_config_type %}
+        <sw-select-field
+            v-model="element.config.type.value"
+            :placeholder="$tc('zeobv-cms.elements.productBanner.bannerEntry.config.typeLabel')"
+            :label="$tc('zeobv-cms.elements.productBanner.bannerEntry.config.typeLabel')"
+        >
+            <option value="product">
+                {{ $tc('zeobv-cms.elements.productBanner.bannerEntry.config.productLabel') }}
+            </option>
+            <option value="category">
+                {{ $tc('zeobv-cms.elements.productBanner.bannerEntry.config.categoryLabel') }}
+            </option>
+        </sw-select-field>
+    {% endblock %}
+
+    {% block zeobv_cms_el_product_banner_banner_entry_config_product %}
+        <sw-entity-single-select
+            v-model="element.config.id.value"
+            v-if="element.config.type.value === 'product'"
+            entity="product"
+            :label="$tc('zeobv-cms.elements.productBanner.bannerEntry.config.productLabel')"
+            :placeholder="$tc('zeobv-cms.elements.productBanner.bannerEntry.config.productLabel')"
+        />
+    {% endblock %}
+
+    {% block zeobv_cms_el_product_banner_banner_entry_config_category %}
+        <sw-entity-single-select
+            v-model="element.config.id.value"
+            v-if="element.config.type.value === 'category'"
+            entity="category"
+            :label="$tc('zeobv-cms.elements.productBanner.bannerEntry.config.categoryLabel')"
+            :placeholder="$tc('zeobv-cms.elements.productBanner.bannerEntry.config.categoryLabel')"
+        />
+    {% endblock %}
+    {% block zeobv_cms_el_product_banner_banner_entry_config_navigation %}
+        <sw-field type="switch"
+                  bordered
+                  :label="$tc('zeobv-cms.elements.productBanner.bannerEntry.config.navigation')"
+                  v-model="element.config.navigation.value">
+        </sw-field>
+    {% endblock %}
+</div>
+{% endblock %}

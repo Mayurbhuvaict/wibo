@@ -1,0 +1,64 @@
+{
+    "zeobv-cms": {
+        "blocks": {
+            "textImage": {
+                "imageTextIcon": {
+                    "label": "Image Text Icon Block"
+                }
+            },
+            "product": {
+                "manufacturerText": {
+                    "label": "Manufacturer text"
+                }
+            },
+            "productBanner": {
+                "imageText": {
+                    "label": "Product banner"
+                }
+            },
+            "textCategorySlider": {
+                "label": "Text Category Slider"
+            }
+        },
+        "elements": {
+            "icon": {
+                "phoneIcon": "Phone Icon",
+                "phoneText": "Phone Text",
+                "chatIcon": "Chat Icon",
+                "chatText": "Chat Text"
+            },
+            "general": {
+                "config": {
+                    "label": {
+                        "displayMode": "Type"
+                    }
+                }
+            },
+            "manufacturer-text": {
+                "label": "Manufacturer text",
+                "config": {
+                    "customFieldLabel": "Manufacturer custom field"
+                }
+            },
+            "productBanner": {
+                "cta": {
+                    "label": "Call to action (CTA)",
+                    "config": {
+                        "typeButton": "Button",
+                        "typeLink": "Link",
+                        "label": "Label",
+                        "targetUrl": "Target URL"
+                    }
+                },
+                "bannerEntry": {
+                    "config": {
+                        "typeLabel": "Type",
+                        "categoryLabel": "Category",
+                        "productLabel": "Product",
+                        "navigation": "Show title replace with sku"
+                    }
+                }
+            }
+        }
+    }
+}

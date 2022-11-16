@@ -1,0 +1,13 @@
+.text-author-wrapper {
+    .sw-cms-el-image {
+        display: block;
+    }
+}
+.sw-cms-block-image-text-icon {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+    grid-gap: 40px;
+    .sw-cms-el-image {
+        display: inline-block;
+    }
+}

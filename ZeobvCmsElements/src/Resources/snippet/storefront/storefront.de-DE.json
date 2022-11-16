@@ -1,0 +1,48 @@
+{
+	"zeobv": {
+		"cms-elements": {
+			"block": {
+				"manufacturer-text": {
+					"title": "Garantie"
+				}
+			},
+			"banner": {
+				"fromLabel": "vanaf",
+				"fromPrice": "€5 euro",
+				"infoPrefix": "Welke blender?"
+			}
+		},
+		"outOfStock" : {
+            "notifyMsg" : "Derzeit nicht verfügbar",
+            "infoMsg": "Uns leid! Dieses Produkt ist derzeit nicht auf Lager.",
+            "descriptionMsg" : "Hinterlassen Sie Ihre E-Mail-Adresse und wir informieren Sie, sobald es wieder da ist.",
+            "general": {
+                "headline": "Produkte vergleichen",
+                "addToCompare": "Vergleichen",
+                "removeFromCompare": "Aus dem Vergleich entfernen",
+                "maximumCompareProducts": "Die maximale Anzahl von Vergleichsprodukten beträgt 4",
+                "empty": "Zum Vergleich wurde kein Produkt hinzugefügt"
+            }
+        },
+        "delivery": {
+          "deliveryMsg" : "auf Anfrage erhältlich",
+          "onedayMsg" : "1 Tag Lieferzeit"
+        },
+        "productDetail": {
+            "quantityOption": "%qty% oder mehr %unit%",
+            "unitDefault": "Einheiten",
+            "buttonLabel": "Benachrichtige mich",
+            "emailLabel": "Deine E-Mail",
+            "successMessage": "Sie werden benachrichtigt, wenn die angegebene Menge wieder verfügbar ist!",
+            "failedMessage": "Etwas lief nicht wie geplant, bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.",
+            "invalidEmailMessage": "Bitte geben Sie eine gültige E-Mail Adresse an.",
+            "exceptionMessage": "Es ist etwas Unerwartetes passiert. Bitte versuchen Sie es später erneut.",
+            "outOfStock" : {
+                "notifyMsg" : "Derzeit nicht verfügbar",
+                "infoMsg": "Uns leid! Dieses Produkt ist derzeit nicht auf Lager.",
+                "descriptionMsg" : "Hinterlassen Sie Ihre E-Mail-Adresse und wir informieren Sie, sobald es wieder da ist."
+            }
+        },
+        "privacyNotice": "Mit dem Absenden des Formulars akzeptiere ich die <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"Allgemeine Geschäftsbedingungen\">Allgemeinen Geschäftsbedingungen</a> sowie die <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informationen zum Datenschutz\">Datenschutzbestimmungen</a>."
+	}
+}

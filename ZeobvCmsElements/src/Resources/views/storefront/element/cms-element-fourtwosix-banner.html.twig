@@ -1,0 +1,31 @@
+{% sw_extends '@ZeobvSchouwWitgoed/storefront/element/cms-element-fourtwosix-banner.html.twig' %}
+{% block element_banner_mapping %}
+    <div class="mapping-container">
+
+        {% for mapping in element.translated.config.mapping.value %}
+
+            <a href=""
+               class="mapping-link"
+               aria-label="Icon"
+               style="width: {{mapping.width/(media.metaData.width/100)}}%;
+                   height: {{mapping.height/(media.metaData.height/100)}}%;
+                   left: {{mapping.x/(media.metaData.width/100)}}%;
+                   top: {{mapping.y/(media.metaData.height/100)}}%;
+               {# font-size: {{min(mapping.x, mapping.y)}}px; #}
+                          {% if mapping.iconColor %}color: {{mapping.iconColor}};{% endif %}
+                   {% if mapping.iconOpacity %}opacity: {{mapping.iconOpacity}};{% endif %}"
+               data-article-id="{{products[mapping.productId].id}}_{{element.id}}">
+
+                {% set iconName = mapping.iconType|split('-') %}
+                {% set iconName = iconName|last %}
+
+                <span class="icon icon-plus icon-reset" style="background-color: #ffffff; border-radius: 30px; width: 30px; height: 30px"></span>
+                <span class="btn btn-success" style="border-radius:50px; background-color:  !important; border-color: {{ buttonColor }} !important;">
+                    <span class="productName">{{ products[mapping.productId] }}</span>
+                </span>
+            </a>
+
+        {% endfor %}
+    </div>
+{% endblock %}
+

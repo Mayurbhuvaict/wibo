@@ -1,0 +1,34 @@
+{% block zeobv_cms_block_product_banner %}
+<div class="zeobv-cms-block-product-banner">
+    <div class="zeobv-cms-block-product-banner__left">
+        <slot name="banner">
+            {% block zeobv_cms_block_product_banner_slot_banner %}{% endblock %}
+        </slot>
+        <slot name="ctaLink">
+            {% block zeobv_cms_block_product_banner_slot_cta_link %}{% endblock %}
+        </slot>
+    </div>
+
+    <div class="zeobv-cms-block-product-banner__right">
+        <slot name="title">
+            {% block zeobv_cms_block_product_banner_slot_title %}{% endblock %}
+        </slot>
+
+        <div class="zeobv-cms-block-product-banner__right-products">
+            <slot name="entryOne">
+                {% block zeobv_cms_block_product_banner_slot_entry_one %}{% endblock %}
+            </slot>
+            <slot name="entryTwo">
+                {% block zeobv_cms_block_product_banner_slot_entry_two %}{% endblock %}
+            </slot>
+            <slot name="entryThree">
+                {% block zeobv_cms_block_product_banner_slot_entry_three %}{% endblock %}
+            </slot>
+        </div>
+
+        <slot name="ctaButton">
+            {% block zeobv_cms_block_product_banner_slot_cta_button %}{% endblock %}
+        </slot>
+    </div>
+</div>
+{% endblock %}

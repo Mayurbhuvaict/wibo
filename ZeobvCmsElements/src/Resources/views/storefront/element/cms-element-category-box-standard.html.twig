@@ -1,0 +1,82 @@
+{% block element_category_box %}
+    {% set category = element.data.category %}
+
+    {% set name = category.translated.name %}
+    {% set id = category.id %}
+    {% set cover = category.media %}
+
+    {% set displayMode = 'standard' %}
+    {% set layout = 'image' %}
+    <div class="category-box box-{{ layout }}">
+        {% block component_category_box_content %}
+        <div class="card">
+            <div class="card-body">
+                {% block component_category_box_image %}
+                    {% if element.data.cheapestPrice %}
+                        <div class="category-from-price-badge">
+                            <span class="badge badge-info category-from-price-badge-label">
+                                <span
+                                    class="category-from-price-badge-label-pre">{{ "zeo-cms-listing.category.fromLabel"|trans }}</span>
+                                <span
+                                    class="category-from-price-badge-label-text">{{ element.data.cheapestPrice|currency }}</span>
+                            </span>
+                        </div>
+                    {% endif %}
+
+                    <div class="category-image-wrapper">
+
+                        {# set display mode 'cover' for box-image with standard display mode #}
+                        {% if layout == 'image' and displayMode == 'standard' %}
+                            {% set displayMode = 'cover' %}
+                        {% endif %}
+
+                        <a href="{{ seoUrl('frontend.navigation.page', {'navigationId': id}) }}"
+                           title="{{ name }}"
+                           class="category-image-link is-{{ displayMode }}">
+                            {% if cover.url %}
+                                {% set attributes = {
+                                    'class': 'category-image is-'~displayMode,
+                                    'alt': (cover.translated.alt ?: name),
+                                    'title': (cover.translated.title ?: name)
+                                } %}
+
+                                {% if displayMode == 'cover' or displayMode == 'contain' %}
+                                    {% set attributes = attributes|merge({ 'data-object-fit': displayMode }) %}
+                                {% endif %}
+
+                                {% sw_thumbnails 'category-image-thumbnails' with {
+                                    media: cover,
+                                    size: '400'
+                                } %}
+                            {% else %}
+                                <div class="category-image-placeholder">
+                                    {% sw_icon 'placeholder' style {
+                                        'size': 'fluid'
+                                    } %}
+                                </div>
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endblock %}
+
+                {% block component_category_box_info %}
+                    <div class="category-info">
+                        {% block component_category_box_name %}
+                            <a href="{{ seoUrl('frontend.navigation.page', {'navigationId': id}) }}"
+                               class="category-name"
+                               title="{{ name }}">
+                                <span class="name">{{ name }}</span>
+
+                                {% if element.data.cheapestPrice %}
+                                    <span class="fromLabel">{{ 'zeobv.cms-elements.banner.fromLabel'|trans }}</span>
+                                    <span class="fromPrice">{{ element.data.cheapestPrice|currency }}</span>
+                                {% endif %}
+                            </a>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+{% endblock %}

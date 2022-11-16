@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+
+        <!-- Data resolvers -->
+        <service id="Zeobv\CmsElements\Core\Content\Media\Cms\ImageCaptionCmsElementResolver">
+            <tag name="shopware.cms.data_resolver" />
+        </service>
+
+        <service id="Zeobv\CmsElements\Core\Content\Media\Cms\ManufacturerTextCmsElementResolver">
+            <argument type="service" id="Shopware\Core\Framework\Util\HtmlSanitizer"/>
+            <tag name="shopware.cms.data_resolver" />
+        </service>
+
+        <service id="Zeobv\CmsElements\Core\Content\Media\Cms\BannerEntryCmsElementResolver">
+            <tag name="shopware.cms.data_resolver" />
+        </service>
+
+    </services>
+</container>

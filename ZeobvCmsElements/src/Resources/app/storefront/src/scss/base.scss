@@ -1,0 +1,168 @@
+//base
+@import "base/variables";
+
+//layout
+@import "layout/_container";
+
+// Elements
+@import 'element/_image';
+@import 'element/_image-caption';
+@import 'element/_text-icon';
+@import 'element/_text-read-more';
+
+// Components
+@import 'element/_category_listing';
+@import "components/stock-subscriber";
+
+// Module
+@import 'element/_product-banner';
+@import 'element/_category-banner';
+@import 'element/_text-image-text';
+@import 'element/_text-category-slider';
+@import 'element/_image-text-cover';
+@import 'element/_tweleve-column-slider';
+@import 'element/_image-text-icon';
+@import 'element/_text-image-text-uwaankooponzezorg';
+@import 'element/_home-product-slider';
+
+
+// Fonts
+@font-face {
+    font-family: 'alegreya_sansmedium';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-medium-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sanslight_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-lightitalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sanslight';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-light-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansitalic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-italic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansextrabold_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-extrabolditalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-extrabolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansextrabold';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-extrabold-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansbold_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-bolditalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansbold';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-bold-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansblack_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-blackitalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansblack';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-black-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'news_cycleregular';
+    src: url('../../../bundles/zeobvcmselements/fonts/newscycle-regular-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/newscycle-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'news_cyclebold';
+    src: url('../../../bundles/zeobvcmselements/fonts/newscycle-bold-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/newscycle-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansthin_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-thinitalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-thinitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansthin';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-thin-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansregular';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-regular-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'alegreya_sansmedium_italic';
+    src: url('../../../bundles/zeobvcmselements/fonts/alegreyasans-mediumitalic-webfont.woff2') format('woff2'), url('../../../bundles/zeobvcmselements/fonts/alegreyasans-mediumitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'saira_stencil_oneregular';
+    src: url('../../../bundles/zeobvcmselements/fonts/sairastencilone-regular-webfont.woff2') format('woff2'),
+    url('../../../bundles/zeobvcmselements/fonts/sairastencilone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.product-myimage{
+    max-height: unset !important;
+}
+
+.product-myimage{
+    max-height: unset !important;
+}
+
+.review-mobile-menu{
+    position: absolute;
+    text-align: center;
+    top: 100%;
+    width: 100%;
+    background-color: #3b3b71 !important;
+}
+.offcanvas-content-container{
+    overflow: auto;
+}
+
+.breadcrumb{
+    margin-top: 20px;
+}
+
+.is-ctl-product .cms-block-gallery-buybox .cms-block-container .product-detail-price {
+    font-weight: bold !important;
+}
+
+.parent {
+    float: left;
+    text-align: center;
+}
+.child {
+    display: inline-block;
+    vertical-align: middle;
+}
+

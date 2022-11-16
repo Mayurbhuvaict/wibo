@@ -1,0 +1,30 @@
+{% sw_extends '@Storefront/storefront/component/listing/filter/filter-multi-select.html.twig' %}
+
+{% block component_filter_multi_select_list %}
+    <ul class="filter-multi-select-list">
+        {% set i = 1 %}
+
+        {% for element in elements %}
+            {% block component_filter_multi_select_list_item %}
+                <li class="filter-multi-select-list-item list-item-{{ i }}">
+                    {% block component_filter_multi_select_list_item_inner %}
+                        {% sw_include '@Storefront/storefront/component/listing/filter/filter-multi-select-list-item.html.twig' %}
+                    {% endblock %}
+                </li>
+            {% endblock %}
+            {% if i == 5 %}<div class="collapse" id="collapse{{ name }}">{% endif %}
+            {% set i = i + 1 %}
+        {% endfor %}
+        {% if elements|length > 5 %}
+            </div>
+            <li>
+                <button class="btn-read-more"
+                        onclick="function zeoCollapse(obj) {obj.parentElement.parentElement.querySelector('.collapse').classList.add('show');obj.style.display = 'none';}zeoCollapse(this)"
+                        id="readMore"
+                        type="button">
+                    <i class="fa fa-angle-down"></i>{{ "general.readMore"|trans|sw_sanitize }}
+                </button>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}

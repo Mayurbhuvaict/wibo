@@ -1,0 +1,49 @@
+{% block block_text_video %}
+    {% set columns = 1 %}
+   <div class="text-video row">
+        {% block block_image_text_left %}
+            {% set element = block.slots.getSlot('imageText') %}
+            <div class="col-6" data-cms-element-id="{{ element.id }}">
+                {% block block_prodcut_slider_new_inner1 %}
+                    {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+       <div class="col-6">
+           <div id="accordion">
+
+                       <h5 class="mb-0" id="headingOne">
+                           <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">               <i class="fa" aria-hidden="true"></i>
+                               Our Tips
+                           </button>
+                       </h5>
+
+
+                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+
+                                {% block block_video_text_right_first %}
+                                    {% set element1 = block.slots.getSlot('textVideo1') %}
+                                        <div data-cms-element-id="{{ element1.id }}">
+                                            {% block block_prodcut_slider_new_inner2 %}
+                                                {% sw_include "@Storefront/storefront/element/cms-element-" ~ element1.type ~ ".html.twig" ignore missing %}
+                                            {% endblock %}
+                                        </div>
+                                {% endblock %}
+
+                                {% block block_video_text_right_second %}
+                                    {% set element2 = block.slots.getSlot('textVideo2') %}
+                                        <div data-cms-element-id="{{ element2.id }}">
+                                            {% block block_prodcut_slider_new_inner3 %}
+                                                {% sw_include "@Storefront/storefront/element/cms-element-" ~ element2.type ~ ".html.twig" ignore missing %}
+                                            {% endblock %}
+                                        </div>
+                                {% endblock %}
+
+                   </div>
+
+           </div>
+       </div>
+   </div>
+{% endblock %}
+

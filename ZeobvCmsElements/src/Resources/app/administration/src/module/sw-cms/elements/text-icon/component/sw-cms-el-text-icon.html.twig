@@ -1,0 +1,27 @@
+{% block sw_cms_element_text_icon %}
+    <div class="sw-cms-el-text-icon">
+        <div class="sw-cms-el-text-icon__layout" :class="layoutClass">
+            <div class="fa-icon">
+                <span class="fa-icon__icon-svg"
+                      v-if="element.config.svg.value"
+                      v-html="element.config.svg.value"
+                      :style="{fill:element.config.iconColor.value}">
+                </span>
+            </div>
+
+            <div class="sw-cms-el-text">
+                <div class="sw-cms-el-text__mapping-preview content-editor"
+                     v-html="$sanitize(demoValue)"
+                     v-if="element.config.content.source === 'mapped'">
+                </div>
+
+                <sw-text-editor v-else
+                                v-model="element.config.content.value"
+                                @blur="onContentBlur"
+                                @input="onContentInput"
+                                :isInlineEdit="true">
+                </sw-text-editor>
+            </div>
+        </div>
+    </div>
+{% endblock %}
