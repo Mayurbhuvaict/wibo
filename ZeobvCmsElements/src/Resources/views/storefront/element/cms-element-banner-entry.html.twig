@@ -1,7 +1,0 @@
-{% block element_banner_entry %}
-    {% if element.data.type == 'product' %}
-        {% sw_include "@Storefront/storefront/element/cms-element-product-box.html.twig" %}
-    {% elseif element.data.type == 'category' %}
-        {% sw_include "@Storefront/storefront/element/cms-element-category-box-standard.html.twig" %}
-    {% endif %}
-{% endblock %}

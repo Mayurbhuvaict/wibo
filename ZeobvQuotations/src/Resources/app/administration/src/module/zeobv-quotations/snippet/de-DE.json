@@ -1,0 +1,12 @@
+{
+    "zeobv-quotations": {
+        "general": {
+            "mainMenuItemGeneral": "Angebote"
+        },
+        "list": {
+            "columnQuoteNumber": "Angebotsnummer",
+            "columnState": "Angebotsstatus",
+            "columnExpiryDate": "Verfallsdatum"
+        }
+    }
+}

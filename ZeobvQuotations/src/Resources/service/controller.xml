@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="Zeobv\Quotations\Controller\Storefront\QuotationController" public="true">
+            <argument type="service" id="Shopware\Core\Checkout\Cart\CartPersister" />
+            <argument type="service" id="Zeobv\Quotations\Service\QuotationService" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartOrderRoute" />
+            <argument type="service" id="Shopware\Storefront\Controller\CartLineItemController" />
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\Quotations\Controller\Api\QuotationController" public="true">
+            <argument type="service" id="Shopware\Core\Framework\Api\Converter\ApiVersionConverter" />
+            <argument type="service" id="Shopware\Core\System\StateMachine\StateMachineDefinition" />
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+    </services>
+</container>

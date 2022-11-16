@@ -1,9 +1,0 @@
-{% block fa_icon %}
-    <span class="fa-icon" :style="iconStyles">
-        <span class="fa-icon__icon-svg"
-            v-html="iconSVG"
-            :title="iconTitle"
-        />
-        <span v-if="showLabel" class="fa-icon__label">{{ iconLabel }}</span>
-    </span>
-{% endblock %}

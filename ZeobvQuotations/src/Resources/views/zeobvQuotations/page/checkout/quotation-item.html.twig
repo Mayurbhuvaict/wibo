@@ -1,0 +1,25 @@
+{% sw_extends '@Storefront/storefront/page/checkout/checkout-item.html.twig' %}
+
+{% block page_checkout_item_unit_price %}
+    <div class="col-12 col-sm-8 col-md-4 quotation-item-comment">
+        <textarea class="form-control" rows="2"></textarea>
+    </div>
+{% endblock %}
+
+{% block page_checkout_item_total_price %}{% endblock %}
+
+{% block page_checkout_item_remove_form_csrf %}
+    {{ parent() }}
+
+    <input type="hidden"
+           name="zeobvRemoveFromQuotation"
+           value="true">
+{% endblock %}
+
+{% block page_checkout_item_quantity_form_csrf %}
+    {{ parent() }}
+
+    <input type="hidden"
+           name="zeobvChangeFromQuotation"
+           value="true">
+{% endblock %}

@@ -1,0 +1,18 @@
+{
+    "zeoQuotations": {
+        "detail": {
+            "addQuotation": "Zum Angebot hinzufügen"
+        },
+        "checkout": {
+            "cartHeader": "Angebot",
+            "quotationCartEmpty": "Ihr Angebot ist leer",
+            "addToQuotationSuccess": "Artikel erfolgreich zum Angebot hinzugefügt",
+            "cart": {
+                "commentHeader": "Bemerkung",
+                "quotationLink": "Zum Angebot",
+                "summaryHighlight": "Angebotsanfragen werden in der Regel innerhalb von 2 Arbeitstagen beantwortet.",
+                "submitQuotation": "Angebot anfordern"
+            }
+        }
+    }
+}
