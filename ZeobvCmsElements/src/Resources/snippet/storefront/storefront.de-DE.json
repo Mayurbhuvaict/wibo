@@ -64,7 +64,11 @@
             "image5": {
                 "heading": "Ihre Bestellung wird installiert.",
                 "description": "Unsere Techniker sind kompetent, freundlich und gehen nicht, bis alles an Ort und Stelle ist."
-            }
+            },
+            "infoTitle":"Zeigen Sie den aktuellen Status Ihrer Bestellung an, indem Sie sich in Ihr Konto einloggen.",
+            "infoDescription":"Haben Sie Fragen zu Ihrer Bestellung? Sie können uns gerne kontaktieren.",
+            "header1": "Vielen Dank für Ihren Auftrag!",
+            "header2": "Das können Sie jetzt erwarten"
         }
 	}
 }
