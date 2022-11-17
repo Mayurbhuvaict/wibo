@@ -45,6 +45,20 @@ class CustomFieldInstaller implements InstallerInterface
                 'relation' => [
                     'entityName' => 'product'
                 ],
+            ],
+            [
+                'id' => 'c71c9320dc2a949c6bcf2470744c1d67',
+                'name' => 'product_property_group',
+                'config' => [
+                    'label' => [
+                        'en-GB' => 'Product Properties',
+                        'de-DE' => 'Produkteigenschaften',
+                        'nl-NL' => 'producteigenschappen'
+                    ],
+                ],
+                'relation' => [
+                    'entityName' => 'product'
+                ],
             ]
         ];
         $this->customFields = [
@@ -120,6 +134,23 @@ class CustomFieldInstaller implements InstallerInterface
                         'en-GB' => 'Product video description two',
                         'de-DE' => 'Produktvideobeschreibung zwei'
                     ]
+                ]
+            ],
+            [
+                'id' => '7c421fcb34edb9e5fabccfe21a035683',
+                'name' => 'product_property_group',
+                'type' => CustomFieldTypes::SELECT,
+                'customFieldSetId' => 'c71c9320dc2a949c6bcf2470744c1d67',
+                'config' => [
+                    'componentName' => 'sw-entity-multi-id-select',
+                    'customFieldType' => 'select',
+                    'entity' => 'property_group',
+                    'customFieldPosition' => 1,
+                    'label' => [
+                        'en-GB' => 'Displayed properties',
+                        'de-DE' => 'Angezeigte Eigenschaften',
+                        'nl-NL' => 'Weergegeven eigenschappen'
+                    ],
                 ]
             ]
         ];
