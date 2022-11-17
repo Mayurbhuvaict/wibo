@@ -1,0 +1,52 @@
+{% sw_extends '@Storefront/storefront/page/checkout/_page.html.twig' %}
+
+{% block page_checkout_container %}
+    {{ parent() }}
+    <div class="checkout-bottom-info row text-center justify-content-center">
+        <div class="col-md-2">
+            <img src="{{ asset('bundles/zeobvcmselements/assets/Blenderjongen.jpg', 'asset') }}">
+            <div class="count-step">
+                <i class="fa fa-circle fa-3x"></i>
+                <b class="count-number">1</b>
+            </div>
+            <h5>{{ "zeobv.checkoutFinish.image1.heading" | trans }}</h5>
+            <p>{{ "zeobv.checkoutFinish.image1.description" | trans }}</p>
+        </div>
+        <div class="col-md-2">
+            <img src="{{ asset('bundles/zeobvcmselements/assets/Dozenmeisje.jpg', 'asset') }}">
+            <div class="count-step">
+                <i class="fa fa-circle fa-3x"></i>
+                <b class="count-number">2</b>
+            </div>
+            <h5>{{ "zeobv.checkoutFinish.image2.heading" | trans }}</h5>
+            <p>{{ "zeobv.checkoutFinish.image2.description" | trans }}</p>
+        </div>
+        <div class="col-md-2">
+            <img src="{{ asset('bundles/zeobvcmselements/assets/Klokaanwijzer.jpg', 'asset') }}">
+            <div class="count-step">
+                <i class="fa fa-circle fa-3x"></i>
+                <b class="count-number">3</b>
+            </div>
+            <h5>{{ "zeobv.checkoutFinish.image3.heading" | trans }}</h5>
+            <p>{{ "zeobv.checkoutFinish.image3.description" | trans }}</p>
+        </div>
+        <div class="col-md-2">
+            <img src="{{ asset('bundles/zeobvcmselements/assets/Bezorgjongen.jpg', 'asset') }}">
+            <div class="count-step">
+                <i class="fa fa-circle fa-3x"></i>
+                <b class="count-number">4</b>
+            </div>
+            <h5>{{ "zeobv.checkoutFinish.image4.heading" | trans }}</h5>
+            <p>{{ "zeobv.checkoutFinish.image4.description" | trans }}</p>
+        </div>
+        <div class="col-md-2">
+            <img src="{{ asset('bundles/zeobvcmselements/assets/Koelkastreparateur.jpg', 'asset') }}">
+            <div class="count-step">
+                <i class="fa fa-circle fa-3x"></i>
+                <b class="count-number">5</b>
+            </div>
+            <h5>{{ "zeobv.checkoutFinish.image5.heading" | trans }}</h5>
+            <p>{{ "zeobv.checkoutFinish.image5.description" | trans }}</p>
+        </div>
+    </div>
+{% endblock %}

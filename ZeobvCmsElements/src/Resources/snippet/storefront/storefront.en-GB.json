@@ -43,6 +43,28 @@
                 "descriptionMsg" : "Leave your e-mail address and we'll let you know as soon as it's back."
             }
         },
-        "privacyNotice": "By submitting the form, I accept the <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"general terms and conditions\">general terms and conditions</a> as well as the <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Information on data protection\">privacy policy</a>."
+        "privacyNotice": "By submitting the form, I accept the <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"general terms and conditions\">general terms and conditions</a> as well as the <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Information on data protection\">privacy policy</a>.",
+        "checkoutFinish": {
+            "image1": {
+                "heading": "Your order is collected.",
+                "description": "Products that are not in stock will be ordered."
+            },
+            "image2": {
+                "heading": "Your order will be well packed.",
+                "description": "All products are handled and packed with care."
+            },
+            "image3": {
+                "heading": "We will contact you.",
+                "description": "You will be emailed or called to make an appointment for delivery."
+            },
+            "image4": {
+                "heading": "Your order will be delivered.",
+                "description": "We deliver the device and take the old one with us."
+            },
+            "image5": {
+                "heading": "Your order is being installed.",
+                "description": "Our technicians are skilled, friendly and don't leave until everything is in place."
+            }
+        }
 	}
 }
