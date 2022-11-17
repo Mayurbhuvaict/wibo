@@ -64,7 +64,11 @@
             "image5": {
                 "heading": "Uw bestelling wordt geïnstalleerd.",
                 "description": "Onze monteurs zijn kundig, vriendelijk en vertreken niet voordat de boel werkt."
-            }
+            },
+            "infoTitle":"Bekijk de actuele status van uw bestelling door in te loggen in uw account.",
+            "infoDescription":"Heefet u vargen over uw order? Neem dan gerust contact op.",
+            "header1": "Bedankt voor uw bestelling!",
+            "header2": "Dit kunt n nu verwachten"
         }
 	}
 }

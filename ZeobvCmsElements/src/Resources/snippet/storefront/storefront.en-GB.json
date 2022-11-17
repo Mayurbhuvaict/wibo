@@ -64,7 +64,11 @@
             "image5": {
                 "heading": "Your order is being installed.",
                 "description": "Our technicians are skilled, friendly and don't leave until everything is in place."
-            }
+            },
+            "infoTitle": "View the current status of your order by logging into your account.",
+            "infoDescription": "Do you have questions about your order? Please feel free to contact us.",
+            "header1": "Thank you for your order!",
+            "header2": "This is what you can expect now"
         }
 	}
 }
