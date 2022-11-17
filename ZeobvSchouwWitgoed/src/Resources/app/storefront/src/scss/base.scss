@@ -59,3 +59,39 @@
 figure img {
     max-width: 100%;
 }
+
+.subtitle{
+    margin-top: 5px;
+    margin-bottom: 30px;
+    color: #4a545b !important;
+}
+
+.reviewSubtitle{
+    margin-top: 5px;
+    margin-bottom: 30px;
+    color: #4a545b !important;
+}
+
+.review-tab .product-detail-review-item-date p{
+    color: #3b3b71 !important;
+}
+.review-tab .product-detail-review-item-author p{
+    color: #3b3b71 !important;
+}
+
+.parentreview {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.review-tab .product-detail-review-item-author{
+    order: 0 !important;
+}
+
+.review-tab .product-detail-review-item-date {
+    order: 0 !important;
+}
+.review-tab .product-detail-review-item-points{
+    padding-right: 315px !important;
+}
+

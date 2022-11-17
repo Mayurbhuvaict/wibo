@@ -157,12 +157,12 @@
     font-weight: bold !important;
 }
 
-.parent {
-    float: left;
-    text-align: center;
-}
-.child {
-    display: inline-block;
-    vertical-align: middle;
-}
+.uspcheckbox {
+    list-style: none;
+    padding: 0;
 
+    li:before {
+        content: '✔';
+        color: orange;
+    }
+}
