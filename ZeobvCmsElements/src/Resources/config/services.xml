@@ -39,6 +39,7 @@
         <argument type="service" id="sales_channel.product.repository"/>
         <argument type="service" id="product_page.repository"/>
         <argument type="service" id="product.repository"/>
+        <argument type="service" id="property_group.repository"/>
         <tag name="kernel.event_subscriber"/>
         </service>
         <!-- Registration of product page subscriber -->
@@ -65,14 +66,11 @@
         </service>
         <!--  end Registration of Image-video block data resolver  -->
 
-<<<<<<< HEAD
-=======
         <service id="Zeobv\CmsElements\Controller\StockImportController" public="true">
             <argument type="service" id="product.repository"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
         </service>
->>>>>>> 7a0b0e32bfc639e0e01a992b360889bb29e3002c
     </services>
 </container>

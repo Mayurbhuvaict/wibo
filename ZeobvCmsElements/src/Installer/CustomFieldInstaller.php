@@ -214,28 +214,28 @@ class CustomFieldInstaller implements InstallerInterface
 
     private function deactivateCustomField(array $customField, Context $context): void
     {
-            $data = [
-                'id' => $customField['id'],
-                'name' => $customField['name'],
-                'type' => $customField['type'],
-                'config' => $customField['config'],
-                'active' => false,
-                'customFieldSetId' => $customField['customFieldSetId'],
-            ];
+        $data = [
+            'id' => $customField['id'],
+            'name' => $customField['name'],
+            'type' => $customField['type'],
+            'config' => $customField['config'],
+            'active' => false,
+            'customFieldSetId' => $customField['customFieldSetId'],
+        ];
 
-            $this->customFieldRepository->delete([$data], $context);
+        $this->customFieldRepository->delete([$data], $context);
     }
 
     private function deactivateCustomFieldSet(array $customFieldSet, Context $context): void
     {
-            $data = [
-                'id' => $customFieldSet['id'],
-                'name' => $customFieldSet['name'],
-                'config' => $customFieldSet['config'],
-                'active' => false,
-            ];
+        $data = [
+            'id' => $customFieldSet['id'],
+            'name' => $customFieldSet['name'],
+            'config' => $customFieldSet['config'],
+            'active' => false,
+        ];
 
-            $this->customFieldSetRepository->delete([$data], $context);
+        $this->customFieldSetRepository->delete([$data], $context);
 
     }
     /*uninstall*/

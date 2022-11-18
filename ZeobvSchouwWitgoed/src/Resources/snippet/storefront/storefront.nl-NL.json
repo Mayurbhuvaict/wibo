@@ -1,0 +1,13 @@
+{
+	"zeobvSchouwWitgoed": {
+        "delivery": {
+            "deliveryMsg": "niet liverbaar, op aanvraag",
+            "onedayMsg": "1 dag levertijd"
+        },
+        "specSubtitle": "wij houden van details",
+        "reviewSubtitle":"wat vinden onze andere klanten?",
+        "readMore": "Lees verder",
+        "alternateLink" : "Toch liever een ander product?",
+        "alternateName" : "Bekijk uw alternatieve product"
+    }
+}

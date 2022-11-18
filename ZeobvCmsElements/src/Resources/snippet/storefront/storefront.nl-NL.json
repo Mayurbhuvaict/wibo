@@ -24,6 +24,10 @@
                 "empty": "Er is geen product toegevoegd ter vergelijking"
             }
         },
+        "delivery": {
+          "deliveryMsg" : "niet liverbaar, op aanvraag",
+          "onedayMsg" : "1 dag levertijd"
+        },
         "productDetail": {
             "quantityOption": "%qty% of meer %unit%",
             "unitDefault": "stuks",
@@ -39,9 +43,9 @@
                 "descriptionMsg" : "Laat uw mailodres ochter en we geven u een seintje zodra hij er weer is."
             }
         },
-<<<<<<< HEAD
+
         "privacyNotice": "Door het formulier in te dienen accepteer ik de <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"algemene voorwaarden\">algemene voorwaarden</a> evenals de <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informatie over gegevensbescherming\">privacybeleid</a>."
-=======
+
         "privacyNotice": "Door het formulier in te dienen accepteer ik de <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"algemene voorwaarden\">algemene voorwaarden</a> evenals de <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informatie over gegevensbescherming\">privacybeleid</a>.",
         "checkoutFinish": {
             "image1": {
@@ -69,6 +73,5 @@
             "header1": "Bedankt voor uw bestelling!",
             "header2": "Dit kunt n nu verwachten"
         }
->>>>>>> 7a0b0e32bfc639e0e01a992b360889bb29e3002c
 	}
 }
