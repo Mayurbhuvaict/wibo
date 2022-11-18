@@ -95,3 +95,15 @@ figure img {
 .review-tab .product-detail-review-item-points{
     padding-right: 315px !important;
 }
+
+@media(max-width: 675px){
+    .properties-label {
+        width: 50%;
+    }
+}
+
+@media (max-width: 675px) {
+    .product-detail-tabs .product-detail-tabs-content .tab-content .tab-pane.review-tab {
+        display: none;
+    }
+}
