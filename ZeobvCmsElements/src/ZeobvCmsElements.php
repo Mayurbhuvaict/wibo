@@ -8,14 +8,13 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Plugin;
-<<<<<<< HEAD
-=======
 use Shopware\Core\Framework\Plugin\Context\ActivateContext;
->>>>>>> 7a0b0e32bfc639e0e01a992b360889bb29e3002c
 use Shopware\Core\Framework\Plugin\Context\InstallContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Symfony\Component\Serializer\Annotation\Context;
+use Doctrine\DBAL\Connection;
+use Zeobv\CmsElements\Installer\CustomFieldInstaller;
 
 class ZeobvCmsElements extends Plugin
 {
@@ -23,6 +22,40 @@ class ZeobvCmsElements extends Plugin
     {
         parent::install($installContext);
         $this->createEmailHeaderFooterTemplate($installContext);
+        $this->getCustomFieldInstaller()->install($installContext);
+    }
+
+    public function activate(ActivateContext $activateContext): void
+    {
+        parent::activate($activateContext);
+
+        /**
+         * @var Connection $connection ()
+         */
+        $connection = $this->container->get(Connection::class);
+
+        /**
+         * @var EntityRepositoryInterface $productVideoRepository ()
+         */
+
+        $productVideoRepository = $this->container->get('product.repository');
+
+    }
+
+    private function getCustomFieldInstaller(): CustomFieldInstaller
+    {
+        /**
+         * @var EntityRepositoryInterface $customFieldSetRepository
+         */
+        $customFieldSetRepository = $this->container->get('custom_field_set.repository');
+
+        /**
+         * @var EntityRepositoryInterface $customFieldRepository
+         */
+
+        $customFieldRepository = $this->container->get('custom_field.repository');
+
+        return new CustomFieldInstaller($customFieldSetRepository, $customFieldRepository);
     }
 
     public function createEmailHeaderFooterTemplate(InstallContext $installContext){
@@ -37,7 +70,7 @@ class ZeobvCmsElements extends Plugin
 
         $mailTemplateRepository = $this->container->get( 'mail_header_footer.repository' );
         $criteria = New Criteria();
-        $criteria->addAssociation('mail_header_footer_translation');
+        $criteria->addAssociation('translations');
         $criteria->addFilter(New EqualsFilter('name','Schouw header & footer'));
 
         $uuid = $mailTemplateRepository->search($criteria,$installContext->getContext())->first();
@@ -49,14 +82,14 @@ class ZeobvCmsElements extends Plugin
             'id' => $id,
             'name' => "Schouw header & footer",
             'headerHtml' => '<!DOCTYPE html>'.
-            '<html>'.
+                '<html>'.
 
                 '<head>'.
-                    '<title></title>'.
-                    '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'.
-                    '<meta name="viewport" content="width=device-width, initial-scale=1">'.
-                    '<meta http-equiv="X-UA-Compatible" content="IE=edge" />'.
-                    '<style type="text/css">
+                '<title></title>'.
+                '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'.
+                '<meta name="viewport" content="width=device-width, initial-scale=1">'.
+                '<meta http-equiv="X-UA-Compatible" content="IE=edge" />'.
+                '<style type="text/css">
                         body,
                         table,
                         td,
@@ -160,11 +193,11 @@ class ZeobvCmsElements extends Plugin
                                             <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:900px;">
 
                 ',
-                            'footerHtml' => '</table>'.
-                                        '</td>'.
-                                    '</tr>'.
-                                    '<tr class="footer">'.
-                                        '.<td align="center" valign="center" style="font-family: sans-serif; font-size: 17px; color: #3b3b71; background: #f3f3f8; padding: 35px 0; line-height: 35px;" class="mobile-center">
+            'footerHtml' => '</table>'.
+                '</td>'.
+                '</tr>'.
+                '<tr class="footer">'.
+                '.<td align="center" valign="center" style="font-family: sans-serif; font-size: 17px; color: #3b3b71; background: #f3f3f8; padding: 35px 0; line-height: 35px;" class="mobile-center">
                                             <div>
                                                 <i><b>mail</b></i> info@deschouwwitgoed.nl &nbsp; &nbsp;
                                                 <i><b>webshop</b></i> deschouwwitgoed.nl
@@ -176,12 +209,12 @@ class ZeobvCmsElements extends Plugin
                                                 <i><b>btw</b></i> NL 8197 80 832 B01
                                             </div>
                                         </td>'.
-                                    '</tr>'.
+                '</tr>'.
 
-                                '</table>'.
-                            '</td>'.
-                        '</tr>'.
-                    '</table>'.
+                '</table>'.
+                '</td>'.
+                '</tr>'.
+                '</table>'.
                 '</body>'.
 
                 '</html>'
@@ -208,6 +241,11 @@ class ZeobvCmsElements extends Plugin
     {
         parent::uninstall($uninstallContext);
 
+        if ($uninstallContext->keepUserData()) {
+            return;
+        }
+        $this->getCustomFieldInstaller()->uninstall($uninstallContext);
+
         /**
          * @var EntityRepositoryInterface $mailTemplateRepository
          */
@@ -219,7 +257,7 @@ class ZeobvCmsElements extends Plugin
         $salesChannelRepository = $this->container->get('sales_channel.repository');
 
         $criteria = New Criteria();
-        $criteria->addAssociation('mail_header_footer_translation');
+        $criteria->addAssociation('translations');
         $mailTemplate = $mailTemplateRepository->search($criteria,$uninstallContext->getContext());
 
         $myTemplateId = null;

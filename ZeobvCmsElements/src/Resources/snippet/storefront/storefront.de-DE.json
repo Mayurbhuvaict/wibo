@@ -24,6 +24,10 @@
                 "empty": "Zum Vergleich wurde kein Produkt hinzugefügt"
             }
         },
+        "delivery": {
+          "deliveryMsg" : "auf Anfrage erhältlich",
+          "onedayMsg" : "1 Tag Lieferzeit"
+        },
         "productDetail": {
             "quantityOption": "%qty% oder mehr %unit%",
             "unitDefault": "Einheiten",
@@ -39,9 +43,9 @@
                 "descriptionMsg" : "Hinterlassen Sie Ihre E-Mail-Adresse und wir informieren Sie, sobald es wieder da ist."
             }
         },
-<<<<<<< HEAD
+
         "privacyNotice": "Mit dem Absenden des Formulars akzeptiere ich die <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"Allgemeine Geschäftsbedingungen\">Allgemeinen Geschäftsbedingungen</a> sowie die <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informationen zum Datenschutz\">Datenschutzbestimmungen</a>."
-=======
+
         "privacyNotice": "Mit dem Absenden des Formulars akzeptiere ich die <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"Allgemeine Geschäftsbedingungen\">Allgemeinen Geschäftsbedingungen</a> sowie die <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informationen zum Datenschutz\">Datenschutzbestimmungen</a>.",
         "checkoutFinish": {
             "image1": {
@@ -69,6 +73,5 @@
             "header1": "Vielen Dank für Ihren Auftrag!",
             "header2": "Das können Sie jetzt erwarten"
         }
->>>>>>> 7a0b0e32bfc639e0e01a992b360889bb29e3002c
 	}
 }
