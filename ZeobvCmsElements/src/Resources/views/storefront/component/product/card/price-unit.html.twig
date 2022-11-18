@@ -1,0 +1,21 @@
+{% sw_extends '@Storefront/storefront/component/product/card/price-unit.html.twig' %}
+
+{% block component_product_box_price_info %}
+    <div>
+
+            {% set property = product.extensions.propertyGroup %}
+
+            <ul class="uspcheckbox">
+            {% if property[0] != null and property[0] != "" %}
+            {% for data in property[0] %}
+               {% for description in data %}
+                  <li> {{ description.name }} </li>
+               {%  endfor %}
+            {% endfor %}
+            {% endif %}
+            </ul>
+
+    </div>
+
+    {{ parent() }}
+{% endblock %}

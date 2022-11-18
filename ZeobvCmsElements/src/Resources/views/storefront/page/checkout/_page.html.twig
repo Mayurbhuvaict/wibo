@@ -1,0 +1,96 @@
+{% sw_extends '@Storefront/storefront/page/checkout/_page.html.twig' %}
+
+{% block page_checkout_container %}
+    {{ parent() }}
+    <div class="checkout-bottom-info">
+        <div class="row header">
+            <div class="col">
+                <h1>{{ "zeobv.checkoutFinish.header1" | trans }}</h1>
+                <span class="line2">{{ "zeobv.checkoutFinish.header2" | trans }}</span>
+            </div>
+        </div>
+        <div class="row text-center justify-content-center">
+            <div class="col-md-2">
+                <img src="{{ asset('bundles/zeobvcmselements/assets/Blenderjongen.jpg', 'asset') }}" class="img-info">
+                <div class="count-step">
+                    <i class="fa fa-circle fa-3x"></i>
+                    <b class="count-number">1</b>
+                </div>
+                <h5>{{ "zeobv.checkoutFinish.image1.heading" | trans }}</h5>
+                <p>{{ "zeobv.checkoutFinish.image1.description" | trans }}</p>
+            </div>
+            <div class="col-md-2">
+                <img src="{{ asset('bundles/zeobvcmselements/assets/Dozenmeisje.jpg', 'asset') }}" class="img-info">
+                <div class="count-step">
+                    <i class="fa fa-circle fa-3x"></i>
+                    <b class="count-number">2</b>
+                </div>
+                <h5>{{ "zeobv.checkoutFinish.image2.heading" | trans }}</h5>
+                <p>{{ "zeobv.checkoutFinish.image2.description" | trans }}</p>
+            </div>
+            <div class="col-md-2">
+                <img src="{{ asset('bundles/zeobvcmselements/assets/Klokaanwijzer.jpg', 'asset') }}" class="img-info">
+                <div class="count-step">
+                    <i class="fa fa-circle fa-3x"></i>
+                    <b class="count-number">3</b>
+                </div>
+                <h5>{{ "zeobv.checkoutFinish.image3.heading" | trans }}</h5>
+                <p>{{ "zeobv.checkoutFinish.image3.description" | trans }}</p>
+            </div>
+            <div class="col-md-2">
+                <img src="{{ asset('bundles/zeobvcmselements/assets/Bezorgjongen.jpg', 'asset') }}" class="img-info">
+                <div class="count-step">
+                    <i class="fa fa-circle fa-3x"></i>
+                    <b class="count-number">4</b>
+                </div>
+                <h5>{{ "zeobv.checkoutFinish.image4.heading" | trans }}</h5>
+                <p>{{ "zeobv.checkoutFinish.image4.description" | trans }}</p>
+            </div>
+            <div class="col-md-2">
+                <img src="{{ asset('bundles/zeobvcmselements/assets/Koelkastreparateur.jpg', 'asset') }}" class="img-info">
+                <div class="count-step">
+                    <i class="fa fa-circle fa-3x"></i>
+                    <b class="count-number">5</b>
+                </div>
+                <h5>{{ "zeobv.checkoutFinish.image5.heading" | trans }}</h5>
+                <p>{{ "zeobv.checkoutFinish.image5.description" | trans }}</p>
+            </div>
+        </div>
+        <div class="row info-inline">
+            <div class="col-md-7">
+                <img src="{{ asset('bundles/zeobvcmselements/assets/BitmapCopy5.png', 'asset') }}" class="img-circle">
+                <div class="ml-5 pl-2">
+                    <b>{{ "zeobv.checkoutFinish.infoTitle" | trans }} </b>
+                    <div>{{ "zeobv.checkoutFinish.infoDescription" | trans }}</div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d_0_1042)">
+                        <circle cx="21" cy="17" r="17" fill="#3B3B71"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M28.5047 11.7077L27.1164 10.3193C26.9252 10.1282 26.6863 10.0225 26.3996 10.0024C26.1128 9.98229 25.889 10.0879 25.728 10.3193L23.6606 13.096C23.4996 13.3274 23.4116 13.5689 23.3965 13.8204C23.3814 14.0719 23.4694 14.2933 23.6606 14.4844L24.4755 15.3144C24.1435 15.7571 23.7788 16.2199 23.3814 16.7028C22.984 17.1857 22.5589 17.6535 22.1062 18.1062C21.6535 18.5589 21.1857 18.984 20.7028 19.3814C20.2199 19.7788 19.7571 20.1435 19.3144 20.4755L18.4844 19.6606C18.2933 19.4694 18.0719 19.3814 17.8204 19.3965C17.5689 19.4116 17.3274 19.4996 17.096 19.6606L14.3193 21.728C14.0879 21.889 13.9823 22.1128 14.0024 22.3996C14.0225 22.6863 14.1282 22.9252 14.3193 23.1164L15.7077 24.5047C16.09 24.887 16.5226 25.048 17.0055 24.9877C17.4884 24.9273 17.9814 24.7663 18.4844 24.5047C18.4844 24.5047 18.6579 24.4016 19.005 24.1954C19.3521 23.9891 19.7998 23.6974 20.3481 23.3201C20.8964 22.9428 21.5076 22.4876 22.1817 21.9544C22.8557 21.4212 23.5197 20.8276 24.1737 20.1737C24.8276 19.5197 25.4212 18.8557 25.9544 18.1817C26.4876 17.5076 26.9428 16.8964 27.3201 16.3481C27.6974 15.7998 27.9891 15.3521 28.1954 15.005C28.4016 14.6579 28.5047 14.4844 28.5047 14.4844C28.7663 13.9814 28.9273 13.4884 28.9877 13.0055C29.048 12.5226 28.887 12.09 28.5047 11.7077Z" fill="white"/>
+                    </g>
+                    <defs>
+                        <filter id="filter0_d_0_1042" x="0" y="0" width="42" height="42" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset dy="4"/>
+                            <feGaussianBlur stdDeviation="2"/>
+                            <feComposite in2="hardAlpha" operator="out"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1042"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1042" result="shape"/>
+                        </filter>
+                    </defs>
+                </svg>
+                <a href="tel:0356918115"><b>035-6918115</b></a>
+            </div>
+            <div class="col-md-3">
+                <svg width="41" height="41" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 .4C4.698.4.4 4.698.4 10s4.298 9.6 9.6 9.6 9.6-4.298 9.6-9.6S15.302.4 10 .4zM6.231 7h7.52c.399 0 .193.512-.024.643-.217.13-3.22 1.947-3.333 2.014s-.257.1-.403.1a.793.793 0 0 1-.402-.1L6.255 7.643C6.038 7.512 5.833 7 6.231 7zM14 12.5c0 .21-.252.5-.444.5H6.444C6.252 13 6 12.71 6 12.5V8.853c0-.092-.002-.211.172-.11l3.417 2.015a.69.69 0 0 0 .402.1c.146 0 .252-.011.403-.1l3.434-2.014c.174-.102.172.018.172.11V12.5z" fill="#3B3B71"/>
+                </svg>
+                <a href="mailto:info@deschouwwitgoed.nl"><b>info@deschouwwitgoed.nl</b></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -8,6 +8,10 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Plugin;
+<<<<<<< HEAD
+=======
+use Shopware\Core\Framework\Plugin\Context\ActivateContext;
+>>>>>>> 7a0b0e32bfc639e0e01a992b360889bb29e3002c
 use Shopware\Core\Framework\Plugin\Context\InstallContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Uuid\Uuid;
