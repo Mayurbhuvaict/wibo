@@ -65,11 +65,5 @@
         </service>
         <!--  end Registration of Image-video block data resolver  -->
 
-        <service id="Zeobv\CmsElements\Controller\StockImportController" public="true">
-            <argument type="service" id="product.repository"/>
-            <call method="setContainer">
-                <argument type="service" id="service_container"/>
-            </call>
-        </service>
     </services>
 </container>

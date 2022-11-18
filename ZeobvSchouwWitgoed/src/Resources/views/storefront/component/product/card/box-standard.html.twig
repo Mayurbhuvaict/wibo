@@ -22,18 +22,20 @@
                    class="product-image-link product-call-to-action is-{{ displayMode }} btn btn-success">
                     {{ 'product.product-call-to-action'|trans|sw_sanitize }}
                 </a>
+
+                {% block component_product_box_review %}
+                    {% if product.ratingAverage > 0 and config('core.listing.showReview') %}
+                        <div class="product-reviews">
+                            {% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+                                points: product.ratingAverage,
+                                style: 'text-primary'
+                            } %}
+                        </div>
+                    {% endif %}
+                {% endblock %}
             </div>
         {% endblock %}
-        {% block component_product_box_review %}
-            {% if product.ratingAverage > 0 and config('core.listing.showReview') %}
-                <div class="product-reviews">
-                    {% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
-                        points: product.ratingAverage,
-                        style: 'text-primary'
-                    } %}
-                </div>
-            {% endif %}
-        {% endblock %}
+
 
 		{% block component_product_box_variant_characteristics %}{% endblock %}
 
