@@ -10,6 +10,24 @@
 		</div>
 	{% endblock %}
 
+	{% block buy_widget_review_container %}
+		<div class="product-detail-reviews-container">
+			{% block buy_widget_review %}
+				{% if product.ratingAverage > 0 and totalReviews > 0 and config('core.listing.showReview') %}
+					{% set remoteClickOptions = {
+                        selector: "#review-tab-" ~ product.id,
+                        scrollToElement: true
+                    } %}
+
+					{% set reviewTabHref = "#review-tab-" ~ product.id ~ "-pane" %}
+
+					<div class="product-detail-reviews">
+						{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+                            points: product.ratingAverage,
+                            style: 'text-primary'
+                        } %}
+						<a class="product-detail-reviews-link" data-offcanvas-tabs="true" data-remote-click="true" data-remote-click-options='{{ remoteClickOptions|json_encode }}' href="{{ reviewTabHref }}" aria-controls="review-tab-pane"> {{ page.product.ratingAverage }}/5 ({{ totalReviews }} {{ "detail.reviewLinkText"|trans({'%count%': totalReviews})|sw_sanitize }})
+						</a>
 	<div class="row">
 		<div class="col-1">
 			{% block buy_widget_energy_usage_container %}
@@ -25,6 +43,21 @@
 				{% endif %}
 			{% endblock %}
 		</div>
+	{% endblock %}
+
+	{% block buy_widget_energy_usage_container %}
+        {% set energyLevel = getMigrationAttribute(page.product, 'energieklasse_181') %}
+
+        {% if energyLevel %}
+            <div class="product-detail-energy-usage-container">
+                {% block buy_widget_energy_usage %}
+                    <div class="product-detail-energy-usage energylabel energylabel-{{ energyLevel|first|lower}}">
+                        {{ energyLevel }}
+                    </div>
+                {% endblock %}
+            </div>
+        {% endif %}
+	{% endblock %}
 
 		<div class="col-6">
 			{% block buy_widget_review_container %}
@@ -53,7 +86,6 @@
 		</div>
 
 	</div>
-
     {% if product.extensions.ZeobvSchouwWitgoed.showPrice %}
         {{ parent() }}
     {% else %}

@@ -7,6 +7,15 @@
 
     .product-detail-tab-navigation-list {
         align-items: center;
+        button {
+            padding: 0 20px !important;
+        }
+        li {
+            font-weight: 600;
+        }
+        li a:hover {
+            border-bottom: 1px solid rgb(59, 59, 113) !important;
+        }
     }
 
     .nav-link {

@@ -1,0 +1,30 @@
+{% block layout_footer_navigation_information_content %}
+    {% block layout_footer_navigation_information_links %}
+        <ul class="list-unstyled">
+            {% for treeItem in root.children %}
+                {% set category = treeItem.category %}
+                {% set name = category.translated.name %}
+
+                {# @deprecated tag:v6.5.0 - Use "category.translated.externalLink" directly or category_url function instead. #}
+                {% set externalLink = category.translated.externalLink %}
+
+                {% block layout_footer_navigation_information_link_item %}
+                    <li class="footer-link-item">
+                        {% block layout_footer_navigation_information_link %}
+                            {% if category.type == 'folder' %}
+                                <div>{{ name }}</div>
+                            {% else %}
+                                <a class="footer-link"
+                                   href="{{ category_url(category) }}"
+                                   {% if category_linknewtab(category) %}target="_blank"{% endif %}
+                                   title="{{ name }}">
+                                    {{ name }}
+                                </a>
+                            {% endif %}
+                        {% endblock %}
+                    </li>
+                {% endblock %}
+            {% endfor %}
+        </ul>
+    {% endblock %}
+{% endblock %}

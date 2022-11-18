@@ -2,6 +2,19 @@
 // Product List
 //
 @media (max-width: 767px) {
+    .upper-bar{
+        .container{
+            .contact-wrapper{
+                a{
+                    font-family: 'alegreya_sansregular';
+                    letter-spacing: 1px;
+                    &:before {
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+    }
     body {
         .cms-section-sidebar.cms-section-sidebar-mobile-wrap.boxed.row {
             margin-top: 13px;
@@ -145,7 +158,7 @@
     .cms-element-sidebar-filter {
         .filter-panel-wrapper-toggle {
             .icon {
-                margin: 0 7px;
+                margin: 0 11px;
                 svg {
                     top: 0px !important;
 
@@ -317,25 +330,30 @@
                     width: 100%;
                     max-width: 100%;
                 }
-                .cms-element-text
-                label{
-                    font-weight: 300 !important;
-                    font-size: 30px !important;
-                    line-height: 26px !important;
-                    b, strong {
-                        font-weight: bold;
+                .cms-element-text {
+                    word-break: normal;
+                    label {
+                        font-weight: 300 !important;
+                        font-size: 30px !important;
+                        line-height: 26px !important;
+
+                        b, strong {
+                            font-weight: bold;
+                        }
                     }
                 }
-                .bg-text-content
-                h2{
-                    font-size: 17px;
-                    font-weight: 700;
-                    line-height: 49px;
-                }
-                p{
-                    font-size: 14px;
-                    font-weight: 400;
-                    line-height: 22px;
+                .bg-text-content {
+                    h2 {
+                        font-size: 17px;
+                        font-weight: 700;
+                        line-height: 49px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 22px;
+                    }
                 }
             }
         }
@@ -397,6 +415,3 @@
         }
     }
 }
-
-
-
