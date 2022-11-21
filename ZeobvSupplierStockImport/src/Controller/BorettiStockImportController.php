@@ -2,6 +2,7 @@
 
 namespace Zeobv\SupplierStockImport\Controller;
 
+use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Shopware\Core\Framework\Context;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,10 +23,17 @@ class BorettiStockImportController extends AbstractController
      */
     private $productsRepository;
 
+    /**
+     * @var EntityRepositoryInterface
+     */
+    private $supplierstockimportRepository;
+
     public function __construct(
-        EntityRepositoryInterface $productsRepository
+        EntityRepositoryInterface $productsRepository,
+        EntityRepositoryInterface $supplierstockimportRepository
     ) {
         $this->productsRepository = $productsRepository;
+        $this->supplierstockimportRepository = $supplierstockimportRepository;
     }
 
     /**
@@ -47,9 +55,12 @@ class BorettiStockImportController extends AbstractController
         foreach ($borettiData as $borettiProduct) {
             if ($borettiProduct) {
                 $aantal = count($borettiProduct);
-                for ($x = 0; $x <= ($aantal + 1); $x++) {
+                for ($x = 0; $x < $aantal; $x++) {
                     $leverdatumreset = 'nee';
                     $ean = $borettiProduct[$x]['ean_code'];
+                    $date = $borettiProduct[$x]['updated_at'];
+                    $updatedDate = date('Y-m-d', strtotime($date));
+
                     if (!empty($ean)) {
                         if ($borettiProduct[$x]['stock'] == 'in_stock') {
                             file_put_contents(
@@ -89,7 +100,6 @@ class BorettiStockImportController extends AbstractController
                             $borettivoorraad = '0';
                             $uitzetten = 'nee';
                         }
-
                         $product = $this->getProduct($ean, $context);
                         if ($product) {
                             if (array_key_exists(
@@ -113,7 +123,21 @@ class BorettiStockImportController extends AbstractController
                             if ($uitzetten == 'ja') {
                                 $customFields['migration_attribute_16_feed_name_224'] = 'Boretti product uitzetten ivm out of stock melding';
                             }
-                            $this->updateProduct($product, $customFields, $context);
+                            $productId = $product->getId();
+                            $checkUpdatedProduct = $this->checkUpdatedProduct($productId,$updatedDate, $context);
+                            if (empty($checkUpdatedProduct)) {
+                                $updatedData = $this->updateProduct($product, $customFields, $context);
+                                $this->insertStock($updatedData, $updatedDate, $borettiData, $ean, $context);
+
+                            }
+                            else{
+                                return new JsonResponse(
+                                    [
+                                        'type'=>'success',
+                                        'message' => 'No product updated'
+                                    ]
+                                );
+                            }
                         }
                     }
                 }
@@ -147,5 +171,38 @@ class BorettiStockImportController extends AbstractController
             'customFields' => $customFields,
         ];
         $this->productsRepository->upsert([$data], $context);
+        return $product->getId();
     }
+
+    public function insertStock($updatedDataId,$updatedDate,$borettiData,$ean, $context)
+    {
+        $productEAN = $this->getProduct($ean,$context);
+        foreach ($borettiData as $borettiProduct) {
+            if ($borettiProduct) {
+                $aantal = count($borettiProduct);
+                for ($x = 0; $x < $aantal; $x++) {
+                    $apiEAN = $borettiProduct[$x]['ean_code'];
+                    if($apiEAN == $productEAN->getEAN()) {
+                        $data = [
+                            'id'            => Uuid::randomHex(),
+                            'productId'            => $updatedDataId,
+                            'apiRecord' => $borettiProduct[$x],
+                            'lastUsageAt' => $updatedDate
+                        ];
+                        $this->supplierstockimportRepository->upsert([$data], $context);
+                    }
+                }
+            }
+        }
+    }
+
+    public function checkUpdatedProduct($productId, $updatedDate = null , $context) : int
+    {
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('lastUsageAt',$updatedDate));
+        $criteria->addFilter(new EqualsFilter('productId',$productId));
+
+        return $this->supplierstockimportRepository->search($criteria, $context)->getTotal();
+    }
+
 }

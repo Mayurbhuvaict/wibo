@@ -54,6 +54,18 @@
                                 {{ $t('stock-import.label.inventumBtn') }}
                             </sw-button>
                         </div>
+
+                        <div class="col-md-4">
+                            <sw-button id="smegImportButton"
+                                       :disabled="false"
+                                       variant="primary"
+                                       :square="false"
+                                       :block="false"
+                                       :isLoading="false"
+                                       @click="onSmegSave">
+                                {{ $t('stock-import.label.smegBtn') }}
+                            </sw-button>
+                        </div>
                     </div>
                 </div>
             </sw-card>

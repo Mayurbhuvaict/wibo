@@ -36,6 +36,11 @@ class SupplierStockImportEntity extends Entity
     protected $product;
 
     /**
+     * @var \DateTimeInterface|null
+     */
+    protected $lastUsageAt;
+
+    /**
      * @var \DateTimeInterface
      */
     protected $createdAt;
@@ -93,6 +98,16 @@ class SupplierStockImportEntity extends Entity
     public function setProduct(?ProductEntity $product): void
     {
         $this->product = $product;
+    }
+
+    public function getLastUsageAt(): ?\DateTimeInterface
+    {
+        return $this->lastUsageAt;
+    }
+
+    public function setLastUsageAt(?\DateTimeInterface $lastUsageAt): void
+    {
+        $this->lastUsageAt = $lastUsageAt;
     }
 
     public function getCreatedAt(): \DateTimeInterface

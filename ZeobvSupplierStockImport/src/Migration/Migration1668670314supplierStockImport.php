@@ -20,6 +20,7 @@ class Migration1668670314supplierStockImport extends MigrationStep
     `product_version_id` BINARY(16) NOT NULL,
     `api_record` JSON NOT NULL,
     `extra_field` VARCHAR(255) NULL,
+    `last_usage_at` DATETIME(3) NULL,
     `created_at` DATETIME(3) NOT NULL,
     `updated_at` DATETIME(3) NULL,
     PRIMARY KEY (`id`),

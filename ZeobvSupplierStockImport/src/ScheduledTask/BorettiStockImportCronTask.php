@@ -4,7 +4,7 @@ namespace Zeobv\SupplierStockImport\ScheduledTask;
 
 use Shopware\Core\Framework\MessageQueue\ScheduledTask\ScheduledTask;
 
-class SupplierStockImportCronTask extends ScheduledTask
+class BorettiStockImportCronTask extends ScheduledTask
 {
     public static function getTaskName(): string
     {

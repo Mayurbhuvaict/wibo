@@ -14,6 +14,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToOneAssociationField
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ReferenceVersionField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\DateTimeField;
 
 class SupplierStockImportDefinition extends EntityDefinition
 {
@@ -43,7 +44,7 @@ class SupplierStockImportDefinition extends EntityDefinition
                 (new ReferenceVersionField(ProductDefinition::class))->addFlags(new ApiAware(), new Required()),
                 (new JsonField('api_record','apiRecord'))->addFlags(new ApiAware(), new Required()),
                 (new StringField('extra_field', 'extraField'))->addFlags(new ApiAware()),
-
+                new DateTimeField('last_usage_at', 'lastUsageAt'),
                 new ManyToOneAssociationField(
                     'product',
                     'product_id',

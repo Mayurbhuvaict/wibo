@@ -21,6 +21,21 @@
 
         <service id="Zeobv\SupplierStockImport\Controller\BorettiStockImportController" public="true">
             <argument type="service" id="product.repository"/>
+            <argument type="service" id="supplier_stock_import.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\InventumStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\SmegStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
@@ -34,12 +49,13 @@
             <tag name="shopware.entity.extension"/>
         </service>
 
-        <service id="Zeobv\SupplierStockImport\ScheduledTask\SupplierStockImportCronTask">
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\BorettiStockImportCronTask">
             <tag name="shopware.scheduled.task" />
         </service>
 
-        <service id="Zeobv\SupplierStockImport\ScheduledTask\SupplierStockImportCronTaskHandler" public="true">
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\BorettiStockImportCronTaskHandler" public="true">
             <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="Zeobv\SupplierStockImport\Controller\BorettiStockImportController" />
             <tag name="messenger.message_handler" />
         </service>
     </services>

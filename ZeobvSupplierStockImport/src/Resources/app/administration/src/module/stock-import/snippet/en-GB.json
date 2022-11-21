@@ -8,7 +8,8 @@
             "aepBtn" : "AEP Supplier",
             "amacomBtn" : "Amacom Supplier",
             "borettiBtn" : "Boretti Supplier",
-            "inventumBtn" : "Inventum Supplier"
+            "inventumBtn" : "Inventum Supplier",
+            "smegBtn" : "Smeg Supplier"
         }
     }
 }
