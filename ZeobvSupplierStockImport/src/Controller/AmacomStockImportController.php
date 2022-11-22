@@ -58,29 +58,34 @@ class AmacomStockImportController extends AbstractController
             4096,
             1
         );
+
         $allProducts = $this->getAllProduct($context);
         foreach ($allProducts as $product) {
             $ean = $product->getEan();
             if (array_key_exists($ean, $lijst)) {
                 file_put_contents(
                     "AmacomImportLog.txt",
-                    "De " . $lijst[$ean][2] . " wordt ingekocht bij Amacon, EAN-code " . $lijst[$ean][5] . " van het product is gevonden in het csv-bestand en voorraad fabrikant is " . $lijst[$ean][10] . ' en cost is ' . $lijst[$ean][3] . "\r\n",
+                    "De " . $lijst[$ean]['Art. omschrijving'] . " wordt ingekocht bij Amacon, EAN-code " . $lijst[$ean]['EAN nummer'] . " van het product is gevonden in het csv-bestand en voorraad fabrikant is " . $lijst[$ean]['Beschikbaar'] . ' en cost is ' . $lijst[$ean]['Verkoopprijs'] . "\r\n",
                     FILE_APPEND
                 );
-                $att_id_invfab = intval($lijst[$ean][10]);
-                $att_id_costama = $lijst[$ean][3];
+                $att_id_invfab = intval($lijst[$ean]['Beschikbaar']);
+                $att_id_costama = $lijst[$ean]['Verkoopprijs'];
                 $this->updateProduct($product, $att_id_invfab, $att_id_costama, $context);
             } else {
-                $getInvVlot = $product->getcustomFields()['migration_attribute_16_inv_vlot_204'];
-                $getInvIndustrieweg = $product->getcustomFields()['migration_attribute_16_inv_industrieweg_202'];
-                $getInvWinkel = $product->getcustomFields()['migration_attribute_16_inv_winkel_205'];
-                $voorraad = ($getInvVlot + $getInvIndustrieweg + $getInvWinkel);
-                if ($voorraad < 1) {
-                    file_put_contents(
-                        "AmacomImportLog.txt",
-                        $product->getSku(). ' is niet meer leverbaar (' . $product->getEan() . ')' . "\r\n",
-                        FILE_APPEND
-                    );
+                if (array_key_exists('migration_attribute_16_inv_vlot_204', $product->getcustomFields())
+                    && array_key_exists('migration_attribute_16_inv_industrieweg_202', $product->getcustomFields())
+                    && array_key_exists('migration_attribute_16_inv_winkel_205', $product->getcustomFields())) {
+                    $getInvVlot = $product->getcustomFields()['migration_attribute_16_inv_vlot_204'];
+                    $getInvIndustrieweg = $product->getcustomFields()['migration_attribute_16_inv_industrieweg_202'];
+                    $getInvWinkel = $product->getcustomFields()['migration_attribute_16_inv_winkel_205'];
+                    $voorraad = ($getInvVlot + $getInvIndustrieweg + $getInvWinkel);
+                    if ($voorraad < 1) {
+                        file_put_contents(
+                            "AmacomImportLog.txt",
+                            $product->getSku(). ' is niet meer leverbaar (' . $product->getEan() . ')' . "\r\n",
+                            FILE_APPEND
+                        );
+                    }
                 }
             }
         }
@@ -179,7 +184,7 @@ class AmacomStockImportController extends AbstractController
                 switch ($on_collision) {
                     case ON_COLLISION_OVERWRITE:
                         $retval[$index_by] = array_combine($names, $data);
-                        // no break
+                    // no break
                     case ON_COLLISION_SKIP:
                         break;
                     case ON_COLLISION_ABORT:

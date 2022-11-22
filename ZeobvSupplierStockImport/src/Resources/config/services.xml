@@ -26,6 +26,20 @@
             </call>
         </service>
 
+        <service id="Zeobv\SupplierStockImport\Controller\InventumStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\SmegStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
         <service id="Zeobv\SupplierStockImport\Core\Content\SupplierStockImport\SupplierStockImportDefinition">
             <tag name="shopware.entity.definition" entity="supplier_stock_import"/>
         </service>

@@ -109,6 +109,25 @@ Component.register('stock-import-list', {
                     message: response.data.message
                 });
             });
+        },
+
+        onSmegSave() {
+            let headers = this.configService.getBasicHeaders();
+            return this.configService.httpClient.get('/zeostock/smegsupplier',{
+                headers
+            }).then((response) => {
+                if (response.data.type === 'error') {
+                    this.createNotificationError({
+                        title: response.data.type,
+                        message: response.data.message
+                    });
+                    return;
+                }
+                this.createNotificationSuccess({
+                    title: response.data.type,
+                    message: response.data.message
+                });
+            });
         }
     }
 });
