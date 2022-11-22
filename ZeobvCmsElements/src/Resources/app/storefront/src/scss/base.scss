@@ -10,6 +10,7 @@
 @import 'element/_text-icon';
 @import 'element/_text-read-more';
 
+
 // Components
 @import 'element/_category_listing';
 @import "components/stock-subscriber";
@@ -24,6 +25,8 @@
 @import 'element/_image-text-icon';
 @import 'element/_text-image-text-uwaankooponzezorg';
 @import 'element/_home-product-slider';
+@import 'element/_product-list';
+
 
 
 // Fonts
@@ -134,10 +137,6 @@
     max-height: unset !important;
 }
 
-.product-myimage{
-    max-height: unset !important;
-}
-
 .review-mobile-menu{
     position: absolute;
     text-align: center;
@@ -149,6 +148,7 @@
     overflow: auto;
 }
 
+
 .breadcrumb{
     margin-top: 20px;
 }
@@ -157,12 +157,37 @@
     font-weight: bold !important;
 }
 
-.parent {
-    float: left;
-    text-align: center;
+.product-myimage{
+    max-height: unset !important;
 }
-.child {
-    display: inline-block;
-    vertical-align: middle;
+
+.desc-image{
+    padding: 0;
+}
+
+#myMediaImage{
+    @media(max-width: 460px){
+        float:left;
+        width:100%;
+        margin:auto;
+    }
+}
+
+.desc{
+    padding-top: 0 !important;
+    padding-left: 30px;
+}
+
+.uspcheckbox {
+    @media(max-width: 460px) {
+        font-size: 11.6px;
+    }
+    list-style: none;
+    padding: 0;
+
+    li:before {
+        content: '✔';
+        color: green;
+    }
 }
 

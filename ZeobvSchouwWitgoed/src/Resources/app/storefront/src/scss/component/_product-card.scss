@@ -132,6 +132,17 @@ span.product-price.with-list-price {
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        p{
+            font-size: 13px;
+        }
+        .product-review-rating{
+            margin-left: 13px;
+            margin-right: 0px;
+            .icon-xs{
+                width: 12px;
+                height: 12px;
+            }
+        }
         .btn.btn-success {
             margin-left: auto;
             flex: 0 0 100%;

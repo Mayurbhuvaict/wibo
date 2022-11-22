@@ -49,6 +49,7 @@ class ThemeImageVideoCmsElementResolver extends AbstractProductDetailCmsElementR
     public function enrich(CmsSlotEntity $slot, ResolverContext $resolverContext, ElementDataCollection $result): void
     {
         $config = $slot->getFieldConfig();
+
         $context = $resolverContext->getSalesChannelContext();
 
 
@@ -59,6 +60,7 @@ class ThemeImageVideoCmsElementResolver extends AbstractProductDetailCmsElementR
         $productsContext = null;
         $productsvideoHeader = null;
         $productsvideoID = null;
+        $videoType = null;
 
         //products context
 
@@ -67,7 +69,6 @@ class ThemeImageVideoCmsElementResolver extends AbstractProductDetailCmsElementR
 
         if ($productContent->isMapped() && $resolverContext instanceof EntityResolverContext) {
             $productId = $this->resolveEntityValue($resolverContext->getEntity(), $productContent->getStringValue());
-
             $criteria = new Criteria();
             $criteria->addFilter(
                 new EqualsAnyFilter('id', [$productId]),
@@ -89,7 +90,7 @@ class ThemeImageVideoCmsElementResolver extends AbstractProductDetailCmsElementR
 
         //product video
         $productsvideoID = null;
-       // $slot->setData($image);
+
         if ($productvideoID->isMapped() && $resolverContext instanceof EntityResolverContext) {
             $productId = $this->resolveEntityValue($resolverContext->getEntity(), $productvideoID->getStringValue());
 
@@ -99,10 +100,10 @@ class ThemeImageVideoCmsElementResolver extends AbstractProductDetailCmsElementR
                 new EqualsAnyFilter('id', [$productId]),
             );
             $productsvideo = $this->productRepository->search($criteria, $context)->getElements();
+
             foreach($productsvideo as $value){
                 $productsvideoID = $value->getCustomFields();
             }
-
         }
 
         if ($productvideoID->isStatic()) {
@@ -116,7 +117,7 @@ class ThemeImageVideoCmsElementResolver extends AbstractProductDetailCmsElementR
 
         //product video header
         $productsvideoHeader = new TextStruct();
-       // $slot->setData($textHeader);
+        // $slot->setData($textHeader);
 
         if ($productvideoHeader->isMapped() && $resolverContext instanceof EntityResolverContext) {
             $productId = $this->resolveEntityValue($resolverContext->getEntity(), $productvideoHeader->getStringValue());

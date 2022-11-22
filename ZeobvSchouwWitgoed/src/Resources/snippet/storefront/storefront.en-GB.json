@@ -3,6 +3,11 @@
         "delivery": {
             "deliveryMsg" : "not available, on request",
             "onedayMsg" : "1 day delivery time"
-        }
+        },
+        "specSubtitle": "we love details",
+        "reviewSubtitle":"what do our other customers think??",
+        "readMore" : "read more",
+        "alternateLink" : "Still prefer another one product?",
+        "alternateName" : "View your alternative product"
 	}
 }

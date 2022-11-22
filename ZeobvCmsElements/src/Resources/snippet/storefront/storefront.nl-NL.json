@@ -24,9 +24,9 @@
                 "empty": "Er is geen product toegevoegd ter vergelijking"
             }
         },
-          "delivery": {
-            "deliveryMsg" : "niet liverbaar, op aanvraag",
-            "onedayMsg" : "1 dag levertijd"
+        "delivery": {
+          "deliveryMsg" : "niet liverbaar, op aanvraag",
+          "onedayMsg" : "1 dag levertijd"
         },
         "productDetail": {
             "quantityOption": "%qty% of meer %unit%",
@@ -43,6 +43,35 @@
                 "descriptionMsg" : "Laat uw mailodres ochter en we geven u een seintje zodra hij er weer is."
             }
         },
+
         "privacyNotice": "Door het formulier in te dienen accepteer ik de <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"algemene voorwaarden\">algemene voorwaarden</a> evenals de <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informatie over gegevensbescherming\">privacybeleid</a>."
+
+        "privacyNotice": "Door het formulier in te dienen accepteer ik de <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"algemene voorwaarden\">algemene voorwaarden</a> evenals de <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informatie over gegevensbescherming\">privacybeleid</a>.",
+        "checkoutFinish": {
+            "image1": {
+                "heading": "Uw bestelling wordt verzameld.",
+                "description": "Producten die niet op voorraad zijn worden besteld."
+            },
+            "image2": {
+                "heading": "Uw bestelling wordt goed ingepakt.",
+                "description": "Alle producten worden met zorg dehandeld en ingepakt."
+            },
+            "image3": {
+                "heading": "Wij nemen contact met u op.",
+                "description": "U wordt gemaild of gebeld om een afspraak voor levering te maken."
+            },
+            "image4": {
+                "heading": "Uw bestelling wordt bezorgd.",
+                "description": "We bezorgen het apparaat en nemen de oude weer mee."
+            },
+            "image5": {
+                "heading": "Uw bestelling wordt geïnstalleerd.",
+                "description": "Onze monteurs zijn kundig, vriendelijk en vertreken niet voordat de boel werkt."
+            },
+            "infoTitle":"Bekijk de actuele status van uw bestelling door in te loggen in uw account.",
+            "infoDescription":"Heefet u vargen over uw order? Neem dan gerust contact op.",
+            "header1": "Bedankt voor uw bestelling!",
+            "header2": "Dit kunt n nu verwachten"
+        }
 	}
 }

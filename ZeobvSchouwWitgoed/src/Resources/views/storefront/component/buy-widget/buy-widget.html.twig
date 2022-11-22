@@ -1,7 +1,7 @@
 {% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget.html.twig' %}
 
 {% block buy_widget_price %}
-    {% block buy_widget_name_container %}
+	{% block buy_widget_name_container %}
 		<div class="product-detail-name-container">
 			{% block page_product_detail_name %}
 				<span class="product-detail-name" itemprop="name"> {{ page.product.translated.name }}
@@ -10,35 +10,10 @@
 		</div>
 	{% endblock %}
 
-	{% block buy_widget_review_container %}
-		<div class="product-detail-reviews-container">
-			{% block buy_widget_review %}
-				{% if product.ratingAverage > 0 and totalReviews > 0 and config('core.listing.showReview') %}
-					{% set remoteClickOptions = {
-                        selector: "#review-tab-" ~ product.id,
-                        scrollToElement: true
-                    } %}
-
-					{% set reviewTabHref = "#review-tab-" ~ product.id ~ "-pane" %}
-
-					<div class="product-detail-reviews">
-						{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
-                            points: product.ratingAverage,
-                            style: 'text-primary'
-                        } %}
-						<a class="product-detail-reviews-link" data-offcanvas-tabs="true" data-remote-click="true" data-remote-click-options='{{ remoteClickOptions|json_encode }}' href="{{ reviewTabHref }}" aria-controls="review-tab-pane"> {{ page.product.ratingAverage }}/5 ({{ totalReviews }} {{ "detail.reviewLinkText"|trans({'%count%': totalReviews})|sw_sanitize }})
-						</a>
-					</div>
-				{% endif %}
-			{% endblock %}
-		</div>
-	{% endblock %}
-
-	{% block buy_widget_energy_usage_container %}
-        {% set energyLevel = getMigrationAttribute(page.product, 'energieklasse_181') %}
-
-		<div class="row">
-			<div class="col-2">
+	<div class="row">
+		<div class="col-1">
+			{% block buy_widget_energy_usage_container %}
+				{% set energyLevel = getMigrationAttribute(page.product, 'energieklasse_181') %}
 				{% if energyLevel %}
 					<div class="product-detail-energy-usage-container">
 						{% block buy_widget_energy_usage %}
@@ -48,37 +23,46 @@
 						{% endblock %}
 					</div>
 				{% endif %}
-			</div>
-			<div class="col-10">
-				<div class="review-mobile-menu" style="margin-top: 5px;">
-					<a href="https://nl.trustpilot.com/review/www.deschouwwitgoed.nl" title="Trustpilot de Schouw Witgoed" class="review-wrapper" >
-                                <span class="review-text-first" style="color:#3b3b71;">
-                                    {{ "upper-bar.review.text-first"|trans|sw_sanitize }} {{ "upper-bar.review.score"|trans|sw_sanitize }}
-                                </span>
-						<span class="review-score">
-                                    {% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
-										points: 0 + "upper-bar.review.score"|trans,
-										style: 'text-primary'
-									} %}
-                                </span>
-						<span class="review-text-second" style="color:#3b3b71;">
-                                    {{ "upper-bar.review.text-last"|trans|sw_sanitize }}
-                                </span>
-					</a>
-				</div>
-			</div>
+			{% endblock %}
 		</div>
-	{% endblock %}
 
-    {% if product.extensions.ZeobvSchouwWitgoed.showPrice %}
-        {{ parent() }}
-    {% else %}
-        <div class="product-detail-price-container hide-price">
-            {% sw_include '@ZeobvSchouwWitgoed/storefront/component/buy-widget/buy-widget-hide-price.html.twig' with {
-                product: page.product
-            } %}
-        </div>
-    {% endif %}
+		<div class="col-6">
+			{% block buy_widget_review_container %}
+				<div class="product-detail-reviews-container">
+					{% block buy_widget_review %}
+						{% if product.ratingAverage > 0 and totalReviews > 0 and config('core.listing.showReview') %}
+							{% set remoteClickOptions = {
+								selector: "#review-tab-" ~ product.id,
+								scrollToElement: true
+							} %}
+
+							{% set reviewTabHref = "#review-tab-" ~ product.id ~ "-pane" %}
+
+							<div class="product-detail-reviews">
+								{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+									points: product.ratingAverage,
+									style: 'text-primary'
+								} %}
+								<a class="product-detail-reviews-link" data-offcanvas-tabs="true" data-remote-click="true" data-remote-click-options='{{ remoteClickOptions|json_encode }}' href="{{ reviewTabHref }}" aria-controls="review-tab-pane"> {{ page.product.ratingAverage }}/5 ({{ totalReviews }} {{ "detail.reviewLinkText"|trans({'%count%': totalReviews})|sw_sanitize }})
+								</a>
+							</div>
+						{% endif %}
+					{% endblock %}
+				</div>
+			{% endblock %}
+		</div>
+
+	</div>
+
+	{% if product.extensions.ZeobvSchouwWitgoed.showPrice %}
+		{{ parent() }}
+	{% else %}
+		<div class="product-detail-price-container hide-price">
+			{% sw_include '@ZeobvSchouwWitgoed/storefront/component/buy-widget/buy-widget-hide-price.html.twig' with {
+				product: page.product
+			} %}
+		</div>
+	{% endif %}
 {% endblock %}
 
 {% block buy_widget_ordernumber_container %}{% endblock %}

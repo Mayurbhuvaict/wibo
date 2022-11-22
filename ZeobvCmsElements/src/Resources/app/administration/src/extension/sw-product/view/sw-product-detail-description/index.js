@@ -112,7 +112,6 @@ Component.register('sw-product-detail-description', {
         onUnlinkLogo() {
             this.mediaId = null;
             this.product.extensions.pageProduct.mediaId = null;
-
         },
 
         onOpenMediaModal() {

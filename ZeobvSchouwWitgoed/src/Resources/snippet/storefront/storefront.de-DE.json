@@ -3,6 +3,11 @@
         "delivery": {
             "deliveryMsg" : "auf Anfrage erhältlich",
             "onedayMsg" : "1 Tag Lieferzeit"
-        }
+        },
+        "specSubtitle": "Wir lieben Details",
+        "reviewSubtitle":"Was denken unsere anderen Kunden?",
+        "readMore":"Weiterlesen",
+        "alternateLink" : "Bevorzugen Sie immer noch ein anderes Produkt?",
+        "alternateName" : "Zeigen Sie Ihr alternatives Produkt an"
 	}
 }

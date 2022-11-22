@@ -184,7 +184,7 @@ class AmacomStockImportController extends AbstractController
                 switch ($on_collision) {
                     case ON_COLLISION_OVERWRITE:
                         $retval[$index_by] = array_combine($names, $data);
-                        // no break
+                    // no break
                     case ON_COLLISION_SKIP:
                         break;
                     case ON_COLLISION_ABORT:

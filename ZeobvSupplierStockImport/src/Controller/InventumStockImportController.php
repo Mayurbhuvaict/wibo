@@ -16,7 +16,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
  */
 class InventumStockImportController extends AbstractController
 {
-
+    public const ON_COLLISION_SKIP = 2;
     /**
      * @var EntityRepositoryInterface
      */
@@ -51,7 +51,7 @@ class InventumStockImportController extends AbstractController
             '|',
             '"',
             array(12 => ''),
-            ON_COLLISION_SKIP,
+            self::ON_COLLISION_SKIP,
             4096,
             1
         );
@@ -60,7 +60,7 @@ class InventumStockImportController extends AbstractController
             '|',
             '"',
             array(1 => ''),
-            ON_COLLISION_SKIP,
+            self::ON_COLLISION_SKIP,
             4096,
             1
         );
@@ -77,6 +77,7 @@ class InventumStockImportController extends AbstractController
             $sku = $product->getProductNumber();
             $fouteean = false;
             if (array_key_exists($sku, $typenummer)) {
+                dd($lijst);
                 if ($lijst[$ean][12] != $product->getEan()) {
                     file_put_contents(
                         "InventumImportLog.txt",
@@ -109,7 +110,7 @@ class InventumStockImportController extends AbstractController
             } else {
                 file_put_contents(
                     "InventumImportLog.txt",
-                    '************ ' . $product->getProductNumber(). ' is niet meer leverbaar (' . $product->getEan() . ') *********************',
+                    '************ ' . $product->getProductNumber() . ' is niet meer leverbaar (' . $product->getEan() . ') *********************',
                     FILE_APPEND
                 );
             }
