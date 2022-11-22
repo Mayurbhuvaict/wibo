@@ -1,0 +1,31 @@
+{
+    "name": "zeobv/supplier-stock-import",
+    "description": "Supplier Stock Import",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "ZEO BV.",
+            "homepage": "https://www.zeo.nl",
+            "role": "Organization"
+        }, {
+            "name": "Barry van Staaveren",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Zeobv\\SupplierStockImport\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "Zeobv\\SupplierStockImport\\ZeobvSupplierStockImport",
+        "copyright": "(c) ZEO BV. All Rights Reserved.",
+        "label": {
+            "de-DE": "Zeobv Supplier Stock Import",
+            "en-GB": "Zeobv Supplier Stock Import",
+            "nl-NL": "Zeobv Supplier Stock Import"
+        }
+    }
+}

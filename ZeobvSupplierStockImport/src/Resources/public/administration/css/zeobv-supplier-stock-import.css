@@ -1,0 +1,1 @@
+.row{display:flex;flex-wrap:wrap;margin-right:-20px;margin-left:-20px}.col-md-4{position:relative;width:100%;padding-right:20px;padding-left:20px}@media(min-width:768px){.col-md-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}}

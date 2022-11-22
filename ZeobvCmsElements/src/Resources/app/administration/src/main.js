@@ -51,9 +51,6 @@ import './extension/sw-product/view/sw-product-detail-description';
 import './extension/sw-product/snippet/en-GB.json';
 import './extension/sw-product/snippet/de-DE.json';
 
-//module
-import './module/stock-import';
-
 //registering tab at product detail page
 Shopware.Module.register('sw-product-detail-tab-description', {
 

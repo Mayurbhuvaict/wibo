@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="Zeobv\SupplierStockImport\Controller\AepStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\AmacomStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\BorettiStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\InventumStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\SmegStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Core\Content\SupplierStockImport\SupplierStockImportDefinition">
+            <tag name="shopware.entity.definition" entity="supplier_stock_import"/>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Core\Content\Extension\ProductExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\SupplierStockImportCronTask">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\SupplierStockImportCronTaskHandler" public="true">
+            <argument type="service" id="scheduled_task.repository" />
+            <tag name="messenger.message_handler" />
+        </service>
+    </services>
+</container>
