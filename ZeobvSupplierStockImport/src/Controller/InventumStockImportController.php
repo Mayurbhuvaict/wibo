@@ -16,7 +16,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
  */
 class InventumStockImportController extends AbstractController
 {
-const ON_COLLISION_SKIP = 2;
+    public const ON_COLLISION_SKIP = 2;
     /**
      * @var EntityRepositoryInterface
      */
@@ -74,13 +74,14 @@ const ON_COLLISION_SKIP = 2;
 
         foreach ($collection as $product) {
             $ean = $product->getEan();
-            $sku = $product->getSku();
+            $sku = $product->getProductNumber();
             $fouteean = false;
             if (array_key_exists($sku, $typenummer)) {
+                dd($lijst[$ean]);
                 if ($lijst[$ean][12] != $product->getEan()) {
                     file_put_contents(
                         "InventumImportLog.txt",
-                        '--> Controleer EAN code voor product ' . $product->getSku() . "\r\n",
+                        '--> Controleer EAN code voor product ' . $product->getProductNumber() . "\r\n",
                         FILE_APPEND
                     );
                     $fouteean = true;
@@ -109,7 +110,7 @@ const ON_COLLISION_SKIP = 2;
             } else {
                 file_put_contents(
                     "InventumImportLog.txt",
-                    '************ ' . $product->getSku() . ' is niet meer leverbaar (' . $product->getEan() . ') *********************',
+                    '************ ' . $product->getProductNumber() . ' is niet meer leverbaar (' . $product->getEan() . ') *********************',
                     FILE_APPEND
                 );
             }
@@ -150,7 +151,6 @@ const ON_COLLISION_SKIP = 2;
         $rec_len = 1024
     ) {
         $handle = fopen($csv_file, 'r');
-
         if ($handle == null || ($data = fgetcsv($handle, $rec_len, $separator_input)) === false) {
             // Couldn't open/read from CSV file.
             return -1;
@@ -207,7 +207,7 @@ const ON_COLLISION_SKIP = 2;
                 switch ($on_collision) {
                     case ON_COLLISION_OVERWRITE:
                         $retval[$index_by] = array_combine($names, $data);
-                    // no break
+                        // no break
                     case ON_COLLISION_SKIP:
                         break;
                     case ON_COLLISION_ABORT:
