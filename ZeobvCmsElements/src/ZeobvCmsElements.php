@@ -282,6 +282,9 @@ class ZeobvCmsElements extends Plugin
             }
         }
 
+
+
+
         if($myTemplateId != null) {
             $mailTemplateRepository->delete([
                 ['id' => $myTemplateId]
