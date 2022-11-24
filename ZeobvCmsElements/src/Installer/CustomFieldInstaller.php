@@ -45,6 +45,20 @@ class CustomFieldInstaller implements InstallerInterface
                 'relation' => [
                     'entityName' => 'product'
                 ],
+            ],
+            [
+                'id' => 'c71c9320dc2a949c6bcf2470744c1d67',
+                'name' => 'product_property_group',
+                'config' => [
+                    'label' => [
+                        'en-GB' => 'Product Properties',
+                        'de-DE' => 'Produkteigenschaften',
+                        'nl-NL' => 'producteigenschappen'
+                    ],
+                ],
+                'relation' => [
+                    'entityName' => 'product'
+                ],
             ]
         ];
         $this->customFields = [
@@ -121,6 +135,23 @@ class CustomFieldInstaller implements InstallerInterface
                         'de-DE' => 'Produktvideobeschreibung zwei'
                     ]
                 ]
+            ],
+            [
+                'id' => '7c421fcb34edb9e5fabccfe21a035683',
+                'name' => 'product_property_group',
+                'type' => CustomFieldTypes::SELECT,
+                'customFieldSetId' => 'c71c9320dc2a949c6bcf2470744c1d67',
+                'config' => [
+                    'componentName' => 'sw-entity-multi-id-select',
+                    'customFieldType' => 'select',
+                    'entity' => 'property_group',
+                    'customFieldPosition' => 1,
+                    'label' => [
+                        'en-GB' => 'Displayed properties',
+                        'de-DE' => 'Angezeigte Eigenschaften',
+                        'nl-NL' => 'Weergegeven eigenschappen'
+                    ],
+                ]
             ]
         ];
 
@@ -183,28 +214,28 @@ class CustomFieldInstaller implements InstallerInterface
 
     private function deactivateCustomField(array $customField, Context $context): void
     {
-            $data = [
-                'id' => $customField['id'],
-                'name' => $customField['name'],
-                'type' => $customField['type'],
-                'config' => $customField['config'],
-                'active' => false,
-                'customFieldSetId' => $customField['customFieldSetId'],
-            ];
+        $data = [
+            'id' => $customField['id'],
+            'name' => $customField['name'],
+            'type' => $customField['type'],
+            'config' => $customField['config'],
+            'active' => false,
+            'customFieldSetId' => $customField['customFieldSetId'],
+        ];
 
-            $this->customFieldRepository->delete([$data], $context);
+        $this->customFieldRepository->delete([$data], $context);
     }
 
     private function deactivateCustomFieldSet(array $customFieldSet, Context $context): void
     {
-            $data = [
-                'id' => $customFieldSet['id'],
-                'name' => $customFieldSet['name'],
-                'config' => $customFieldSet['config'],
-                'active' => false,
-            ];
+        $data = [
+            'id' => $customFieldSet['id'],
+            'name' => $customFieldSet['name'],
+            'config' => $customFieldSet['config'],
+            'active' => false,
+        ];
 
-            $this->customFieldSetRepository->delete([$data], $context);
+        $this->customFieldSetRepository->delete([$data], $context);
 
     }
     /*uninstall*/

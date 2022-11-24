@@ -24,6 +24,10 @@
                 "empty": "Zum Vergleich wurde kein Produkt hinzugefügt"
             }
         },
+        "delivery": {
+          "deliveryMsg" : "auf Anfrage erhältlich",
+          "onedayMsg" : "1 Tag Lieferzeit"
+        },
         "productDetail": {
             "quantityOption": "%qty% oder mehr %unit%",
             "unitDefault": "Einheiten",
@@ -39,6 +43,35 @@
                 "descriptionMsg" : "Hinterlassen Sie Ihre E-Mail-Adresse und wir informieren Sie, sobald es wieder da ist."
             }
         },
+
         "privacyNotice": "Mit dem Absenden des Formulars akzeptiere ich die <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"Allgemeine Geschäftsbedingungen\">Allgemeinen Geschäftsbedingungen</a> sowie die <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informationen zum Datenschutz\">Datenschutzbestimmungen</a>."
+
+        "privacyNotice": "Mit dem Absenden des Formulars akzeptiere ich die <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"Allgemeine Geschäftsbedingungen\">Allgemeinen Geschäftsbedingungen</a> sowie die <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informationen zum Datenschutz\">Datenschutzbestimmungen</a>.",
+        "checkoutFinish": {
+            "image1": {
+                "heading": "Ihre Bestellung wird gesammelt.",
+                "description": "Produkte, die nicht auf Lager sind, werden bestellt."
+            },
+            "image2": {
+                "heading": "Ihre Bestellung wird gut verpackt.",
+                "description": "Alle Produkte werden sorgfältig behandelt und verpackt."
+            },
+            "image3": {
+                "heading": "Wir melden uns bei Ihnen.",
+                "description": "Sie erhalten eine E-Mail oder einen Anruf, um einen Liefertermin zu vereinbaren."
+            },
+            "image4": {
+                "heading": "Ihre Bestellung wird geliefert.",
+                "description": "Wir liefern das Gerät und nehmen das alte mit."
+            },
+            "image5": {
+                "heading": "Ihre Bestellung wird installiert.",
+                "description": "Unsere Techniker sind kompetent, freundlich und gehen nicht, bis alles an Ort und Stelle ist."
+            },
+            "infoTitle":"Zeigen Sie den aktuellen Status Ihrer Bestellung an, indem Sie sich in Ihr Konto einloggen.",
+            "infoDescription":"Haben Sie Fragen zu Ihrer Bestellung? Sie können uns gerne kontaktieren.",
+            "header1": "Vielen Dank für Ihren Auftrag!",
+            "header2": "Das können Sie jetzt erwarten"
+        }
 	}
 }

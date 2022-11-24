@@ -14,21 +14,21 @@
 					</li>
 				{% endblock %}
 
-				{# Remove active and data-toggle and add properties button. #}
-				{% block element_product_desciption_reviews_tabs_navigation_review %}
-					{% if config('core.listing.showReview') %}
-						<li class="nav-item">
-							<a class="nav-link product-detail-tab-navigation-link review-tab" id="{{ reviewTabId }}" href="{{ reviewTabHref }}"> {{ "detail.tabsReview"|trans|sw_sanitize }}
-							</a>
-						</li>
-					{% endif %}
-				{% endblock %}
-
 				{# add properties button #}
 				{% block element_product_desciption_reviews_tabs_navigation_properties %}
 					{% if element.data.product.sortedProperties|length > 0 %}
 						<li class="nav-item">
 							<a class="nav-link product-detail-tab-navigation-link" id="properties-tab" href="#properties-tab-pane"> {{ "detail.tabsProperties"|trans|sw_sanitize }}
+							</a>
+						</li>
+					{% endif %}
+				{% endblock %}
+
+				{# Remove active and data-toggle and add properties button. #}
+				{% block element_product_desciption_reviews_tabs_navigation_review %}
+					{% if config('core.listing.showReview') %}
+						<li class="nav-item">
+							<a class="nav-link product-detail-tab-navigation-link review-tab" id="{{ reviewTabId }}" href="{{ reviewTabHref }}"> {{ "detail.tabsReview"|trans|sw_sanitize }}
 							</a>
 						</li>
 					{% endif %}
@@ -104,14 +104,31 @@
 	{% block page_product_detail_buy_modal %}
 		{% sw_include '@Storefront/storefront/page/product-detail/modal.html.twig' %}
 	{% endblock %}
-{% endblock %}{# Add the tab title and properties tab. #}{% block element_product_desciption_reviews_tabs_content_review %}
+{% endblock %}{# Add the tab title and properties tab. #}
+{% block element_product_desciption_reviews_tabs_content_review %}
+	{% block element_product_desciption_reviews_tabs_content_properties %}
+		<div class="tab-pane fade collapsable-tab properties-tab" id="properties-tab-pane" role="tabpanel" aria-labelledby="properties-tab" data-collapsable-tab>
+			{% if product.sortedProperties|length > 0 %}
+				<div class="h3 tab-pane--title">{{ "detail.tabsProperties"|trans|sw_sanitize }}</div>
+				<div class="h4 subtitle">{{ "zeobvSchouwWitgoed.specSubtitle"|trans|sw_sanitize }}</div>
+				<div class="product-detail-properties-tab tab-pane-container">
+					{% sw_include '@Storefront/storefront/component/product/properties.html.twig' %}
+				</div>
+			{% endif %}
+			<button class="btn btn-primary toggle-collapsable-tab-btn"> {{ "detail.propertiesShowMore"|trans|sw_sanitize }}
+			</button>
+		</div>
+	{% endblock %}
+
+
 	{% if config('core.listing.showReview') %}
 		<div class="tab-pane fade collapsable-tab review-tab" id="{{ reviewTabContent }}" role="tabpanel" aria-labelledby="{{ reviewTabId }}" data-collapsable-tab>
 			<div class="h3 tab-pane--title">{{ "detail.tabsReview"|trans|sw_sanitize }}</div>
+			<div class="h4 reviewSubtitle">{{ "zeobvSchouwWitgoed.reviewSubtitle"|trans|sw_sanitize }}</div>
 			{% sw_include '@Storefront/storefront/component/review/review.html.twig' with {
-                reviews: element.data.reviews,
-                product: element.data.product
-            } %}
+				reviews: element.data.reviews,
+				product: element.data.product
+			} %}
 
 			{% block element_product_desciption_reviews_tabs_content_review_form_teaser_button %}
 				<button class="btn btn-primary product-detail-review-teaser-btn mb-2" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="review-form review-list">
@@ -130,19 +147,15 @@
 		</div>
 	{% endif %}
 
-
-	{% block element_product_desciption_reviews_tabs_content_properties %}
-		<div class="tab-pane fade collapsable-tab properties-tab" id="properties-tab-pane" role="tabpanel" aria-labelledby="properties-tab" data-collapsable-tab>
-			{% if product.sortedProperties|length > 0 %}
-				<div class="h3 tab-pane--title">{{ "detail.tabsProperties"|trans|sw_sanitize }}</div>
-				<div class="product-detail-properties-tab tab-pane-container">
-					{% sw_include '@Storefront/storefront/component/product/properties.html.twig' %}
-				</div>
-			{% endif %}
-			<button class="btn btn-primary toggle-collapsable-tab-btn"> {{ "detail.propertiesShowMore"|trans|sw_sanitize }}
-			</button>
-		</div>
-	{% endblock %}
+	<div style="margin-bottom: 15px; margin-left: 50px">
+		<svg style="display: inline" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M23 12C23 18.075 18.074 23 12 23C5.924 23 1 18.075 1 12C1 5.925 5.924 1 12 1C18.074 1 23 5.925 23 12Z" stroke="#3b3b71" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M9 19H15" stroke="#3b3b71" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M10 10H12V18.5" stroke="#3b3b71" stroke-linecap="round" stroke-linejoin="round"/>
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 5.5C11.223 5.5 11 5.725 11 6C11 6.277 11.223 6.5 11.5 6.5C11.775 6.5 12 6.277 12 6C12 5.725 11.775 5.5 11.5 5.5Z" stroke="black" stroke-linejoin="round"/>
+		</svg>
+		<p style="color: #3b3b71; display: inline; margin-top: 5px">{{ "zeobvSchouwWitgoed.alternateLink"|trans|sw_sanitize }} <a href="#" onclick="window.location.href='#product-detail-cross-selling-tabs'; return false;">{{ "zeobvSchouwWitgoed.alternateName"|trans|sw_sanitize }}</a></p>
+	</div>
 
 	{# add faq block #}
 	{% block page_product_detail_tabs_content_hbcom_product_faqs %}{% endblock %}

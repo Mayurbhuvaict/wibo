@@ -77,7 +77,11 @@ class InventumStockImportController extends AbstractController
             $sku = $product->getProductNumber();
             $fouteean = false;
             if (array_key_exists($sku, $typenummer)) {
+<<<<<<< HEAD
                 dd($lijst[$ean]);
+=======
+                dd($lijst);
+>>>>>>> 5e0be0ca8ccce89bfde94edcdf5d7e54c65f168f
                 if ($lijst[$ean][12] != $product->getEan()) {
                     file_put_contents(
                         "InventumImportLog.txt",

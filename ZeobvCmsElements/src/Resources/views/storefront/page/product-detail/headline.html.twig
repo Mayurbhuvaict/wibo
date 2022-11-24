@@ -1,0 +1,19 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/headline.html.twig' %}
+
+{% block page_product_detail_headline_inner %}
+
+    {% block page_product_detail_name_container %}
+        <div class="col product-detail-name-container">
+            {% block page_product_detail_name %}
+                <h1 class="product-detail-name"
+                    itemprop="name">
+                    {{ page.product.translated.name }}
+                </h1>
+            {% endblock %}
+        </div>
+    {% endblock %}
+
+    {% block page_product_detail_manufacturer %}
+
+    {% endblock %}
+{% endblock %}

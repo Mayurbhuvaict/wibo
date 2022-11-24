@@ -39,6 +39,7 @@
         <argument type="service" id="sales_channel.product.repository"/>
         <argument type="service" id="product_page.repository"/>
         <argument type="service" id="product.repository"/>
+        <argument type="service" id="property_group.repository"/>
         <tag name="kernel.event_subscriber"/>
         </service>
         <!-- Registration of product page subscriber -->
@@ -64,6 +65,5 @@
             <tag name="shopware.cms.data_resolver"/>
         </service>
         <!--  end Registration of Image-video block data resolver  -->
-
     </services>
 </container>

@@ -16,6 +16,10 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
  */
 class SmegStockImportController extends AbstractController
 {
+<<<<<<< HEAD
+=======
+    public const ON_COLLISION_SKIP = 2;
+>>>>>>> 5e0be0ca8ccce89bfde94edcdf5d7e54c65f168f
 
     /**
      * @var EntityRepositoryInterface
@@ -34,10 +38,14 @@ class SmegStockImportController extends AbstractController
      */
     public function smegStockImport(Context $context): JsonResponse
     {
+<<<<<<< HEAD
         $att_id_inkoop = 'inkooppartij'; //inkooppartij
         $att_id_invfab = 'inv_fabrikant'; //inv_fabrikant
 
         $files = scandir('/home/deschouw/domains/deschouwwitgoed.nl/public_html/private/voorraad/fabrikant/inventum/', SCANDIR_SORT_DESCENDING);
+=======
+        $files = scandir(getcwd().'/stock/smeg/', SCANDIR_SORT_DESCENDING);
+>>>>>>> 5e0be0ca8ccce89bfde94edcdf5d7e54c65f168f
         for ($x = 0; $x <= 1300; $x++) {
             if (isset($files[$x]) && !empty($files[$x]) && (!strpos($files[$x], '.txt'))) {
                 unset($files[$x]);
@@ -54,8 +62,13 @@ class SmegStockImportController extends AbstractController
             $filename,
             '|',
             '"',
+<<<<<<< HEAD
             array(12 => ''),
             ON_COLLISION_SKIP,
+=======
+            array(3 => ''),
+            self::ON_COLLISION_SKIP,
+>>>>>>> 5e0be0ca8ccce89bfde94edcdf5d7e54c65f168f
             4096,
             1
         );
@@ -64,15 +77,31 @@ class SmegStockImportController extends AbstractController
             $filename,
             '|',
             '"',
+<<<<<<< HEAD
             array(1 => ''),
             ON_COLLISION_SKIP,
             4096,
             1
         );
+=======
+            array(2 => ''),
+            self::ON_COLLISION_SKIP,
+            4096,
+            1
+        );
+       /* $collection = Mage::getModel('catalog/product')->getCollection()
+            ->addAttributeToSelect(array('id','ean','visibility','manufacturer','attribute_set_id','inv_industrieweg','opvolger','inv_vlot','inv_winkel','inv_fabrikant','inkooppartij',$att_id_inkoop, $att_id_invfab))
+            ->addAttributeToFilter('visibility', array('3','4'))
+            ->addAttributeToFilter('manufacturer', '2857')
+            ->addAttributeToFilter('attribute_set_id',array('neq' => '20'))
+            //  ->addAttributeToFilter('sku', 'C9GMXNLK9_1 ')
+            ->load();*/
+>>>>>>> 5e0be0ca8ccce89bfde94edcdf5d7e54c65f168f
 
         $collection = $this->getAllProduct($context);
         file_put_contents(
             "SmegImportLog.txt",
+<<<<<<< HEAD
             "\r\n\r\n" . 'INVENTUM voorraad check ingelezen met ' . count($collection) . ' producten' . "\r\n\r\n",
             FILE_APPEND
         );
@@ -113,6 +142,62 @@ class SmegStockImportController extends AbstractController
                 //  if ($voorraad < 1) {
                 echo '************ ' . $product->getSku() . ' is niet meer leverbaar (' . $product->getEan() . ') *********************';
                 // Mage::log($product->getSku(). ' is niet meer leverbaar (' . $product->getEan() . ')', null, 'tp.log');
+=======
+            "\r\n\r\n" . 'SMEG voorraad check ingelezen met ' . count($collection) . ' producten' . "\r\n\r\n",
+            FILE_APPEND
+        );
+        foreach ($collection as $product) {
+
+            $att_id_invfab = $product->getCustomFields()['migration_attribute_17_inv_fabrikant_201'];
+            $att_id_inkoop = $product->getCustomFields(['migration_attribute_16_inkooppartij_197']);
+            if ($att_id_invfab > '0' && $product->getManufacturer() == '2857') {
+                $product->setInvFabrikant('0');
+                $product->getResource()->saveAttribute($product, 'inv_fabrikant');
+            }
+
+            $ean = $product->getEan();
+            $sku = $product->getProductNumber();
+
+            $fouteean = false;
+
+            if($product->getEan() == '') { continue;}
+            if (array_key_exists($ean, $lijst)) {
+
+                $stock = '0';
+                if (($lijst[$ean][4]) == 'Ja') { $stock = '1';}
+
+                echo "Het product " . $lijst[$ean][2] . " wordt ingekocht bij Smeg, EAN-code van het product is gevonden in het csv-bestand en voorraad fabrikant is " . $stock . "\r\n";
+                $product->setData('inv_fabrikant', intval($stock));
+                $product->getResource()->saveAttribute($product, 'inv_fabrikant');
+            }
+            elseif (array_key_exists($sku, $typenummer)) {
+                //  $stock = $lijst[$ean][13];
+                $stock = '0';
+                if (($typenummer[$sku][4]) == 'Ja') { $stock = '1';}
+
+                echo "Het product " . $typenummer[$sku][2] . " wordt ingekocht bij Smeg, SKU-code van het product is gevonden in het csv-bestand en voorraad fabrikant is " . $stock . "\r\n";
+                $product->setData('inv_fabrikant', intval($stock));
+                $product->getResource()->saveAttribute($product, 'inv_fabrikant');
+
+            }
+            elseif (strpos($sku,'_')) {
+                $sku = str_replace('_','-',$product->getProductNumber());
+
+                if (array_key_exists($sku, $typenummer)) {
+                    //  $stock = $lijst[$ean][13];
+                    $stock = '0';
+                    if (($typenummer[$sku][4]) == 'Ja') { $stock = '1';}
+
+                    echo "Het product " . $typenummer[$sku][2] . " wordt ingekocht bij Smeg, SKU-code van het product is gevonden in het csv-bestand en voorraad fabrikant is " . $stock . "\r\n";
+                    $product->setData('inv_fabrikant', intval($stock));
+                    $product->getResource()->saveAttribute($product, 'inv_fabrikant');
+                }}
+            else {
+                // $voorraad = $product->getInvVlot() + $product->getInvIndustrieweg() + $product->getInvWinkel() + $product->getInvFabrikant();
+                //  if ($voorraad < 1) {
+                echo '<br />** ' . $product->getProductNumber(). ' ontbreekt in bestand (' . $product->getEan() . ') **';
+                // Mage::log($product->getProductNumber(). ' is niet meer leverbaar (' . $product->getEan() . ')', null, 'tp.log');
+>>>>>>> 5e0be0ca8ccce89bfde94edcdf5d7e54c65f168f
                 //  }
 
                 echo "\r\n";

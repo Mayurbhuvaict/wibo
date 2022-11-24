@@ -9,6 +9,7 @@
 @import 'element/_image-caption';
 @import 'element/_text-icon';
 @import 'element/_text-read-more';
+@import "element/_text-video";
 
 
 // Components
@@ -26,6 +27,7 @@
 @import 'element/_text-image-text-uwaankooponzezorg';
 @import 'element/_home-product-slider';
 @import 'element/_product-list';
+
 
 
 // Fonts
@@ -136,10 +138,6 @@
     max-height: unset !important;
 }
 
-.product-myimage{
-    max-height: unset !important;
-}
-
 .review-mobile-menu{
     position: absolute;
     text-align: center;
@@ -149,5 +147,48 @@
 }
 .offcanvas-content-container{
     overflow: auto;
+}
+
+
+.breadcrumb{
+    margin-top: 20px;
+}
+
+.is-ctl-product .cms-block-gallery-buybox .cms-block-container .product-detail-price {
+    font-weight: bold !important;
+}
+
+.product-myimage{
+    max-height: unset !important;
+}
+
+.desc-image{
+    padding: 0;
+}
+
+#myMediaImage{
+    @media(max-width: 460px){
+        float:left;
+        width:100%;
+        margin:auto;
+    }
+}
+
+.desc{
+    padding-top: 0 !important;
+    padding-left: 30px;
+}
+
+.uspcheckbox {
+    @media(max-width: 460px) {
+        font-size: 11.6px;
+    }
+    list-style: none;
+    padding: 0;
+
+    li:before {
+        content: '✔';
+        color: green;
+    }
 }
 

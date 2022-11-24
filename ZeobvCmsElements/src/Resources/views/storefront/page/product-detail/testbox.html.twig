@@ -1,0 +1,79 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+{% block utilities_offcanvas_content %}
+    {% block page_product_detail_description_container_nzz %}
+        {% if products %}
+            {% for testData in products %}
+                {% set name = testData.translated.name %}
+                {% set description = testData.translated.description %}
+                {% set cover = testData.mediaImage %}
+
+                <div class="card product-box box-{{ layout }}">
+                    {% block component_page_product_box_content %}
+                        <div class="card-body">
+                            {% block component_page_product_box_image %}
+                                <div class="product-image-wrapper">
+                                    {#                                    fallback if display mode is not set #}
+                                    {% set displayMode = displayMode ?: 'standard' %}
+
+                                    {#                                    set display mode 'cover' for box-image with standard display mode #}
+                                    {% if layout == 'image' and displayMode == 'standard' %}
+                                        {% set displayMode = 'cover' %}
+                                    {% endif %}
+
+                                    <a href="#"
+                                       title="{{ name }}"
+                                       class="product-image-link is-{{ displayMode }}">
+                                        {% if cover.url %}
+                                            {% set attributes = {
+                                                'class': 'product-image is-'~displayMode,
+                                                'alt': (cover.translated.alt ?: name),
+                                                'title': (cover.translated.title ?: name)
+                                            } %}
+
+                                            {% if displayMode == 'cover' or displayMode == 'contain' %}
+                                                {% set attributes = attributes|merge({ 'data-object-fit': displayMode }) %}
+                                            {% endif %}
+
+                                            {% sw_thumbnails 'product-image-thumbnails' with {
+                                                media: cover,
+                                                sizes: sizes
+                                            } %}
+                                        {% else %}
+                                            <div class="product-image-placeholder">
+                                                {% sw_icon 'placeholder' style {
+                                                    'size': 'fluid'
+                                                } %}
+                                            </div>
+                                        {% endif %}
+                                    </a>
+
+                                </div>
+                            {% endblock %}
+
+                            {% block component_page_product_box_info %}
+                                <div class="product-info">
+
+                                    {% block component_page_product_box_name %}
+                                        <a href="#"
+                                           class="product-name"
+                                           title="{{ name }}">
+                                            {{ name }}
+                                        </a>
+                                    {% endblock %}
+
+                                    {% block component_page_product_box_description %}
+                                        <div class="product-description">
+                                            {{ description|striptags|raw }}
+                                        </div>
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+                </div>
+
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+{% endblock %}
+
