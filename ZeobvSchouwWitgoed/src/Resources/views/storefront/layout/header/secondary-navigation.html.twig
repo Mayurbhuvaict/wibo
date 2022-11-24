@@ -6,11 +6,20 @@
                     {% if root.category.type == 'folder' %}
                         {{ root.category.translated.name }}
                     {% else %}
-                        <a style="color:#ffffff" href="{{ category_url(root.category) }}"
-                       {% if category_linknewtab(root.category) %}target="_blank"{% endif %}
-                       title="{{ root.category.translated.name }}">
-                        {{ root.category.translated.name }}
-                        </a>
+                        <div class="dropdown">
+                            <a style="color:#ffffff" href="{{ category_url(root.category) }}"
+                               {% if category_linknewtab(root.category) %}target="_blank"{% endif %}
+                               title="{{ root.category.translated.name }}"  type="button"   >
+                                {{ root.category.translated.name }}
+                            </a>
+                            <span class="fa fa-chevron-circle-down" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+
+                            </span>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                {% sw_include '@Storefront/storefront/layout/header/secondary-sub-category.html.twig' %}
+                            </div>
+                        </div>
+
                     {% endif %}
                 {% endblock %}
             {% endblock %}

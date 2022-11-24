@@ -3,7 +3,6 @@
 {% block component_product_box_price_info %}
     {{ parent() }}
     {% block component_product_stock_availability_info %}
-        If stock more than 0
         <div class="product_stock_availability_info">
             {% if product.availableStock > 0 %}
                 <div class="in-stock"><span class="icon"></span></div>

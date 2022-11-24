@@ -44,8 +44,6 @@
             }
         },
 
-        "privacyNotice": "Door het formulier in te dienen accepteer ik de <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"algemene voorwaarden\">algemene voorwaarden</a> evenals de <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informatie over gegevensbescherming\">privacybeleid</a>."
-
         "privacyNotice": "Door het formulier in te dienen accepteer ik de <a data-toggle=\"modal\" data-url=\"%confirmUrl%\" href=\"%confirmUrl%\" title=\"algemene voorwaarden\">algemene voorwaarden</a> evenals de <a data-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Informatie over gegevensbescherming\">privacybeleid</a>.",
         "checkoutFinish": {
             "image1": {
