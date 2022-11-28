@@ -188,17 +188,5 @@
             {% endif %}
         {% endblock %}
     </div>
-
-    {% block page_product_detail_add_to_compare_button_out_of_stock %}
-        {% if page.product.extensions.zeobvGetNotifiedConfig.show %}
-            <div class="out-of-stock-compare">
-                {% sw_include '@Storefront/storefront/component/product/card/compare-button.html.twig' with {
-                    navigationTree: page.header.navigation.tree,
-                    categoryTree: page.product.categoryTree|last,
-                    product: page.product
-                } only %}
-            </div>
-        {% endif %}
-    {% endblock %}
 {% endblock %}
 
