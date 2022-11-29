@@ -35,10 +35,86 @@ Component.register('stock-import-list', {
         async createdComponent(){
         },
 
-        onAepSave(){
+        onAtagSave(){
             let headers = this.configService.getBasicHeaders();
-            return this.configService.httpClient.get('/zeostock/aepsupplier',{
+            return this.configService.httpClient.get('/zeostock/atagsupplier',{
                         headers
+            }).then((response) => {
+                if (response.data.type === 'error') {
+                    this.createNotificationError({
+                        title: response.data.type,
+                        message: response.data.message
+                    });
+                    return;
+                }
+                this.createNotificationSuccess({
+                    title: response.data.type,
+                    message: response.data.message
+                });
+            });
+        },
+
+        onEtnaSave(){
+            let headers = this.configService.getBasicHeaders();
+            return this.configService.httpClient.get('/zeostock/etnasupplier',{
+                headers
+            }).then((response) => {
+                if (response.data.type === 'error') {
+                    this.createNotificationError({
+                        title: response.data.type,
+                        message: response.data.message
+                    });
+                    return;
+                }
+                this.createNotificationSuccess({
+                    title: response.data.type,
+                    message: response.data.message
+                });
+            });
+        },
+
+        onAskoSave(){
+            let headers = this.configService.getBasicHeaders();
+            return this.configService.httpClient.get('/zeostock/askosupplier',{
+                headers
+            }).then((response) => {
+                if (response.data.type === 'error') {
+                    this.createNotificationError({
+                        title: response.data.type,
+                        message: response.data.message
+                    });
+                    return;
+                }
+                this.createNotificationSuccess({
+                    title: response.data.type,
+                    message: response.data.message
+                });
+            });
+        },
+
+        onPelgrimSave(){
+            let headers = this.configService.getBasicHeaders();
+            return this.configService.httpClient.get('/zeostock/pelgrimsupplier',{
+                headers
+            }).then((response) => {
+                if (response.data.type === 'error') {
+                    this.createNotificationError({
+                        title: response.data.type,
+                        message: response.data.message
+                    });
+                    return;
+                }
+                this.createNotificationSuccess({
+                    title: response.data.type,
+                    message: response.data.message
+                });
+            });
+        },
+
+        onHisenseSave(){
+            let headers = this.configService.getBasicHeaders();
+            return this.configService.httpClient.get('/zeostock/atagsupplier',{
+                headers
             }).then((response) => {
                 if (response.data.type === 'error') {
                     this.createNotificationError({
@@ -56,7 +132,7 @@ Component.register('stock-import-list', {
 
         onAmacomSave(){
             let headers = this.configService.getBasicHeaders();
-            return this.configService.httpClient.get('/zeostock/amacomsupplier',{
+            return this.configService.httpClient.get('/zeostock/hisensesupplier',{
                 headers
             }).then((response) => {
                 if (response.data.type === 'error') {

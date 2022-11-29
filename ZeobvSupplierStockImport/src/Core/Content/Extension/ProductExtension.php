@@ -20,8 +20,8 @@ class ProductExtension extends EntityExtension
                 'product_id'
             ))->addFlags(new SetNullOnDelete()),
         );
-
     }
+
     public function getDefinitionClass(): string
     {
         return ProductDefinition::class;

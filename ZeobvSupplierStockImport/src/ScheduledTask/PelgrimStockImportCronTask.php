@@ -4,15 +4,15 @@ namespace Zeobv\SupplierStockImport\ScheduledTask;
 
 use Shopware\Core\Framework\MessageQueue\ScheduledTask\ScheduledTask;
 
-class SupplierStockImportCronTask extends ScheduledTask
+class PelgrimStockImportCronTask extends ScheduledTask
 {
     public static function getTaskName(): string
     {
-        return 'supplier_stock.stock_import';
+        return 'supplier_stock.pelgrim_import';
     }
 
     public static function getDefaultInterval(): int
     {
-        return 300; // 5 minutes
+        return 86400; // 5 minutes
     }
 }

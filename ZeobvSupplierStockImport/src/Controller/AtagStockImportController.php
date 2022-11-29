@@ -3,9 +3,9 @@
 namespace Zeobv\SupplierStockImport\Controller;
 
 use DOMDocument;
-use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\MultiFilter;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,7 +16,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 /**
  * @RouteScope(scopes={"api"})
  */
-class AepStockImportController extends AbstractController
+class AtagStockImportController extends AbstractController
 {
 
     /**
@@ -24,16 +24,23 @@ class AepStockImportController extends AbstractController
      */
     private $productsRepository;
 
+    /**
+     * @var EntityRepositoryInterface
+     */
+    private $supplierStockRepository;
+
     public function __construct(
-        EntityRepositoryInterface $productsRepository
+        EntityRepositoryInterface $productsRepository,
+        EntityRepositoryInterface $supplierStockRepository
     ) {
         $this->productsRepository = $productsRepository;
+        $this->supplierStockRepository = $supplierStockRepository;
     }
 
     /**
-     * @Route("/api/zeostock/aepsupplier", name="api.action.zeo.aep.import", methods={"GET"})
+     * @Route("/api/zeostock/atagsupplier", name="api.action.zeo.atag.import", methods={"GET"})
      */
-    public function apeStockImport(Context $context): JsonResponse
+    public function atagStockImport(Context $context): JsonResponse
     {
         $username = 'SCHOUWWIT';
         $password = '4A2BbE99d';
@@ -60,6 +67,7 @@ class AepStockImportController extends AbstractController
             }
         } catch (\DOMException $e) {
         }
+
         $doc->formatOutput = true;
         $finalXml = $doc->saveXML();
 
@@ -80,35 +88,40 @@ class AepStockImportController extends AbstractController
         curl_close($ch);
 
         $message = 'Data not found';
-
         if ($data) {
             foreach ($data->Item as $item) {
                 $product = $this->getProduct((string)$item->EAN, $context);
-                switch ($item->ATPCode) {
-                    case '1':
-                        $message = 'Stock Updated';
-                        $d = $item->PossibleDate;
-                        $date = substr($d, -2) . '-' . substr($d, 4, 2) . '-' . substr($d, 0, 4);
-                        $date = date('d-m-Y', (strtotime('-2 weekdays', strtotime($date))));
-                        $stock = $item->Quantity;
-                        $this->updateProduct($product, $stock, $date, $context);
-                        break;
-                    case '2':
-                        $message = 'Update Stock 0';
-                        $stock = 0;
-                        $d = $item->PossibleDate;
-                        $date = substr($d, -2) . '-' . substr($d, 4, 2) . '-' . substr($d, 0, 4);
-                        $date = date('d-m-Y', (strtotime('-2 weekdays', strtotime($date))));
-                        $this->updateProduct($product, $stock, $date, $context);
-                        break;
-                    case '9':
-                        $message = 'error code '.$item->ATPCode.':'.$item->EAN.' | '.$item->ArticleCode. PHP_EOL;
-                        $stock = 0;
-                        $date = '';
-                        $this->updateProduct($product, $stock, $date, $context);
-                        break;
-                    default:
-                        break;
+                if ($product) {
+                    $dataExist = $this->checkSupplierTable($product, $item, $context);
+                    if (empty($dataExist)) {
+                        switch ($item->ATPCode) {
+                            case '1':
+                                $message = 'Stock Updated';
+                                $d = $item->PossibleDate;
+                                $date = substr($d, -2) . '-' . substr($d, 4, 2) . '-' . substr($d, 0, 4);
+                                $date = date('d-m-Y', (strtotime('-2 weekdays', strtotime($date))));
+                                $stock = $item->Quantity;
+                                $this->updateProduct($product, $stock, $date, $context);
+                                break;
+                            case '2':
+                                $message = 'Update Stock 0';
+                                $stock = 0;
+                                $d = $item->PossibleDate;
+                                $date = substr($d, -2) . '-' . substr($d, 4, 2) . '-' . substr($d, 0, 4);
+                                $date = date('d-m-Y', (strtotime('-2 weekdays', strtotime($date))));
+                                $this->updateProduct($product, $stock, $date, $context);
+                                break;
+                            case '9':
+                                $message = 'error code '.$item->ATPCode.':'.$item->EAN.' | '.$item->ArticleCode. PHP_EOL;
+                                $stock = 0;
+                                $date = '';
+                                $this->updateProduct($product, $stock, $date, $context);
+                                break;
+                            default:
+                                break;
+                        }
+                        $this->updateSupplierTable($product, $item, $dataExist, $context);
+                    }
                 }
             }
         }
@@ -125,19 +138,8 @@ class AepStockImportController extends AbstractController
     {
         $criteria = new Criteria();
         $criteria->addAssociation('manufacturer');
-        $criteria->addFilter(new EqualsFilter('customFields.migration_attribute_15_inkooppartij_197', 'option_1701'));
-        $criteria->addFilter(
-            new MultiFilter(
-                MultiFilter::CONNECTION_OR,
-                [
-                    new EqualsFilter('manufacturer.name', 'atag'),
-                    new EqualsFilter('manufacturer.name', 'pelgrim'),
-                    new EqualsFilter('manufacturer.name', 'etna'),
-                    new EqualsFilter('manufacturer.name', 'asko'),
-                    new EqualsFilter('manufacturer.name', 'gisense'),
-                ]
-            )
-        );
+        $criteria->addFilter(new EqualsFilter('customFields.migration_attribute_20_inkooppartij_197', 'option_1701'));
+        $criteria->addFilter(new EqualsFilter('manufacturer.name', 'atag'));
         return $this->productsRepository->search($criteria, $context)->getEntities()->getElements();
     }
 
@@ -154,9 +156,28 @@ class AepStockImportController extends AbstractController
             'id'            => $product->getId(),
             'stock'         => $stock,
             'customFields' => [
-                'migration_attribute_13_inv_leverdatum_262' => $date
+                'migration_attribute_20_inv_leverdatum_262' => $date
             ],
         ];
         $this->productsRepository->upsert([$data], $context);
+    }
+
+    public function checkSupplierTable($product, $apiData, Context $context)
+    {
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('productId', $product->getId()));
+        $criteria->addFilter(new EqualsFilter('atagApiRecord', json_encode($apiData)));
+        return $this->supplierStockRepository->search($criteria, $context)->first();
+    }
+
+    public function updateSupplierTable($product, $apiData, $dataExist, Context $context)
+    {
+        $data = [
+            'id'            => $dataExist ? $dataExist->getId() : Uuid::randomHex(),
+            'productId'     => $product->getId(),
+            'eanNumber'     => $product->getEan(),
+            'atagApiRecord'  => json_encode($apiData),
+        ];
+        $this->supplierStockRepository->upsert([$data], $context);
     }
 }
