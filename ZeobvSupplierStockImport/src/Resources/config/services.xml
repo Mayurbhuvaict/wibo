@@ -5,8 +5,41 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="Zeobv\SupplierStockImport\Controller\AepStockImportController" public="true">
+        <service id="Zeobv\SupplierStockImport\Controller\AtagStockImportController" public="true">
             <argument type="service" id="product.repository"/>
+            <argument type="service" id="supplier_stock_import.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\EtnaStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="supplier_stock_import.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\AskoStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="supplier_stock_import.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\PelgrimStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="supplier_stock_import.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\Controller\HisenseStockImportController" public="true">
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="supplier_stock_import.repository"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
@@ -14,6 +47,7 @@
 
         <service id="Zeobv\SupplierStockImport\Controller\AmacomStockImportController" public="true">
             <argument type="service" id="product.repository"/>
+            <argument type="service" id="supplier_stock_import.repository"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
@@ -21,6 +55,7 @@
 
         <service id="Zeobv\SupplierStockImport\Controller\BorettiStockImportController" public="true">
             <argument type="service" id="product.repository"/>
+            <argument type="service" id="supplier_stock_import.repository"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
@@ -28,6 +63,7 @@
 
         <service id="Zeobv\SupplierStockImport\Controller\InventumStockImportController" public="true">
             <argument type="service" id="product.repository"/>
+            <argument type="service" id="supplier_stock_import.repository"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
@@ -35,6 +71,7 @@
 
         <service id="Zeobv\SupplierStockImport\Controller\SmegStockImportController" public="true">
             <argument type="service" id="product.repository"/>
+            <argument type="service" id="supplier_stock_import.repository"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
@@ -48,13 +85,85 @@
             <tag name="shopware.entity.extension"/>
         </service>
 
-        <service id="Zeobv\SupplierStockImport\ScheduledTask\SupplierStockImportCronTask">
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\AtagStockImportCronTask">
             <tag name="shopware.scheduled.task" />
         </service>
 
-        <service id="Zeobv\SupplierStockImport\ScheduledTask\SupplierStockImportCronTaskHandler" public="true">
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\AtagStockImportCronTaskHandler" public="true">
             <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="Zeobv\SupplierStockImport\Controller\AtagStockImportController" />
             <tag name="messenger.message_handler" />
         </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\EtnaStockImportCronTask">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\EtnaStockImportCronTaskHandler" public="true">
+            <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="Zeobv\SupplierStockImport\Controller\EtnaStockImportController" />
+            <tag name="messenger.message_handler" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\AskoStockImportCronTask">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\AskoStockImportCronTaskHandler" public="true">
+            <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="Zeobv\SupplierStockImport\Controller\AskoStockImportController" />
+            <tag name="messenger.message_handler" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\PelgrimStockImportCronTask">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\PelgrimStockImportCronTaskHandler" public="true">
+            <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="Zeobv\SupplierStockImport\Controller\PelgrimStockImportController" />
+            <tag name="messenger.message_handler" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\HisenseStockImportCronTask">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\HisenseStockImportCronTaskHandler" public="true">
+            <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="Zeobv\SupplierStockImport\Controller\HisenseStockImportController" />
+            <tag name="messenger.message_handler" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\BorettiStockImportCronTask">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\BorettiStockImportCronTaskHandler" public="true">
+            <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="Zeobv\SupplierStockImport\Controller\BorettiStockImportController" />
+            <tag name="messenger.message_handler" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\InventumStockImportCronTask">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\InventumStockImportCronTaskHandler" public="true">
+            <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="Zeobv\SupplierStockImport\Controller\InventumStockImportController" />
+            <tag name="messenger.message_handler" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\SmegStockImportCronTask">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="Zeobv\SupplierStockImport\ScheduledTask\SmegStockImportCronTaskHandler" public="true">
+            <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="Zeobv\SupplierStockImport\Controller\SmegStockImportController" />
+            <tag name="messenger.message_handler" />
+        </service>
+
     </services>
 </container>

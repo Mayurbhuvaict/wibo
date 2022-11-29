@@ -5,10 +5,16 @@
         },
         "label": {
             "title": "Stock Import",
-            "aepBtn" : "AEP Supplier",
+
             "amacomBtn" : "Amacom Supplier",
             "borettiBtn" : "Boretti Supplier",
-            "inventumBtn" : "Inventum Supplier"
+            "inventumBtn" : "Inventum Supplier",
+            "smegBtn" : "Smeg Supplier",
+            "atagBtn" : "Atag Supplier",
+            "etnaBtn" : "Etna Supplier",
+            "pelgrimBtn" : "Pelgrim Supplier",
+            "askoBtn" : "Asko Supplier",
+            "hisenseBtn" : "Hisense Supplier"
         }
     }
 }

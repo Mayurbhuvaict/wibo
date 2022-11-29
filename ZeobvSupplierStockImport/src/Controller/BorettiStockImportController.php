@@ -26,14 +26,14 @@ class BorettiStockImportController extends AbstractController
     /**
      * @var EntityRepositoryInterface
      */
-    private $supplierstockimportRepository;
+    private $supplierStockRepository;
 
     public function __construct(
         EntityRepositoryInterface $productsRepository,
-        EntityRepositoryInterface $supplierstockimportRepository
+        EntityRepositoryInterface $supplierStockRepository
     ) {
         $this->productsRepository = $productsRepository;
-        $this->supplierstockimportRepository = $supplierstockimportRepository;
+        $this->supplierStockRepository = $supplierStockRepository;
     }
 
     /**
@@ -49,110 +49,100 @@ class BorettiStockImportController extends AbstractController
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $data = curl_exec($ch);
         curl_close($ch);
-
         $borettiData = json_decode($data, true);
-        unset($borettiData['error']);
-        foreach ($borettiData as $borettiProduct) {
-            if ($borettiProduct) {
-                $aantal = count($borettiProduct);
-                for ($x = 0; $x < $aantal; $x++) {
-                    $leverdatumreset = 'nee';
-                    $ean = $borettiProduct[$x]['ean_code'];
-                    $date = $borettiProduct[$x]['updated_at'];
-                    $updatedDate = date('Y-m-d', strtotime($date));
+        if ($borettiData) {
+            unset($borettiData['error']);
+            foreach ($borettiData as $borettiProduct) {
+                if ($borettiProduct) {
+                    $aantal = count($borettiProduct);
+                    for ($x = 0; $x < $aantal; $x++) {
+                        $leverdatumreset = 'nee';
+                        $apiData = $borettiProduct[$x];
+                        $ean = $borettiProduct[$x]['ean_code'];
+                        $date = $borettiProduct[$x]['updated_at'];
+                        $updatedDate = date('Y-m-d', strtotime($date));
+                        if (!empty($ean)) {
+                            $product = $this->getProduct($ean, $context);
+                            if ($product) {
+                                $dataExist = $this->checkSupplierTable($product, $apiData, $updatedDate, $context);
+                                if (empty($dataExist)) {
+                                    if ($borettiProduct[$x]['stock'] == 'in_stock') {
+                                        file_put_contents(
+                                            "BorettiImportLog.txt",
+                                            $borettiProduct[$x]['item_code'] . ' met ean code ' .
+                                            $borettiProduct[$x]['ean_code'] . ' is op voorraad bij Boretti',
+                                            FILE_APPEND
+                                        );
+                                        $borettivoorraad = '10';
+                                        $uitzetten = 'nee';
+                                    } elseif ($borettiProduct[$x]['stock'] == 'limited_stock') {
+                                        file_put_contents(
+                                            "BorettiImportLog.txt",
+                                            $borettiProduct[$x]['item_code'] . ' met ean code ' .
+                                            $borettiProduct[$x]['ean_code'] . ' is BEPERKT voorraad bij Boretti',
+                                            FILE_APPEND
+                                        );
+                                        $borettivoorraad = '1';
+                                        $uitzetten = 'nee';
+                                    } elseif ($borettiProduct[$x]['stock'] == 'out_of_stock') {
+                                        file_put_contents(
+                                            "BorettiImportLog.txt",
+                                            $borettiProduct[$x]['item_code'] . ' met ean code ' .
+                                            $borettiProduct[$x]['ean_code'] . ' is OUT OF STOCK',
+                                            FILE_APPEND
+                                        );
+                                        $borettivoorraad = '0';
+                                        $uitzetten = 'nee';
+                                        $leverdatumreset = 'ja';
+                                    } else {
+                                        file_put_contents(
+                                            "BorettiImportLog.txt",
+                                            $borettiProduct[$x]['item_code'] . ' met ean code ' .
+                                            $borettiProduct[$x]['ean_code'] . ' is HELAAS NIET voorraad bij Boretti',
+                                            FILE_APPEND
+                                        );
+                                        $borettivoorraad = '0';
+                                        $uitzetten = 'nee';
+                                    }
 
-                    if (!empty($ean)) {
-                        if ($borettiProduct[$x]['stock'] == 'in_stock') {
-                            file_put_contents(
-                                "BorettiImportLog.txt",
-                                $borettiProduct[$x]['item_code'] . ' met ean code ' .
-                                $borettiProduct[$x]['ean_code'] . ' is op voorraad bij Boretti',
-                                FILE_APPEND
-                            );
-                            $borettivoorraad = '10';
-                            $uitzetten = 'nee';
-                        } elseif ($borettiProduct[$x]['stock'] == 'limited_stock') {
-                            file_put_contents(
-                                "BorettiImportLog.txt",
-                                $borettiProduct[$x]['item_code'] . ' met ean code ' .
-                                $borettiProduct[$x]['ean_code'] . ' is BEPERKT voorraad bij Boretti',
-                                FILE_APPEND
-                            );
-                            $borettivoorraad = '1';
-                            $uitzetten = 'nee';
-                        } elseif ($borettiProduct[$x]['stock'] == 'out_of_stock') {
-                            file_put_contents(
-                                "BorettiImportLog.txt",
-                                $borettiProduct[$x]['item_code'] . ' met ean code ' .
-                                $borettiProduct[$x]['ean_code'] . ' is OUT OF STOCK',
-                                FILE_APPEND
-                            );
-                            $borettivoorraad = '0';
-                            $uitzetten = 'nee';
-                            $leverdatumreset = 'ja';
-                        } else {
-                            file_put_contents(
-                                "BorettiImportLog.txt",
-                                $borettiProduct[$x]['item_code'] . ' met ean code ' .
-                                $borettiProduct[$x]['ean_code'] . ' is HELAAS NIET voorraad bij Boretti',
-                                FILE_APPEND
-                            );
-                            $borettivoorraad = '0';
-                            $uitzetten = 'nee';
-                        }
-                        $product = $this->getProduct($ean, $context);
-                        if ($product) {
-                            if (array_key_exists(
-                                'migration_attribute_16_refund_image_235',
-                                $product->getcustomFields()
-                            )) {
-                                $refundImage = $product->getcustomFields()['migration_attribute_16_refund_image_235'];
-                                if ($refundImage == 'Boretti voorraad sale') {
-                                    file_put_contents(
-                                        "BorettiImportLog.txt",
-                                        $refundImage . ' ||||| DEZE ILVE OVERSLAAN ||||' . "\r\n",
-                                        FILE_APPEND
-                                    );
+
+                                    if (array_key_exists(
+                                        'migration_attribute_12_refund_image_235',
+                                        $product->getcustomFields()
+                                    )) {
+                                        $refundImage = $product->getcustomFields()['migration_attribute_12_refund_image_235'];
+                                        if ($refundImage == 'Boretti voorraad sale') {
+                                            file_put_contents(
+                                                "BorettiImportLog.txt",
+                                                $refundImage . ' ||||| DEZE ILVE OVERSLAAN ||||' . "\r\n",
+                                                FILE_APPEND
+                                            );
+                                        }
+                                    }
+
+                                    $customFields['migration_attribute_12_inv_fabrikant_201'] = $borettivoorraad;
+                                    if ($leverdatumreset == 'ja') {
+                                        $customFields['migration_attribute_12_inv_leverdatum_262'] = '';
+                                    }
+                                    if ($uitzetten == 'ja') {
+                                        $customFields['migration_attribute_12_feed_name_224'] = 'Boretti product
+                                uitzetten ivm out of stock melding';
+                                    }
+
+                                    $this->updateProduct($product, $customFields, $context);
+                                    $this->updateSupplierTable($product, $apiData, $dataExist, $updatedDate, $context);
                                 }
-                            }
-
-                            $customFields['migration_attribute_16_inv_fabrikant_201'] = $borettivoorraad;
-                            if ($leverdatumreset == 'ja') {
-                                $customFields['migration_attribute_16_inv_leverdatum_262'] = '';
-                            }
-                            if ($uitzetten == 'ja') {
-                                $customFields['migration_attribute_16_feed_name_224'] = 'Boretti product uitzetten ivm out of stock melding';
-                            }
-                            $productId = $product->getId();
-                            $checkUpdatedProduct = $this->checkUpdatedProduct($productId,$updatedDate, $context);
-                            if (empty($checkUpdatedProduct)) {
-                                $updatedData = $this->updateProduct($product, $customFields, $context);
-                                $this->insertStock($updatedData, $updatedDate, $borettiData, $ean, $context);
-
-                            }
-                            else{
-                                return new JsonResponse(
-                                    [
-                                        'type'=>'success',
-                                        'message' => 'No product updated'
-                                    ]
-                                );
                             }
                         }
                     }
                 }
-                return new JsonResponse(
-                    [
-                        'type'=>'success',
-                        'message' => 'Success'
-                    ]
-                );
             }
         }
+
         return new JsonResponse(
             [
-                'type'=>'Error',
-                'message' => 'Error'
+                'type'=>'success',
+                'message' => 'Success'
             ]
         );
     }
@@ -174,35 +164,24 @@ class BorettiStockImportController extends AbstractController
         return $product->getId();
     }
 
-    public function insertStock($updatedDataId,$updatedDate,$borettiData,$ean, $context)
+    public function updateSupplierTable($product, $apiData, $dataExist, $updatedDate, Context $context)
     {
-        $productEAN = $this->getProduct($ean,$context);
-        foreach ($borettiData as $borettiProduct) {
-            if ($borettiProduct) {
-                $aantal = count($borettiProduct);
-                for ($x = 0; $x < $aantal; $x++) {
-                    $apiEAN = $borettiProduct[$x]['ean_code'];
-                    if($apiEAN == $productEAN->getEAN()) {
-                        $data = [
-                            'id'            => Uuid::randomHex(),
-                            'productId'            => $updatedDataId,
-                            'apiRecord' => $borettiProduct[$x],
-                            'lastUsageAt' => $updatedDate
-                        ];
-                        $this->supplierstockimportRepository->upsert([$data], $context);
-                    }
-                }
-            }
-        }
+        $data = [
+            'id'            => $dataExist ? $dataExist->getId() : Uuid::randomHex(),
+            'productId'     => $product->getId(),
+            'eanNumber'     => $product->getEan(),
+            'borettiApiRecord' => json_encode($apiData),
+            'lastUsageAt' => $updatedDate
+        ];
+        $this->supplierStockRepository->upsert([$data], $context);
     }
 
-    public function checkUpdatedProduct($productId, $updatedDate = null , $context) : int
+    public function checkSupplierTable($product, $apiData, $updatedDate, Context $context)
     {
         $criteria = new Criteria();
-        $criteria->addFilter(new EqualsFilter('lastUsageAt',$updatedDate));
-        $criteria->addFilter(new EqualsFilter('productId',$productId));
-
-        return $this->supplierstockimportRepository->search($criteria, $context)->getTotal();
+        $criteria->addFilter(new EqualsFilter('lastUsageAt', $updatedDate));
+        $criteria->addFilter(new EqualsFilter('productId', $product->getId()));
+        $criteria->addFilter(new EqualsFilter('borettiApiRecord', json_encode($apiData)));
+        return $this->supplierStockRepository->search($criteria, $context)->first();
     }
-
 }

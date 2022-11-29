@@ -4,7 +4,6 @@ namespace Zeobv\SupplierStockImport\Core\Content\SupplierStockImport;
 
 use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 
-
 /**
  * @method void                add(SupplierStockImportEntity $entity)
  * @method void                set(string $key, SupplierStockImportEntity $entity)

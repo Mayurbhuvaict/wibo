@@ -8,14 +8,63 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-4">
-                            <sw-button id="aepImportButton"
+                            <sw-button id="atagImportButton"
                                        :disabled="false"
                                        variant="primary"
                                        :square="false"
                                        :block="false"
                                        :isLoading="false"
-                                       @click="onAepSave">
-                                {{ $t('stock-import.label.aepBtn') }}
+                                       @click="onAtagSave">
+                                {{ $t('stock-import.label.atagBtn') }}
+                            </sw-button>
+                        </div>
+
+                        <div class="col-md-4">
+                            <sw-button id="etnaImportButton"
+                                       :disabled="false"
+                                       variant="primary"
+                                       :square="false"
+                                       :block="false"
+                                       :isLoading="false"
+                                       @click="onEtnaSave">
+                                {{ $t('stock-import.label.etnaBtn') }}
+                            </sw-button>
+                        </div>
+
+                        <div class="col-md-4">
+                            <sw-button id="askoImportButton"
+                                       :disabled="false"
+                                       variant="primary"
+                                       :square="false"
+                                       :block="false"
+                                       :isLoading="false"
+                                       @click="onAskoSave">
+                                {{ $t('stock-import.label.askoBtn') }}
+                            </sw-button>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <sw-button id="pelgrimImportButton"
+                                       :disabled="false"
+                                       variant="primary"
+                                       :square="false"
+                                       :block="false"
+                                       :isLoading="false"
+                                       @click="onPelgrimSave">
+                                {{ $t('stock-import.label.pelgrimBtn') }}
+                            </sw-button>
+                        </div>
+                        <div class="col-md-4">
+                            <sw-button id="hisenseImportButton"
+                                       :disabled="false"
+                                       variant="primary"
+                                       :square="false"
+                                       :block="false"
+                                       :isLoading="false"
+                                       @click="onHisenseSave">
+                                {{ $t('stock-import.label.hisenseBtn') }}
                             </sw-button>
                         </div>
                         <div class="col-md-4">
@@ -29,6 +78,10 @@
                                 {{ $t('stock-import.label.amacomBtn') }}
                             </sw-button>
                         </div>
+
+                    </div>
+
+                    <div class="row">
                         <div class="col-md-4">
                             <sw-button id="borettiImportButton"
                                        :disabled="false"
@@ -40,9 +93,6 @@
                                 {{ $t('stock-import.label.borettiBtn') }}
                             </sw-button>
                         </div>
-                    </div>
-
-                    <div class="row">
                         <div class="col-md-4">
                             <sw-button id="inventumImportButton"
                                        :disabled="false"
@@ -54,7 +104,6 @@
                                 {{ $t('stock-import.label.inventumBtn') }}
                             </sw-button>
                         </div>
-
                         <div class="col-md-4">
                             <sw-button id="smegImportButton"
                                        :disabled="false"

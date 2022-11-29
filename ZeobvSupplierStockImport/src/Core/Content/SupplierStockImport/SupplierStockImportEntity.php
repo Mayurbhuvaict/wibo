@@ -21,14 +21,59 @@ class SupplierStockImportEntity extends Entity
     protected $productId;
 
     /**
-     * @var array
+     * @var string|null
      */
-    protected $apiRecord;
+    protected $eanNumber;
 
     /**
      * @var string|null
      */
-    protected $extraField;
+    protected $atagApiRecord;
+
+    /**
+     * @var string|null
+     */
+    protected $etnaApiRecord;
+
+    /**
+     * @var string|null
+     */
+    protected $pelgrimApiRecord;
+
+    /**
+     * @var string|null
+     */
+    protected $hisenseApiRecord;
+
+    /**
+     * @var string|null
+     */
+    protected $askoApiRecord;
+
+    /**
+     * @var string|null
+     */
+    protected $amacomApiRecord;
+
+    /**
+     * @var string|null
+     */
+    protected $borettiApiRecord;
+
+    /**
+     * @var string|null
+     */
+    protected $inventumApiRecord;
+
+    /**
+     * @var string|null
+     */
+    protected $smegApiRecord;
+
+    /**
+     * @var \DateTimeInterface|null
+     */
+    protected $lastUsageAt;
 
     /**
      * @var ProductEntity|null
@@ -65,24 +110,114 @@ class SupplierStockImportEntity extends Entity
         $this->productId = $productId;
     }
 
-    public function getApiRecord(): array
+    public function getEanNumber(): ?string
     {
-        return $this->apiRecord;
+        return $this->eanNumber;
     }
 
-    public function setApiRecord(array $apiRecord): void
+    public function setEanNumber(?string $eanNumber): void
     {
-        $this->apiRecord = $apiRecord;
+        $this->eanNumber = $eanNumber;
     }
 
-    public function getExtraField(): ?string
+    public function getAtagApiRecord(): ?string
     {
-        return $this->extraField;
+        return $this->atagApiRecord;
     }
 
-    public function setExtraField(?string $extraField): void
+    public function setAtagApiRecord(?string $atagApiRecord): void
     {
-        $this->extraField = $extraField;
+        $this->atagApiRecord = $atagApiRecord;
+    }
+
+    public function getEtnaApiRecord(): ?string
+    {
+        return $this->etnaApiRecord;
+    }
+
+    public function setEtnaApiRecord(?string $etnaApiRecord): void
+    {
+        $this->etnaApiRecord = $etnaApiRecord;
+    }
+
+    public function getPelgrimApiRecord(): ?string
+    {
+        return $this->pelgrimApiRecord;
+    }
+
+    public function setPelgrimApiRecord(?string $pelgrimApiRecord): void
+    {
+        $this->pelgrimApiRecord = $pelgrimApiRecord;
+    }
+
+    public function getHisenseApiRecord(): ?string
+    {
+        return $this->hisenseApiRecord;
+    }
+
+    public function setHisenseApiRecord(?string $hisenseApiRecord): void
+    {
+        $this->hisenseApiRecord = $hisenseApiRecord;
+    }
+
+    public function getAskoApiRecord(): ?string
+    {
+        return $this->askoApiRecord;
+    }
+
+    public function setAskoApiRecord(?string $askoApiRecord): void
+    {
+        $this->askoApiRecord = $askoApiRecord;
+    }
+
+    public function getAmacomApiRecord(): ?string
+    {
+        return $this->amacomApiRecord;
+    }
+
+    public function setAmacomApiRecord(?string $amacomApiRecord): void
+    {
+        $this->amacomApiRecord = $amacomApiRecord;
+    }
+
+    public function getBorettiApiRecord(): ?string
+    {
+        return $this->borettiApiRecord;
+    }
+
+    public function setBorettiApiRecord(?string $borettiApiRecord): void
+    {
+        $this->borettiApiRecord = $borettiApiRecord;
+    }
+
+    public function getInventumApiRecord(): ?string
+    {
+        return $this->inventumApiRecord;
+    }
+
+    public function setInventumApiRecord(?string $inventumApiRecord): void
+    {
+        $this->inventumApiRecord = $inventumApiRecord;
+    }
+
+    public function getSmegApiRecord(): ?string
+    {
+        return $this->smegApiRecord;
+    }
+
+    public function setSmegApiRecord(?string $smegApiRecord): void
+    {
+        $this->smegApiRecord = $smegApiRecord;
+    }
+
+    public function getLastUsageAt(): ?\DateTimeInterface
+    {
+        return $this->lastUsageAt;
+    }
+
+    public function setLastUsageAt(?\DateTimeInterface $lastUsageAt): void
+    {
+        $this->lastUsageAt = $lastUsageAt;
     }
 
     public function getProduct(): ?ProductEntity
