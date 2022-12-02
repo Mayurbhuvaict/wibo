@@ -1,7 +1,7 @@
 {
     "name": "zeobv/cms-elements",
     "description": "Zeo cms shopping experience elements",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "type": "shopware-platform-plugin",
     "license": "proprietary",
     "authors": [

@@ -1,7 +1,7 @@
 {
   "name": "zeobv/schouw-witgoed",
   "description": "Schouw Witgoed Theme",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "autoload": {
