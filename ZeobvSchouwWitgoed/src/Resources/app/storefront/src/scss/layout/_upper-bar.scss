@@ -41,7 +41,7 @@ $upperBarHeight: 46px;
             display: flex;
             flex-wrap: wrap;
             @include media-breakpoint-up(xl) {
-                margin-left: -20%;
+                //margin-left: -20%;
             }
             .usp {
                 margin-left: 12px;
